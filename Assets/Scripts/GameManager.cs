@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
             List<Quizquestion> quizquestions = new List<Quizquestion>();
-            quizquestions.Add(new Quizquestion("Ankaranýn baþkenti neresidir", "Ýstanbul", "Ankara", "B"));
+            quizquestions.Add(new Quizquestion("Ankaranýn baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
             quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
         quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru","A"));
 
@@ -50,15 +50,19 @@ public class GameManager : MonoBehaviour
         option1.text = quizquestions[questionindex].option1;
         option2.text= quizquestions[questionindex].option2;
 
-        if (rightA && quizquestions[questionindex].trueOption == "A")
+        if (quizquestions[questionindex].trueOption == "A")
         {
-            Debug.Log("Doðru þýk");
+            rightA = true;
+            Debug.Log("Doðru cevap a ");
+
         }
-        else if(rightA&& quizquestions[questionindex].trueOption == "B")
+        else if(quizquestions[questionindex].trueOption == "B")
         {
-            Debug.Log("Cevap yanlýþ");
+            rightB = true;
+            Debug.Log("Doðru cevap b");
+
         }
-        
+
 
 
         if (questionTimerBool)
@@ -77,7 +81,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        Debug.Log(questionTimerBool);
+        
 
         }
 
@@ -108,18 +112,18 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)  //GAMEMANAGER COLLISION !!!!!! PLAYER SCRIPTININ ICINDEN PUBLIC DEGER ILE ALINACAK
-    {
-        if (collision.gameObject.tag == "A")
-        {
-            Debug.Log("hit a");
-            rightA = true;
-        }
-        else
-        {
-            rightB = true;
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)  //GAMEMANAGER COLLISION !!!!!! PLAYER SCRIPTININ ICINDEN PUBLIC DEGER ILE ALINACAK
+    //{
+    //    if (collision.gameObject.tag == "A")
+    //    {
+    //        Debug.Log("hit a");
+    //        rightA = true;
+    //    }
+    //    else
+    //    {
+    //        rightB = true;
+    //    }
+    //}
 
 
 }

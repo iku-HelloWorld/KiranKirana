@@ -6,7 +6,10 @@ public class colorChange : MonoBehaviour
 {
     bool trueA;
     bool trueB;
+<<<<<<< Updated upstream
     bool answered = true;
+=======
+>>>>>>> Stashed changes
 
 
     void Start()
@@ -24,7 +27,10 @@ public class colorChange : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+<<<<<<< Updated upstream
         answered = true;
+=======
+>>>>>>> Stashed changes
         if ((collision.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (collision.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
         {
 

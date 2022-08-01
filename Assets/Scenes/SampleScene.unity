@@ -441,7 +441,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d2833bd246c983b43ad23ba48de363a9, type: 2}
+      objectReference: {fileID: 2100000, guid: 85ba209c99a311c46ac5b85a5f7f6d4b, type: 2}
     m_RemovedComponents:
     - {fileID: 5400000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
@@ -883,7 +883,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d2833bd246c983b43ad23ba48de363a9, type: 2}
+      objectReference: {fileID: 2100000, guid: 85ba209c99a311c46ac5b85a5f7f6d4b, type: 2}
     m_RemovedComponents:
     - {fileID: 5400000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
@@ -1447,6 +1447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb677097008758419d8d3124a06a686, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  A: {fileID: 1605226657}
+  B: {fileID: 1465287569}
 --- !u!143 &1303766523
 CharacterController:
   m_ObjectHideFlags: 0
