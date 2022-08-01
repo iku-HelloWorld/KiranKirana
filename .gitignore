@@ -64,3 +64,5 @@ UserSettings/EditorUserSettings.asset
 *.dwlt
 UserSettings/Layouts/CurrentMaximizeLayout.dwlt
 *.dwlt
+*.asset
+UserSettings/EditorUserSettings.asset
