@@ -24,7 +24,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 300}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 19965
+=======
+  controlID: 19806
+>>>>>>> Stashed changes
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +145,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 300}
   m_MaxSize: {x: 16192, y: 24288}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 19966
+=======
+  controlID: 19779
+>>>>>>> Stashed changes
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +174,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
+<<<<<<< Updated upstream
   controlID: 19967
+=======
+  controlID: 19780
+>>>>>>> Stashed changes
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +238,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< Updated upstream
       m_ExpandedIDs: 3c6dfeffe86dfeff946efeffe46ffeff3471feffee71feff9a72feff4074feff8a74feffe075feff2a76feffe676feff2e77feff6c77feff207afeff727cfeffcc7efeff3c80feffe880feff9c81feffde81feffa882feff2483feff9484feff3686feffb287feff5e88feff2889feff6a89feff3a8afeff288bfeff768efeff308ffefff88ffeff3e91feffea91feffd893feff9294feff3e95feff669bfeff7c9cfeffc29dfeffc09efeff8aa1feffa4a4feff9aa6feffeea7feff9aa8feffe0a9feff9aaafeffe0abfeff38adfeffe4adfeff64b0feff98b7feff52bafefffebafeffe2bbfeff28bdfeffd4bdfeff46c0feff90c1feffb2c2feffb6c4feffbac5feff7ac6feffd2c6feff8ac7feff9e52ffffb862ffff0e67ffff1268ffff5c68ffff0c69ffff5269ffff026affff946cffffc898ffff0a9cffffbe9effff6e9fffff26a0ffff56a3ffffe0a4ffff
+=======
+      m_ExpandedIDs: 207afeff727cfeffcc7efeff3c80feffe880feff9c81feffde81feffa882feff2483feff9484feff3686feffb287feff5e88feff2889feff6a89feff3a8afeff288bfeff768efeff308ffefff88ffeff3e91feffea91feffd893feff9294feff3e95feff669bfeff7c9cfeffc29dfeffc09efeff8aa1feffa4a4feff9aa6feffeea7feff9aa8feffe0a9feff9aaafeffe0abfeff38adfeffe4adfeff64b0feff98b7feff52bafefffebafeffe2bbfeff28bdfeffd4bdfeff46c0feff90c1feffb2c2feffb6c4feffbac5feff7ac6feffd2c6feff8ac7feff9e52ffffb862ffff0e67ffff1268ffff5c68ffff0c69ffff5269ffff026affff946cffffc898ffff0a9cffffbe9effff6e9fffff26a0ffff56a3ffffe0a4ffff
+>>>>>>> Stashed changes
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -274,7 +290,11 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
+<<<<<<< Updated upstream
   controlID: 19968
+=======
+  controlID: 19724
+>>>>>>> Stashed changes
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -768,8 +788,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 02d40000
+    m_LastClickedInstanceID: 54274
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -887,7 +907,7 @@ MonoBehaviour:
     m_CachedPref: -151
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: -1
+  m_LastInspectedObjectInstanceID: 54274
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
