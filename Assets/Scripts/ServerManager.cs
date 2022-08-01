@@ -11,12 +11,32 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     [SerializeField] GameObject playerList;
     [SerializeField] TMP_InputField nameText;
+
+    [SerializeField] GameObject loginScreen;
+    [SerializeField] GameObject lobbyScreen;
+    [SerializeField] GameObject CreateOrJoin;
+    [SerializeField] GameObject joinRoom;
+ 
+    [SerializeField] Canvas cnvas;
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
+        SetActivePanel(loginScreen.name);
         OnConnectedToMaster(); 
-        OnJoinedLobby();        
+       // OnJoinedLobby();        
     }
+
+
+    public void SetActivePanel(string activePanel)
+    {
+        loginScreen.SetActive(activePanel.Equals(loginScreen.name));
+        lobbyScreen.SetActive(activePanel.Equals(lobbyScreen.name));
+        CreateOrJoin.SetActive(activePanel.Equals(CreateOrJoin.name));
+        joinRoom.SetActive(activePanel.Equals(joinRoom.name));
+
+    }
+
+
 
     void Update()
     {
@@ -24,12 +44,22 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     }
 
+
+    /*public void SetActivePanel(string activePanel)
+    {
+        GirisPanel.SetActive(activePanel.Equals(GirisPanel.name));
+        SecimPanel.SetActive(activePanel.Equals(SecimPanel.name));
+        OdaOlusturPanel.SetActive(activePanel.Equals(OdaOlusturPanel.name));       
+        OdalistePanel.SetActive(activePanel.Equals(OdalistePanel.name));
+        OdaicPanel.SetActive(activePanel.Equals(OdaicPanel.name));      
+    }*/
+
     public void SetNickname(string name)
     {
        // PhotonNetwork.NickName = nameText.text;
-       PhotonNetwork.NickName = nameText.text;
+       PhotonNetwork.LocalPlayer.NickName = nameText.text;
        Debug.Log(PhotonNetwork.NickName);
-
+        
     }
 
 
@@ -46,6 +76,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {       
 
         Debug.Log("Connected to Lobby");
+        SetActivePanel(CreateOrJoin.name);
        //PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
     }  
 
@@ -92,6 +123,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
+    }
+
+
+    public void JoinRoom()
+    {
+        SetActivePanel(joinRoom.name);
     }
 
 
