@@ -23,10 +23,12 @@ public class characterController : MonoBehaviour
 
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "A"&&trueA)
         {
+            
             //collision.gameObject.GetComponent<Renderer>().material.color = Color.green;
             Debug.Log("abe doru");
 

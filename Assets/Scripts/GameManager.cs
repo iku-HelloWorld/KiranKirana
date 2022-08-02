@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject soruSayac;
     public GameObject cevapSayac;
-    public GameObject barrier;
+
+    public GameObject questionPanel;
+    
+    //public GameObject barrier;
 
     public bool rightA=false;
     public bool rightB = false;
 
-
+    private Collider[] barrierColliders;
 
     public GameObject A;
     public GameObject B;
@@ -26,24 +29,33 @@ public class GameManager : MonoBehaviour
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
 
+    [SerializeField] float goTime = 5.0f;
+
     private bool questionTimerBool = true;
     private bool answeringTimerBool = true;
-    bool nextQuestion = false;
+    private bool goTimeBool;
+    
 
 
     int questionindex = 0;
-    [SerializeField] int timer = 5;
+  
 
     private void Start()
     {
-
-
+        GameObject[] barrier = GameObject.FindGameObjectsWithTag("Barrier");
+        barrierColliders = new Collider[barrier.Length];
+        for(int i = 0; i < barrierColliders.Length; i++)
+        {
+            barrierColliders[i] = barrier[i].GetComponent<Collider>();
+        }
+        goTimeBool = true;
+        questionPanel.SetActive(false);
 
     }
     private void Update()
     {
             List<Quizquestion> quizquestions = new List<Quizquestion>();
-            quizquestions.Add(new Quizquestion("Ankaranýn baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
+            quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
             quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
         quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru","A"));
 
@@ -51,10 +63,37 @@ public class GameManager : MonoBehaviour
         option1.text = quizquestions[questionindex].option1;
         option2.text= quizquestions[questionindex].option2;
 
- 
-        if (questionTimerBool)
+
+
+        if (quizquestions[questionindex].trueOption == "A")
         {
-            barrier.SetActive(true);
+            rightA = true;
+        }
+
+        if (quizquestions[questionindex].trueOption == "B")
+        {
+            rightB = true;
+        }
+
+
+        if (goTimeBool)
+        {
+            goTime -= Time.deltaTime;
+            Debug.Log("Lütfen soru alanýna ilerleyiniz kalan süre" + (int)goTime);
+
+            if (goTime <= 0)
+            {
+                goTimeBool = false;
+            }
+        }
+
+        
+
+
+        if (questionTimerBool&&goTimeBool==false)
+        {
+            EnableCollider(barrierColliders, true);
+            questionPanel.SetActive(true);
             soruSayac.SetActive(true);
             soruSayac.GetComponent<TextMeshProUGUI>().text = "Düþünme aþamasý kalan süre:" + (int)questionTimer;
             answeringTimer = 3.0f;
@@ -74,9 +113,10 @@ public class GameManager : MonoBehaviour
 
     private void answeringPhase()
     {
+        EnableCollider(barrierColliders, false);
         answeringTimerBool = true;
         questionTimerBool = false;
-        barrier.SetActive(false);
+       
         soruSayac.SetActive(false);
         if (answeringTimerBool)
         {
@@ -85,6 +125,10 @@ public class GameManager : MonoBehaviour
             cevapSayac.GetComponent<TextMeshProUGUI>().text = "Cevaplamak için kalan süre" + (int)answeringTimer;
             if (answeringTimer <= 0)
             {
+                EnableCollider(barrierColliders, true);
+                questionPanel.SetActive(false);
+                goTimeBool = true;
+                goTime = 5.0f;
                 questionTimer = 5.0f;
                 answeringTimerBool = false;
                 questionTimerBool = true;
@@ -100,18 +144,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //private void OnCollisionEnter(Collision collision)  //GAMEMANAGER COLLISION !!!!!! PLAYER SCRIPTININ ICINDEN PUBLIC DEGER ILE ALINACAK
-    //{
-    //    if (collision.gameObject.tag == "A")
-    //    {
-    //        Debug.Log("hit a");
-    //        rightA = true;
-    //    }
-    //    else
-    //    {
-    //        rightB = true;
-    //    }
-    //}
+    void EnableCollider(Collider[] cd, bool enable)
+    {
+        for (int i = 0; i < cd.Length; i++)
+        {
+            cd[i].enabled = enable;
+        }
+    }
+
+
+
 
 
 }
