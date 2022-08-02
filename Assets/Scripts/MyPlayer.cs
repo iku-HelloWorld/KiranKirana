@@ -53,19 +53,7 @@ public class MyPlayer : MonoBehaviour
 
         float targetSpeed = moveSpeed * inputDir.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedVelocity, 0.1f);
-        
-
-
-        if(inputDir.magnitude >0)
-        {
-
-            GetComponent<Actions>().Run();
-        }
-        else
-        {
-            GetComponent<Actions>().Stay();
-        }
         transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
-
+        
     }
 }
