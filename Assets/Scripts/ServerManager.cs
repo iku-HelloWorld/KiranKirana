@@ -22,8 +22,9 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.ConnectUsingSettings();
         SetActivePanel(loginScreen.name);
-        OnConnectedToMaster(); 
+        
        // OnJoinedLobby();        
+       
     }
 
 
@@ -45,20 +46,14 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
 
-    /*public void SetActivePanel(string activePanel)
-    {
-        GirisPanel.SetActive(activePanel.Equals(GirisPanel.name));
-        SecimPanel.SetActive(activePanel.Equals(SecimPanel.name));
-        OdaOlusturPanel.SetActive(activePanel.Equals(OdaOlusturPanel.name));       
-        OdalistePanel.SetActive(activePanel.Equals(OdalistePanel.name));
-        OdaicPanel.SetActive(activePanel.Equals(OdaicPanel.name));      
-    }*/
+    
 
     public void SetNickname(string name)
     {
        // PhotonNetwork.NickName = nameText.text;
        PhotonNetwork.LocalPlayer.NickName = nameText.text;
        Debug.Log(PhotonNetwork.NickName);
+       PhotonNetwork.JoinLobby();
         
     }
 
@@ -95,7 +90,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
 
         Debug.Log("Server'e Bağlanıldı.");
-        PhotonNetwork.JoinLobby();
+        
     }
 
 
@@ -125,6 +120,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
         Debug.Log("The room could not be created." + message + " - " + returnCode);
     }
 
+
+    public void JoinRandomRoom ()
+    {
+        OnConnectedToMaster();
+        PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        joinRoom.SetActive(false);
+    }
 
     public void JoinRoom()
     {
