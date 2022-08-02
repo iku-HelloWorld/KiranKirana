@@ -8,6 +8,9 @@ public class CameraWork : MonoBehaviour
     public float Xaxis;
     public float RotationSensivity = 8f;
 
+
+    public float RotationMax
+
     public Transform target;
 
     // Update is called once per frame
