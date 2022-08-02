@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
             List<Quizquestion> quizquestions = new List<Quizquestion>();
-            quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "B"));
+            quizquestions.Add(new Quizquestion("Ankaranýn baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
             quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
         quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru","A"));
 
