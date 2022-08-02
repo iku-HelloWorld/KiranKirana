@@ -100,4 +100,5 @@ MonoBehaviour:
   Yaxis: 0
   Xaxis: 0
   RotationSensivity: 5.43
+  RotationMax: 0
   target: {fileID: 0}

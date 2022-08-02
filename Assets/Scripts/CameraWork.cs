@@ -9,7 +9,7 @@ public class CameraWork : MonoBehaviour
     public float RotationSensivity = 8f;
 
 
-    public float RotationMax
+    public float RotationMax;
 
     public Transform target;
 
