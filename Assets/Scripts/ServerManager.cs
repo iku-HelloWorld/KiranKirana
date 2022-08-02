@@ -8,100 +8,122 @@ using UnityEngine.UI;
 
 public class ServerManager : MonoBehaviourPunCallbacks
 {
-
-    [SerializeField] TextMeshProUGUI playerList;
-    [SerializeField] TMP_InputField nameText;
+     
     [SerializeField] GameObject loginScreen;
     [SerializeField] GameObject lobbyScreen;
-    [SerializeField] GameObject CreateOrJoin;
-    [SerializeField] GameObject joinRoom;
+    [SerializeField] GameObject CreateOrJoinScreen;             // Panels
+    [SerializeField] GameObject joinRoomScreen;
     [SerializeField] GameObject CustomScreen;
-    [SerializeField] TMP_InputField roomName;
-    [SerializeField] TMP_InputField roomcapacity;
-    [SerializeField] TMP_InputField roomJoinInput;
+
+
+
+    [SerializeField] TextMeshProUGUI playerList; // Player List Text
+
+    // User Inputs
+    [SerializeField] TMP_InputField nicknameText;   // LocalPlayer Nickname
+    [SerializeField] TMP_InputField customRoomName;   // Custom Room Name Input       
+    [SerializeField] TMP_InputField customRoomcapacity;       // Custom Room Capacity  
+    [SerializeField] TMP_InputField customJoinRoomName;     // Custom Room Name which User wants to join.
     private bool isReady = false;
     [SerializeField] Canvas cnvas;
+
     void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
-        SetActivePanel(loginScreen.name);
-        
-       // OnJoinedLobby();        
+        PhotonNetwork.ConnectUsingSettings();       // Connect To Server
+        SetActivePanel(loginScreen.name);                 // Define Active Panel 
        
     }
-
-
-    public void SetActivePanel(string activePanel)
-    {
-        loginScreen.SetActive(activePanel.Equals(loginScreen.name));
-        lobbyScreen.SetActive(activePanel.Equals(lobbyScreen.name));
-        CreateOrJoin.SetActive(activePanel.Equals(CreateOrJoin.name));
-        joinRoom.SetActive(activePanel.Equals(joinRoom.name));
-        CustomScreen.SetActive(activePanel.Equals(CustomScreen.name));
-
-    }
-
- bool test = true;
 
     void Update()
+    {     
+            PlayerListText();               // bunu Update den çıkarmanın yolunu bul                              
+    }
+
+    //Player Input Methods
+
+    public void SetNickname(string name)        // Set User Nickname by User Input
     {
-
-        
-       
-           
-            PlayerListText();
-            
-       
-        
-
-        
+        // PhotonNetwork.NickName = nameText.text;
+        PhotonNetwork.LocalPlayer.NickName = nicknameText.text;
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName);
+        PhotonNetwork.JoinLobby();
 
     }
 
-    public void JoinCustomRoom()
+    #region Create Or join 
+
+    
+    public void CreateRoom()                  // Method For User Input Button
     {
-        PhotonNetwork.JoinRoom(roomJoinInput.text);
+        SetActivePanel(CustomScreen.name);
+    }    
+
+    public void CreateCustomRoom()              // Create Room with properties by using User Inputs.
+    {
+        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         SetActivePanel(lobbyScreen.name);
     }
 
-
-
     
-    
-
-    public void SetNickname(string name)
+    public void JoinRoom()      // Method For User Input Button
     {
-       // PhotonNetwork.NickName = nameText.text;
-       PhotonNetwork.LocalPlayer.NickName = nameText.text;
-       Debug.Log(PhotonNetwork.NickName);
-       PhotonNetwork.JoinLobby();
+        SetActivePanel(joinRoomScreen.name);
+    }
+    
+    public void JoinCustomRoom()        // Join Custom Room by using User Input
+    {
+        PhotonNetwork.JoinRoom(customJoinRoomName.text);       
+        SetActivePanel(lobbyScreen.name);
+    }
+    public void JoinRandomRoom()        // Join Random Room Method
+    {
+        OnConnectedToMaster();
+        PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        SetActivePanel(lobbyScreen.name);
         
     }
-
-
-    private void PlayerListText()
-    {
-        playerList.text ="";
     
-        foreach(Player p in PhotonNetwork.PlayerList)
+    #endregion
+
+    private void PlayerListText() // Print Connected Players in the Room. 
+    {
+        playerList.text = "";
+        foreach (Player p in PhotonNetwork.PlayerList)
         {
-            playerList.text += p.NickName + "- \n"; 
-              Debug.Log("hello");
-        }         
-        
+            playerList.text += p.NickName + "- \n";
+            Debug.Log("hello");
+        }
     }
+    
+    public void PlayerReady()   // Player Ready Status 
+    {
+        isReady = !isReady;
+    }
+
+    public void SetActivePanel(string activePanel)      // Set Active Panel Method
+    {
+        loginScreen.SetActive(activePanel.Equals(loginScreen.name));
+        lobbyScreen.SetActive(activePanel.Equals(lobbyScreen.name));
+        CreateOrJoinScreen.SetActive(activePanel.Equals(CreateOrJoinScreen.name));
+        joinRoomScreen.SetActive(activePanel.Equals(joinRoomScreen.name));
+        CustomScreen.SetActive(activePanel.Equals(CustomScreen.name));
+    }
+
+
+   
+    // Override Methods
 
     public override void OnJoinedLobby()
-    {       
+    {
         Debug.Log("Connected to Lobby");
-        SetActivePanel(CreateOrJoin.name);
-       //PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
-    }  
+        SetActivePanel(CreateOrJoinScreen.name);
+       
+    }     
     public override void OnJoinedRoom()
     {
         Debug.Log("Odaya Girildi.");     
         GameObject oyuncu = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);      
-       // PlayerListText();
+       
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -133,38 +155,6 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
     }
-
-
-    public void JoinRandomRoom ()
-    {
-        OnConnectedToMaster();
-        PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
-        SetActivePanel(lobbyScreen.name);
-        isReady = true;
-    }
-    public void JoinRoom()
-    {
-        SetActivePanel(joinRoom.name);   
-    }
-    public void CreateRoom()
-    {
-        SetActivePanel(CustomScreen.name);
-    }
-
-    public void PlayerReady()
-    { 
-        isReady = !isReady;
-    }
-
-
-    public void CreateCustomRoom()
-    {
-        
-
-        PhotonNetwork.CreateRoom(roomName.text,new RoomOptions{ MaxPlayers = 15, IsOpen = true, IsVisible = true}, TypedLobby.Default);
-        SetActivePanel(lobbyScreen.name);
-    }
-
 
 }
 
