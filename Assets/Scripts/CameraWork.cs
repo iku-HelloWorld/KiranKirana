@@ -12,9 +12,7 @@ public class CameraWork : MonoBehaviour
     float RotationMin = -40f;
     float RotationMax = 60f;
 
-
     Transform target;
-
 
     [SerializeField] GameObject player;
     public FixedTouchField touchField;

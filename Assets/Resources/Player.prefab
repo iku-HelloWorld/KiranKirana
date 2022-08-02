@@ -83,7 +83,7 @@ Animator:
   m_GameObject: {fileID: 8246613559125973568}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b6c33e1d6632025468fb37a04e312606, type: 3}
-  m_Controller: {fileID: 9100000, guid: e4d38f097ea35254fb4b833d568bb089, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -124,6 +124,10 @@ MonoBehaviour:
     rightGun: {fileID: 0}
     leftGun: {fileID: 0}
     controller: {fileID: 9100000, guid: e4d38f097ea35254fb4b833d568bb089, type: 2}
+  - name: Rifle
+    rightGun: {fileID: 100000, guid: d992a232642f7574b80a75c2ca4b4cb8, type: 3}
+    leftGun: {fileID: 0}
+    controller: {fileID: 9100000, guid: dffbd9326394a8d47a87a1e2aec70a59, type: 2}
 --- !u!54 &8246613558510040009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,9 +155,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.24859886
-  m_Height: 1.1022042
+  m_Height: 0.8711476
   m_Direction: 1
-  m_Center: {x: -0.0037303925, y: 0.43421322, z: 0}
+  m_Center: {x: -0.0037303925, y: 0.54974157, z: 0}
 --- !u!114 &-6363907467223871725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,7 +193,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 1
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &8246613559125973888
