@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject soruSayac;
     public GameObject cevapSayac;
+    public GameObject barrier;
 
     public bool rightA=false;
     public bool rightB = false;
@@ -50,23 +51,10 @@ public class GameManager : MonoBehaviour
         option1.text = quizquestions[questionindex].option1;
         option2.text= quizquestions[questionindex].option2;
 
-        if (quizquestions[questionindex].trueOption == "A")
-        {
-            rightA = true;
-            Debug.Log("Doðru cevap a ");
-
-        }
-        else if(quizquestions[questionindex].trueOption == "B")
-        {
-            rightB = true;
-            Debug.Log("Doðru cevap b");
-
-        }
-
-
-
+ 
         if (questionTimerBool)
         {
+            barrier.SetActive(true);
             soruSayac.SetActive(true);
             soruSayac.GetComponent<TextMeshProUGUI>().text = "Düþünme aþamasý kalan süre:" + (int)questionTimer;
             answeringTimer = 3.0f;
@@ -80,7 +68,6 @@ public class GameManager : MonoBehaviour
             answeringPhase();
         }
 
-
         
 
         }
@@ -89,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
         answeringTimerBool = true;
         questionTimerBool = false;
+        barrier.SetActive(false);
         soruSayac.SetActive(false);
         if (answeringTimerBool)
         {
