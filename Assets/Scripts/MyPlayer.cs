@@ -4,21 +4,48 @@ using UnityEngine;
 
 public class MyPlayer : MonoBehaviour
 {
+    public bool enableMobileInputs = false;
+
+
     public float moveSpeed = 8f;
     public float smoothRotationTime = 0.25f;
-    float currentVelocity;
 
+
+    float currentVelocity;
     float currentSpeed;
     float speedVelocity;
 
+    Transform cameraTransform;
+    public FixedJoystick joystick;
+
+
+    private void Start()
+    {
+        cameraTransform = Camera.main.transform;
+    }
+
     void Update()
     {
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 input = Vector2.zero;
+
+        if (enableMobileInputs)
+        {
+
+            input = new Vector2(joystick.Horizontal, joystick.Vertical);
+
+        }
+        else
+        {
+             input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        }
+
+
+        
         Vector2 inputDir = input.normalized;
 
         if(inputDir != Vector2.zero)
         {
-            float rotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+            float rotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, rotation, ref currentVelocity, smoothRotationTime);
             
         }

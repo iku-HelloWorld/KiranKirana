@@ -6,23 +6,53 @@ public class CameraWork : MonoBehaviour
 {
     public float Yaxis;
     public float Xaxis;
-    public float RotationSensivity = 8f;
+    public float RotationSensivity = 5f;
 
+    float smoothTime = 0.12f;
+    float RotationMin = -40f;
+    float RotationMax = 60f;
 
-    public float RotationMax;
+    Transform target;
 
-    public Transform target;
+    [SerializeField] GameObject player;
+    public FixedTouchField touchField;
+ 
+    bool enableMobileInputs;
+
+    private void Start()
+    {
+        enableMobileInputs = player.GetComponent<MyPlayer>().enableMobileInputs;
+        target = player.transform.Find("CameraTarget").transform;
+         
+    }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        Yaxis += Input.GetAxis("Mouse X") * RotationSensivity;
-        Xaxis -= Input.GetAxis("Mouse Y") * RotationSensivity;
+
+        if (enableMobileInputs)
+        {
+            RotationSensivity = 0.5f;
+            Yaxis += touchField.TouchDist.x * RotationSensivity;
+            Xaxis -= touchField.TouchDist.y * RotationSensivity;
+
+
+        }
+        else
+        {
+            Yaxis += Input.GetAxis("Mouse X") * RotationSensivity;
+            Xaxis -= Input.GetAxis("Mouse Y") * RotationSensivity;
+        }
+        
+
+        
+
+        Xaxis = Mathf.Clamp(Xaxis, RotationMin, RotationMax);
 
         Vector3 targetRotation = new Vector3(Xaxis, Yaxis);
         transform.eulerAngles = targetRotation;
 
-        transform.position = target.position - transform.forward * 30f;
+        transform.position = target.position - transform.forward * 5f;
         
     }
 }
