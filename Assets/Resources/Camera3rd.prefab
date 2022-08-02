@@ -100,4 +100,5 @@ MonoBehaviour:
   Yaxis: 0
   Xaxis: 0
   RotationSensivity: 5.43
-  target: {fileID: 0}
+  player: {fileID: 0}
+  touchField: {fileID: 0}

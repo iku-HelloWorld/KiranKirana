@@ -11,12 +11,33 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     [SerializeField] GameObject playerList;
     [SerializeField] TMP_InputField nameText;
+
+    [SerializeField] GameObject loginScreen;
+    [SerializeField] GameObject lobbyScreen;
+    [SerializeField] GameObject CreateOrJoin;
+    [SerializeField] GameObject joinRoom;
+ 
+    [SerializeField] Canvas cnvas;
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
-        OnConnectedToMaster(); 
-        OnJoinedLobby();        
+        SetActivePanel(loginScreen.name);
+        
+       // OnJoinedLobby();        
+       
     }
+
+
+    public void SetActivePanel(string activePanel)
+    {
+        loginScreen.SetActive(activePanel.Equals(loginScreen.name));
+        lobbyScreen.SetActive(activePanel.Equals(lobbyScreen.name));
+        CreateOrJoin.SetActive(activePanel.Equals(CreateOrJoin.name));
+        joinRoom.SetActive(activePanel.Equals(joinRoom.name));
+
+    }
+
+
 
     void Update()
     {
@@ -24,12 +45,16 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     }
 
+
+    
+
     public void SetNickname(string name)
     {
        // PhotonNetwork.NickName = nameText.text;
-       PhotonNetwork.NickName = nameText.text;
+       PhotonNetwork.LocalPlayer.NickName = nameText.text;
        Debug.Log(PhotonNetwork.NickName);
-
+       PhotonNetwork.JoinLobby();
+        
     }
 
 
@@ -46,6 +71,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {       
 
         Debug.Log("Connected to Lobby");
+        SetActivePanel(CreateOrJoin.name);
        //PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
     }  
 
@@ -64,7 +90,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
 
         Debug.Log("Server'e Bağlanıldı.");
-        PhotonNetwork.JoinLobby();
+        
     }
 
 
@@ -92,6 +118,19 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
+    }
+
+
+    public void JoinRandomRoom ()
+    {
+        OnConnectedToMaster();
+        PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        joinRoom.SetActive(false);
+    }
+
+    public void JoinRoom()
+    {
+        SetActivePanel(joinRoom.name);
     }
 
 
