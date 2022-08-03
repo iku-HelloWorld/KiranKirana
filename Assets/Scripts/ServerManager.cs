@@ -26,11 +26,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField customJoinRoomName;     // Custom Room Name which User wants to join.
     private bool isReady = false;
     [SerializeField] Canvas cnvas;
+    [SerializeField] GameObject buttonText;
 
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
+       // buttonText = this.gameObject.transform.GetChild(0).gameObject;
        
     }
 
@@ -94,6 +96,15 @@ public class ServerManager : MonoBehaviourPunCallbacks
             Debug.Log("hello");
         }
     }
+
+
+    public void RoomButton()
+    {
+        PhotonNetwork.JoinRoom(buttonText.GetComponent<TextMeshProUGUI>().text);
+    }
+
+
+
     
     public void PlayerReady()   // Player Ready Status 
     {
@@ -155,6 +166,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
     }
+
+   
 
 }
 

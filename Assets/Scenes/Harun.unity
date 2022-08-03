@@ -238,7 +238,7 @@ RectTransform:
   m_GameObject: {fileID: 43244278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 1.005, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 155143976}
@@ -531,7 +531,7 @@ RectTransform:
   m_GameObject: {fileID: 103509317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2.306966, y: 2.85152, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1758381896}
@@ -540,7 +540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -475, y: -19}
+  m_AnchoredPosition: {x: 726.8805, y: -325}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103509319
@@ -1747,7 +1747,7 @@ RectTransform:
   m_GameObject: {fileID: 477745857}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2.306966, y: 2.85152, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 220630223}
@@ -1756,7 +1756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -479, y: -171}
+  m_AnchoredPosition: {x: 724.57007, y: -433.34998}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477745859
@@ -2001,7 +2001,7 @@ GameObject:
   - component: {fileID: 499642268}
   - component: {fileID: 499642267}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: LobbyCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2886,16 +2886,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5208458a6a914e03945e407b0cb66ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerList: {fileID: 468253711}
-  nameText: {fileID: 1086870845}
   loginScreen: {fileID: 9374329}
   lobbyScreen: {fileID: 1750304417}
-  CreateOrJoin: {fileID: 848856107}
-  joinRoom: {fileID: 155143975}
+  CreateOrJoinScreen: {fileID: 0}
+  joinRoomScreen: {fileID: 0}
   CustomScreen: {fileID: 169740462}
-  roomName: {fileID: 908255677}
-  roomcapacity: {fileID: 1057355262}
-  roomJoinInput: {fileID: 103509319}
+  playerList: {fileID: 468253711}
+  nicknameText: {fileID: 0}
+  customRoomName: {fileID: 0}
+  customRoomcapacity: {fileID: 0}
+  customJoinRoomName: {fileID: 0}
   cnvas: {fileID: 499642269}
 --- !u!4 &795760431
 Transform:
@@ -3635,7 +3635,7 @@ RectTransform:
   m_GameObject: {fileID: 975868983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2.306966, y: 2.85152, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 155143976}
@@ -3643,7 +3643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -479, y: 288}
+  m_AnchoredPosition: {x: 724.57007, y: -106.14199}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975868985
@@ -4945,14 +4945,14 @@ MonoBehaviour:
   option2: {fileID: 622772349}
   soruSayac: {fileID: 1656933526}
   cevapSayac: {fileID: 602293585}
-  barrier: {fileID: 0}
+  questionPanel: {fileID: 0}
   rightA: 0
   rightB: 0
   A: {fileID: 1605226657}
   B: {fileID: 1465287569}
   questionTimer: 5
   answeringTimer: 3
-  timer: 5
+  goTime: 5
 --- !u!1 &1317350904
 GameObject:
   m_ObjectHideFlags: 0
@@ -4981,7 +4981,7 @@ RectTransform:
   m_GameObject: {fileID: 1317350904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2.614, y: 1.99928, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 118218058}
@@ -4990,7 +4990,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 474, y: -171}
+  m_AnchoredPosition: {x: 723, y: 232}
   m_SizeDelta: {x: 160, y: 30.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1317350906
@@ -5510,7 +5510,7 @@ RectTransform:
   m_GameObject: {fileID: 1446465882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_LocalScale: {x: 2.614, y: 1.99928, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 155143976}
@@ -5518,7 +5518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 463, y: 288}
+  m_AnchoredPosition: {x: 715.81006, y: 461.41998}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1446465884
@@ -6549,6 +6549,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3580057640239109000, guid: 2a6da7dcfdc3f334498305fc181d19a0, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 93915155727125894, guid: 2a6da7dcfdc3f334498305fc181d19a0, type: 3}
       propertyPath: player
       value: 
