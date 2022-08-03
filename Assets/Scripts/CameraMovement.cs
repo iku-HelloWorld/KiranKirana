@@ -18,33 +18,37 @@ public class CameraMovement : MonoBehaviour
 
     Transform target;
     PhotonView pw;
+    Camera mainCamera;
     
 
-    [SerializeField] GameObject player;
+    
     public FixedTouchField touchField;
  
     bool enableMobileInputs;
 
     private void Start()
     {
-        enableMobileInputs = player.GetComponent<MyPlayer>().enableMobileInputs;
-        //target = player.transform.Find("CameraTarget").transform;
+        enableMobileInputs = GetComponent<MyPlayer>().enableMobileInputs;
+        
 
         pw = GetComponent<PhotonView>();
 
         CameraWork cameraWork = gameObject.GetComponent<CameraWork>();
-        //target = player.transform.Find("CameraTarget").transform;
+        
+        mainCamera = Camera.main;
+        mainCamera.enabled = true;
 
-        if (pw.IsMine)
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject player in players)
         {
-            target = player.transform.Find("CameraTarget").transform;
-
+            if(PhotonView.Get(player).IsMine)
+            {
+                target = transform.Find("CameraTarget").transform;
+                
+                break;
+            }
         }
-        else
-        {
-            Debug.Log("CameraNotFound");
-        }
-
 
          
     }
@@ -73,9 +77,9 @@ public class CameraMovement : MonoBehaviour
         Xaxis = Mathf.Clamp(Xaxis, RotationMin, RotationMax);
 
         Vector3 targetRotation = new Vector3(Xaxis, Yaxis);
-        transform.eulerAngles = targetRotation;
+        mainCamera.transform.eulerAngles = targetRotation;
 
-        transform.position = target.position - transform.forward * 5f;
+        mainCamera.transform.position = target.position - mainCamera.transform.forward * 5f;
         
     }
 }
