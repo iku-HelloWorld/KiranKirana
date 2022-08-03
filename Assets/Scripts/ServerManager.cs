@@ -173,6 +173,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
      public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        foreach (Transform trans in roomListContent)
+        {
+            Destroy(trans.gameObject);
+            
+        }
         for (int i = 0; i < roomList.Count; i++)
         {
             Instantiate(roomListItemPrefab,roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
