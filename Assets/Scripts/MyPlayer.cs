@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class MyPlayer : MonoBehaviour
 {
+    
+    [SerializeField] AudioClip walkingSound;
+
+
     public bool enableMobileInputs = false;
+    bool isPlaying = false;
 
 
     public float moveSpeed = 8f;
@@ -16,16 +21,21 @@ public class MyPlayer : MonoBehaviour
     float speedVelocity;
 
     Transform cameraTransform;
-    public FixedJoystick joystick;
+    public DynamicJoystick joystick;
+
+    AudioSource aSource;
 
 
     private void Start()
     {
         cameraTransform = Camera.main.transform;
+        aSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
+
+
         Vector2 input = Vector2.zero;
 
         if (enableMobileInputs)
@@ -53,19 +63,50 @@ public class MyPlayer : MonoBehaviour
 
         float targetSpeed = moveSpeed * inputDir.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedVelocity, 0.1f);
-        
 
 
-        if(inputDir.magnitude >0)
+        Debug.Log(isPlaying);
+        if (inputDir.magnitude > 0)
         {
+            if(isPlaying == false)
+            {
+                PlayWalkSound();
+            }
+            WalkAnima();
 
-            GetComponent<Actions>().Run();
         }
         else
         {
-            GetComponent<Actions>().Stay();
+            StopWalking();
         }
         transform.Translate(transform.forward * currentSpeed * Time.deltaTime, Space.World);
+
+    }
+
+    private void WalkAnima()
+    {
+        GetComponent<Actions>().Walk();
+        
+    }
+
+    private void StopWalking()
+    {
+        GetComponent<Actions>().Stay();
+        StopSound();
+    }
+
+    private void StopSound()
+    {
+        aSource.Stop();
+        isPlaying = false;
+    }
+    private void PlayWalkSound()
+    {
+        aSource.clip = walkingSound;
+        aSource.loop = true;
+        aSource.Play();
+
+        isPlaying = true;
 
     }
 }
