@@ -20,28 +20,46 @@ public class colorChange : MonoBehaviour
     void Update()
     {
         trueA = FindObjectOfType<GameManager>().rightA;
-
+        Debug.Log(trueA);
         trueB = FindObjectOfType<GameManager>().rightB;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
 
-        answered = true;
-
-        if ((collision.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (collision.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
+        if ((other.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (other.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
         {
 
-            transform.GetChild(0).GetComponent<Light>().color = Color.green;
+            Debug.Log("Cevap doðru");
 
         }
         else
         {
-            transform.GetChild(0).GetComponent<Light>().color = Color.red;
+            /*transform.GetChild(0).GetComponent<Light>().color = Color.red*/
+            ;
         }
 
-
-
-
     }
+
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+
+    //    answered = true;
+
+    //    if ((collision.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (collision.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
+    //    {
+
+    //        Debug.Log("Cevap doðru");
+
+    //    }
+    //    else
+    //    {
+    //        /*transform.GetChild(0).GetComponent<Light>().color = Color.red*/;
+    //    }
+
+
+
+
+    //}
 }
