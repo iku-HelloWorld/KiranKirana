@@ -81,7 +81,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         OnConnectedToMaster();
         PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
-        SetActivePanel(lobbyScreen.name);
+        cnvas.enabled = false;
         
     }
     
