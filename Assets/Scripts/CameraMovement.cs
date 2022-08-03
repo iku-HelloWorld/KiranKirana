@@ -1,6 +1,9 @@
  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun.Demo.PunBasics;
+using Photon.Pun;
+
 
 public class CameraMovement : MonoBehaviour
 {
@@ -14,7 +17,8 @@ public class CameraMovement : MonoBehaviour
 
 
     Transform target;
-
+    PhotonView pw;
+    
 
     [SerializeField] GameObject player;
     public FixedTouchField touchField;
@@ -24,7 +28,24 @@ public class CameraMovement : MonoBehaviour
     private void Start()
     {
         enableMobileInputs = player.GetComponent<MyPlayer>().enableMobileInputs;
-        target = player.transform.Find("CameraTarget").transform;
+        //target = player.transform.Find("CameraTarget").transform;
+
+        pw = GetComponent<PhotonView>();
+
+        CameraWork cameraWork = gameObject.GetComponent<CameraWork>();
+        //target = player.transform.Find("CameraTarget").transform;
+
+        if (pw.IsMine)
+        {
+            target = player.transform.Find("CameraTarget").transform;
+
+        }
+        else
+        {
+            Debug.Log("CameraNotFound");
+        }
+
+
          
     }
 
