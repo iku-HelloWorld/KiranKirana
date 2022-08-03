@@ -6,7 +6,12 @@ using Photon.Pun;
 public class RoomBrowser : MonoBehaviourPunCallbacks
 {
     [SerializeField] private Transform content;
-    [SerializeField] GameObject roomListing;
+    [SerializeField] private GameObject roomListing;
+
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+
+    }
 
 
 
