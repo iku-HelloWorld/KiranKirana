@@ -49,9 +49,11 @@ GameObject:
   - component: {fileID: 1999495984}
   - component: {fileID: 821236623}
   - component: {fileID: 1629401854010834691}
+  - component: {fileID: 821236625}
+  - component: {fileID: 7714369186727739150}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,10 +171,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSound: {fileID: 8300000, guid: b241b2e6b91f14e4ca501459237e655f, type: 3}
-  enableMobileInputs: 1
+  enableMobileInputs: 0
   moveSpeed: 10.56
   smoothRotationTime: 0.25
-  joystick: {fileID: 0}
+  joystick: {fileID: 2545916447836612198, guid: 45ca3c10e5c181045a211baca1a7b2f4, type: 3}
 --- !u!114 &1999495984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +195,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 1629401854010834691}
-  - {fileID: 0}
+  - {fileID: 7714369186727739150}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -337,6 +339,38 @@ MonoBehaviour:
     LayerIndex: 0
   - SynchronizeType: 0
     LayerIndex: 1
+--- !u!114 &821236625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246613559125973568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a197ed4599b9e4fa5735c1a5b5f063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Yaxis: 0
+  Xaxis: 0
+  RotationSensivity: 5
+  touchField: {fileID: 8430816135099533334, guid: df5a5d3bc62570e41b0aba968695400d, type: 3}
+--- !u!114 &7714369186727739150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246613559125973568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 0
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &8246613559125973888
 GameObject:
   m_ObjectHideFlags: 0
