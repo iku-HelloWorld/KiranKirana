@@ -2,11 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class RoomBrowser : MonoBehaviour
+using Photon.Pun;
+public class RoomBrowser : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private Transform content;
+    [SerializeField] GameObject roomListing;
 
-    public GameObject buttonprefab;
+
+
+
+
+
+
+
+
+   /* public GameObject buttonprefab;
     public GameObject buttonParent;
 
         
@@ -26,5 +36,5 @@ public class RoomBrowser : MonoBehaviour
     {
         Debug.Log(roomName);
     }
-
+*/
 }

@@ -97,10 +97,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
     }
 
+   
+
 
     public void RoomButton()
     {
-        PhotonNetwork.JoinRoom(buttonText.GetComponent<TextMeshProUGUI>().text);
+        PhotonNetwork.JoinRoom(this.gameObject.GetComponent<TextMeshProUGUI>().text);
     }
 
 
