@@ -1,7 +1,6 @@
  using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun.Demo.PunBasics;
 using Photon.Pun;
 
 
@@ -33,7 +32,7 @@ public class CameraMovement : MonoBehaviour
 
         pw = GetComponent<PhotonView>();
 
-        CameraWork cameraWork = gameObject.GetComponent<CameraWork>();
+       
         
         mainCamera = Camera.main;
         mainCamera.enabled = true;
@@ -56,7 +55,12 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        HandleTouchMovement();
 
+    }
+
+    private void HandleTouchMovement()
+    {
         if (enableMobileInputs)
         {
             RotationSensivity = 0.5f;
@@ -70,9 +74,9 @@ public class CameraMovement : MonoBehaviour
             Yaxis += Input.GetAxis("Mouse X") * RotationSensivity;
             Xaxis -= Input.GetAxis("Mouse Y") * RotationSensivity;
         }
-        
 
-        
+
+
 
         Xaxis = Mathf.Clamp(Xaxis, RotationMin, RotationMax);
 
@@ -80,6 +84,5 @@ public class CameraMovement : MonoBehaviour
         mainCamera.transform.eulerAngles = targetRotation;
 
         mainCamera.transform.position = target.position - mainCamera.transform.forward * 5f;
-        
     }
 }

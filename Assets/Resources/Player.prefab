@@ -314,7 +314,7 @@ MonoBehaviour:
     SynchronizeType: 2
     Name: Speed
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 1
     Name: Squat
   - Type: 4
     SynchronizeType: 0
