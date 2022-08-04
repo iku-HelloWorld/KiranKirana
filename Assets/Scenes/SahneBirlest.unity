@@ -1806,7 +1806,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3909793334901722930, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
       propertyPath: m_Name
-      value: Canvas (1)
+      value: Controller
       objectReference: {fileID: 0}
     - target: {fileID: 3909793334901722930, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
       propertyPath: m_IsActive
@@ -3706,6 +3706,7 @@ MonoBehaviour:
   CreateOrJoinScreen: {fileID: 848856107}
   joinRoomScreen: {fileID: 155143975}
   CustomScreen: {fileID: 169740462}
+  inputCanvas: {fileID: 1190417251}
   playerList: {fileID: 468253711}
   nicknameText: {fileID: 1086870845}
   customRoomName: {fileID: 908255677}
@@ -5631,6 +5632,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188851753}
   m_CullTransparentMesh: 1
+--- !u!223 &1190417251 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 3909793334901723087, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
+  m_PrefabInstance: {fileID: 353556196}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1192890757
 PrefabInstance:
   m_ObjectHideFlags: 0
