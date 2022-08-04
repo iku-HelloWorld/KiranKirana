@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 1629401854010834691}
   - component: {fileID: 821236625}
   - component: {fileID: 7714369186727739150}
+  - component: {fileID: -8061771006227598751}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -189,7 +190,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 2
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
@@ -369,6 +370,19 @@ MonoBehaviour:
   m_SynchronizeAngularVelocity: 0
   m_TeleportEnabled: 0
   m_TeleportIfDistanceGreaterThan: 3
+--- !u!114 &-8061771006227598751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246613559125973568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2079c4247404b4f8362a78f1a89421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriangleShape: {fileID: 919132149155446097, guid: d8d3421cff82fd547a682d993c2c5d65, type: 3}
 --- !u!1 &8246613559125973888
 GameObject:
   m_ObjectHideFlags: 0

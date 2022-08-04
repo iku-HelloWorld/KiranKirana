@@ -80,7 +80,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
    public void CreateRoom()                  // Method For User Input Button
     {
         OnConnectedToMaster();
-        SetActivePanel(CustomScreen.name);
+        SetActivePanel(lobbyScreen.name);
     }   
 
     public void CreateCustomRoom()              // Create Room with properties by using User Inputs.
@@ -120,10 +120,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     private void PlayerListText() // Print Connected Players in the Room. 
     {
+        int playerCount = 0;
         playerList.text = "";
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            playerList.text += p.NickName + "- \n";
+            playerCount ++;
+            playerList.text += playerCount + p.NickName + "- \n";
             Debug.Log("hello");
         }
     }
@@ -138,7 +140,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     
     public void PlayerReady()   // Player Ready Status 
-    {
+    {   
         isReady = !isReady;
     }
 
@@ -175,7 +177,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Odaya Girildi.");     
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(-13.95f, 45.26671f, -22.24386f), Quaternion.identity);      
+        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(0, 10,0), Quaternion.identity);      
        
     }
     public override void OnDisconnected(DisconnectCause cause)
@@ -214,7 +216,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-
+        /*
         foreach (Transform trans in roomListContent)
         {
             Destroy(trans.gameObject);
@@ -225,9 +227,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
             Debug.Log("lisstt");
             Instantiate(roomListItemPrefab,roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
             
-        }
+        }*/
         
     }
+
+
+    
 
 
    

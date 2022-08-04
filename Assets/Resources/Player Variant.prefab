@@ -7,18 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -6363907467223871725, guid: 09a030a97928673438d2d9caf46d856b, type: 3}
-      propertyPath: joystick
+    - target: {fileID: -8061771006227598751, guid: 09a030a97928673438d2d9caf46d856b, type: 3}
+      propertyPath: TriangleShape
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 821236625, guid: 09a030a97928673438d2d9caf46d856b, type: 3}
-      propertyPath: touchField
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1999495984, guid: 09a030a97928673438d2d9caf46d856b, type: 3}
-      propertyPath: sceneViewId
-      value: 0
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 919132149155446097, guid: d8d3421cff82fd547a682d993c2c5d65, type: 3}
     - target: {fileID: 8246613559125477280, guid: 09a030a97928673438d2d9caf46d856b, type: 3}
       propertyPath: m_RootOrder
       value: 0

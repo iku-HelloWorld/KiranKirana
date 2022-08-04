@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyPlayer : MonoBehaviour
+
+public class MyPlayer : MonoBehaviourPunCallbacks
 {
     
     [SerializeField] AudioClip walkingSound;
+    Hashtable props;
+    
 
 
     public bool enableMobileInputs = false;
@@ -35,6 +38,16 @@ public class MyPlayer : MonoBehaviour
         pw = GetComponent<PhotonView>();
 
         joystick = FindObjectOfType<DynamicJoystick>();
+
+
+
+    props = new Hashtable
+    {
+        {"status", false}
+
+    };
+
+    PhotonNetwork.LocalPlayer.SetCustomProperties
 
     }
 
