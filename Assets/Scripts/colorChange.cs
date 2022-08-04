@@ -9,11 +9,9 @@ public class colorChange : MonoBehaviour
 
     bool answered = true;
 
-
-
     void Start()
     {
-
+        Destroy(GetComponent<HingeJoint>()); //else 'in iÃ§ine yerleÅŸtirilecek
     }
 
     // Update is called once per frame
@@ -30,11 +28,12 @@ public class colorChange : MonoBehaviour
         if ((other.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (other.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
         {
 
-            Debug.Log("Cevap doðru");
+            Debug.Log("Cevap dogru");
 
         }
         else
         {
+            /*Destroy(GetComponent<HingeJoint>());*/
             /*transform.GetChild(0).GetComponent<Light>().color = Color.red*/
             ;
         }
@@ -50,7 +49,7 @@ public class colorChange : MonoBehaviour
     //    if ((collision.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (collision.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
     //    {
 
-    //        Debug.Log("Cevap doðru");
+    //        Debug.Log("Cevap doï¿½ru");
 
     //    }
     //    else
