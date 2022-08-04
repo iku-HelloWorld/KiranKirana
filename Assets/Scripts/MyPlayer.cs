@@ -47,7 +47,7 @@ public class MyPlayer : MonoBehaviourPunCallbacks
 
     };
 
-    PhotonNetwork.LocalPlayer.SetCustomProperties
+    //PhotonNetwork.LocalPlayer.SetCustomProperties();
 
     }
 
