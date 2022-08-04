@@ -39,23 +39,29 @@ public class CameraMovement : MonoBehaviour
 
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach(GameObject player in players)
+        foreach (GameObject player in players)
         {
-            if(PhotonView.Get(player).IsMine)
+            if (player.GetComponent<PhotonView>().IsMine)
             {
-                target = transform.Find("CameraTarget").transform;
-                
+                target = gameObject.transform.GetChild(0).GetComponent<Transform>();
+
                 break;
             }
         }
 
-         
+
+
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        HandleTouchMovement();
+        
+
+        if (pw.IsMine)
+        {
+            HandleTouchMovement();
+        }
 
     }
 
