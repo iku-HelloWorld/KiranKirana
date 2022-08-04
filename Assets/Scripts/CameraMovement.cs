@@ -10,7 +10,7 @@ public class CameraMovement : MonoBehaviour
     public float Xaxis;
     public float RotationSensivity = 5f;
 
-    float smoothTime = 0.12f;
+    
     float RotationMin = -40f;
     float RotationMax = 60f;
 
