@@ -80,7 +80,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
    public void CreateRoom()                  // Method For User Input Button
     {
         OnConnectedToMaster();
-        SetActivePanel(lobbyScreen.name);
+        SetActivePanel(CustomScreen.name);
     }   
 
     public void CreateCustomRoom()              // Create Room with properties by using User Inputs.
