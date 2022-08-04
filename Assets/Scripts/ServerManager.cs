@@ -35,7 +35,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] Canvas cnvas;
 
     //***********************************
-   
+    [SerializeField] GameObject buttonText;
 
 
     [SerializeField] Transform roomListContent;
@@ -123,7 +123,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     
    public void CreateRoom()                  // Method For User Input Button
     {
-        
+        OnConnectedToMaster();
         SetActivePanel(CustomScreen.name);
     }   
 
@@ -139,10 +139,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
             
         }
         PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
-
         OnConnectedToMaster();
-       // SetActivePanel(lobbyScreen.name);
-       // SetActivePanel(joinRoomScreen.name);
+        SetActivePanel(lobbyScreen.name);
     }
 
     
@@ -203,10 +201,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
 
 
-    public void LeaveRoom()
-    {
-        PhotonNetwork.LeaveRoom();
-    }
+
    
     // Override Methods
 
@@ -262,7 +257,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         Debug.Log("The room could not be created." + message + " - " + returnCode);
     }
 
-    
+
 
     
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -275,7 +270,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
         for (int i = 0; i < roomList.Count; i++)
         {
-            Debug.Log("oda sayısı = " + roomList.Count);
+            Debug.Log("lisstt");
             Instantiate(roomListItemPrefab,roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
             
         }
