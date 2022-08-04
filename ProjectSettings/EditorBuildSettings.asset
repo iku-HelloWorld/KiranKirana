@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/HarununSahnesiTest.unity
+    guid: 35ce4cf29ca990d4da95cb2bb7f6319c
   m_configObjects: {}

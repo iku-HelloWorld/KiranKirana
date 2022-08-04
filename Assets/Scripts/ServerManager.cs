@@ -176,7 +176,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
 
 
-     public override void OnRoomListUpdate(List<RoomInfo> roomList)
+   /*  public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
 
         foreach (Transform trans in roomListContent)
@@ -190,7 +190,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
             
         }
         
-    }
+    }*/
 
 
    

@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSound: {fileID: 8300000, guid: b241b2e6b91f14e4ca501459237e655f, type: 3}
-  enableMobileInputs: 0
+  enableMobileInputs: 1
   moveSpeed: 10.56
   smoothRotationTime: 0.25
   joystick: {fileID: 2545916447836612198, guid: 45ca3c10e5c181045a211baca1a7b2f4, type: 3}

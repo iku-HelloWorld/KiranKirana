@@ -2887,6 +2887,8 @@ MonoBehaviour:
   customJoinRoomName: {fileID: 103509319}
   cnvas: {fileID: 499642269}
   buttonText: {fileID: 0}
+  roomListContent: {fileID: 0}
+  roomListItemPrefab: {fileID: 0}
 --- !u!4 &795760431
 Transform:
   m_ObjectHideFlags: 0
