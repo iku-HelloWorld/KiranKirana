@@ -8,16 +8,19 @@ using TMPro;
 public class RoomListItem : MonoBehaviour
 {
     [SerializeField] TMP_Text text;
-    RoomInfo info1;
+    RoomInfo info;
 
-    public void  SetUp(RoomInfo info)
+    public void  SetUp(RoomInfo info1)
     {
-        info1 = info;
-        text.text = info.Name;
+        info = info1;
+        text.text = info1.Name;
     }
 
     public void OnClick()
     {
+
+        ServerManager.instance.JoinListRoom(info);
+        
 
     }
 

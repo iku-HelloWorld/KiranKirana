@@ -5,10 +5,12 @@ using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+using Photon.Pun.Demo.PunBasics;
 
 public class ServerManager : MonoBehaviourPunCallbacks
 {
-     
+    public static ServerManager instance;
+
     [SerializeField] GameObject loginScreen;
     [SerializeField] GameObject lobbyScreen;
     [SerializeField] GameObject CreateOrJoinScreen;             // Panels
@@ -41,6 +43,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
        // buttonText = this.gameObject.transform.GetChild(0).gameObject;
        
+    }
+
+     void Awake() {
+        instance = this;    
     }
 
     void Update()
@@ -111,6 +117,14 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
     }
 
+
+    public void JoinListRoom(RoomInfo info) 
+    {
+        PhotonNetwork.JoinRoom(info.Name);
+        cnvas.enabled = false;
+
+    }
+
     
     public void PlayerReady()   // Player Ready Status 
     {
@@ -127,8 +141,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
 
+
+
    
     // Override Methods
+
 
     public override void OnJoinedLobby()
     {
@@ -175,8 +192,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
 
 
-
-     public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
 
         foreach (Transform trans in roomListContent)
@@ -186,6 +203,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
         for (int i = 0; i < roomList.Count; i++)
         {
+            Debug.Log("lisstt");
             Instantiate(roomListItemPrefab,roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
             
         }
