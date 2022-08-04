@@ -174,7 +174,7 @@ MonoBehaviour:
   enableMobileInputs: 1
   moveSpeed: 10.56
   smoothRotationTime: 0.25
-  joystick: {fileID: 2545916447836612198, guid: 45ca3c10e5c181045a211baca1a7b2f4, type: 3}
+  joystick: {fileID: 5905113531011471052, guid: 8e41756ef8240af4da00f4adc96d1674, type: 3}
 --- !u!114 &1999495984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +354,7 @@ MonoBehaviour:
   Yaxis: 0
   Xaxis: 0
   RotationSensivity: 5
-  touchField: {fileID: 8430816135099533334, guid: df5a5d3bc62570e41b0aba968695400d, type: 3}
+  touchField: {fileID: 2091563132493769623, guid: 16725c9dc07b1ad4981b35e62288d1c4, type: 3}
 --- !u!114 &7714369186727739150
 MonoBehaviour:
   m_ObjectHideFlags: 0

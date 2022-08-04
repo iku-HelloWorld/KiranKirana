@@ -21,12 +21,14 @@ public class CameraMovement : MonoBehaviour
     
 
     
-    public FixedTouchField touchField;
+    FixedTouchField touchField;
  
     bool enableMobileInputs;
 
     private void Start()
     {
+        touchField = FindObjectOfType<FixedTouchField>();
+
         enableMobileInputs = GetComponent<MyPlayer>().enableMobileInputs;
         
 

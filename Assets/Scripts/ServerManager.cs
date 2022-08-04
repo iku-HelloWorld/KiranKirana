@@ -139,7 +139,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Odaya Girildi.");     
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(0, 10,0), Quaternion.identity);      
+        GameObject oyuncu = PhotonNetwork.Instantiate("Player Variant", new Vector3(0, 10,0), Quaternion.identity);      
        
     }
     public override void OnDisconnected(DisconnectCause cause)
