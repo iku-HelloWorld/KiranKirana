@@ -29,6 +29,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     //***********************************
     [SerializeField] GameObject buttonText;
+
+
     [SerializeField] Transform roomListContent;
     [SerializeField] GameObject roomListItemPrefab;
 
@@ -137,7 +139,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Odaya Girildi.");     
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);      
+        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(0, 10,0), Quaternion.identity);      
        
     }
     public override void OnDisconnected(DisconnectCause cause)
@@ -170,8 +172,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
     }
-/*
-     public override void OnRoomListUpdate(List<RoomInfo> roomList)
+
+
+
+
+   /*  public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
 
         foreach (Transform trans in roomListContent)
@@ -185,8 +190,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
             
         }
         
-    }
-*/
+    }*/
+
 
    
 
