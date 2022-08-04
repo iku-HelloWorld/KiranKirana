@@ -83,7 +83,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public void CreateCustomRoom()              // Create Room with properties by using User Inputs.
     {
         PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
-        SetActivePanel(lobbyScreen.name);
+        
+        //SetActivePanel(lobbyScreen.name);
     }
 
     
