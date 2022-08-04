@@ -47,18 +47,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
         inputCanvas.enabled = false;
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
-                                                         
-
-
-
-        props = new ExitGames.Client.Photon.Hashtable
-        {
-            {"status", false}
-
-       };
-
-        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-
+       // buttonText = this.gameObject.transform.GetChild(0).gameObject;
+       
     }
 
      void Awake() {
@@ -67,8 +57,15 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void Update()
     {     
-            PlayerListText();               // bunu Update den çıkarmanın yolunu bul                             
-   
+            PlayerListText();               // bunu Update den çıkarmanın yolunu bul                              
+
+      props = new ExitGames.Client.Photon.Hashtable
+        {
+            {"status", false}
+
+       };
+
+       PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 
     }
 
@@ -77,18 +74,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         props.TryGetValue("status", out object playerStatus);
         props["status"] = !(bool)playerStatus;
-
-        if ((bool)playerStatus)
-        {
-          //  props["status"] = false;
-            Debug.Log("oyuncu hazır");
-        }
-        else
-        {
-          //  props["status"] = true;
-            Debug.Log("hazxır değil");
-        }
-        /*PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 
         
         if((bool)props["status"])
@@ -97,7 +83,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
         else{
             Debug.Log(PhotonNetwork.LocalPlayer.NickName + "false");
-        }*/
+        }
     }
 
     //Player Input Methods
