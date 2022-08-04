@@ -1896,6 +1896,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3909793335455678775, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1054.8308
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909793335455678775, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -618.3718
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909793335455678775, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 527.4156
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909793335455678775, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -309.18585
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
 --- !u!1 &354363510
@@ -5467,6 +5483,10 @@ PrefabInstance:
     - target: {fileID: 6293574288813460687, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_Name
       value: quizCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293574288813460687, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6293574289768410326, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_AnchoredPosition.y
