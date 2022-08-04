@@ -170,9 +170,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
     }
-
+/*
      public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+
         foreach (Transform trans in roomListContent)
         {
             Destroy(trans.gameObject);
@@ -185,7 +186,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
         
     }
-
+*/
 
    
 
