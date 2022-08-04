@@ -2784,6 +2784,7 @@ MonoBehaviour:
   CreateOrJoinScreen: {fileID: 848856107}
   joinRoomScreen: {fileID: 155143975}
   CustomScreen: {fileID: 169740462}
+  inputCanvas: {fileID: 1101410679}
   playerList: {fileID: 468253711}
   nicknameText: {fileID: 1086870845}
   customRoomName: {fileID: 908255677}
@@ -5032,8 +5033,6 @@ MonoBehaviour:
   waitingText: {fileID: 0}
   rightA: 0
   rightB: 0
-  A: {fileID: 1605226657}
-  B: {fileID: 1465287569}
   questionTimer: 5
   answeringTimer: 3
   goTime: 5
@@ -5837,11 +5836,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1450946473}
   m_CullTransparentMesh: 1
---- !u!1 &1465287569 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
-  m_PrefabInstance: {fileID: 600332143}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1557061574
 GameObject:
   m_ObjectHideFlags: 0
@@ -5964,11 +5958,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557061574}
   m_CullTransparentMesh: 1
---- !u!1 &1605226657 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
-  m_PrefabInstance: {fileID: 885920266}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1619325889 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}

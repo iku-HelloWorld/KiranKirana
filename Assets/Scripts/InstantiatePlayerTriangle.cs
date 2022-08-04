@@ -21,7 +21,9 @@ public class InstantiatePlayerTriangle : MonoBehaviour
     private void LateUpdate()
     {
 
-        triangle.transform.position = transform.position + Vector3.up * 3;
+        triangle.transform.position = transform.position + Vector3.up * 5.5f;
+        triangle.transform.rotation = Quaternion.Euler(0, 0, 180);
+        triangle.transform.localScale = new Vector3(0.05f, 0.2f, 0.05f);
 
     }
 

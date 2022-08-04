@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: -8061771006227598751, guid: 09a030a97928673438d2d9caf46d856b, type: 3}
       propertyPath: TriangleShape
       value: 
-      objectReference: {fileID: 8594191033476672181, guid: e25b82f0422365546972e125dd209111, type: 3}
+      objectReference: {fileID: 919132149155446097, guid: d8d3421cff82fd547a682d993c2c5d65, type: 3}
     - target: {fileID: 8246613559125477280, guid: 09a030a97928673438d2d9caf46d856b, type: 3}
       propertyPath: m_RootOrder
       value: 0
