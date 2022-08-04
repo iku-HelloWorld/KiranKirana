@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        List<Quizquestion> quizquestions = ListOluþtur();
+        List<Quizquestion> quizquestions = ListOlustur();
 
         CheckOption(quizquestions);
         WaitingQuestion();
@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private List<Quizquestion> ListOluþtur()
+    private List<Quizquestion> ListOlustur()
     {
         List<Quizquestion> quizquestions = new List<Quizquestion>();
         quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
