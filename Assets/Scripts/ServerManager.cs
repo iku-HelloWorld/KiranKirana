@@ -6,10 +6,13 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using Photon.Pun.Demo.PunBasics;
+using ExitGames.Client.Photon;
 
 public class ServerManager : MonoBehaviourPunCallbacks
 {
     public static ServerManager instance;
+
+    ExitGames.Client.Photon.Hashtable props;
 
     [SerializeField] GameObject loginScreen;
     [SerializeField] GameObject lobbyScreen;
@@ -17,6 +20,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject joinRoomScreen;
     [SerializeField] GameObject CustomScreen;
     [SerializeField] Canvas inputCanvas;
+    
 
 
 
@@ -54,6 +58,32 @@ public class ServerManager : MonoBehaviourPunCallbacks
     void Update()
     {     
             PlayerListText();               // bunu Update den çıkarmanın yolunu bul                              
+
+      props = new ExitGames.Client.Photon.Hashtable
+        {
+            {"status", false}
+
+       };
+
+       PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+    }
+
+
+    public void Status()
+    {
+        props.TryGetValue("status", out object playerStatus);
+        props["status"] = !(bool)playerStatus;
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        
+        if((bool)props["status"])
+        {
+            Debug.Log(PhotonNetwork.LocalPlayer.NickName + "true adadsdada");
+        }
+        else{
+            Debug.Log(PhotonNetwork.LocalPlayer.NickName + "false");
+        }
     }
 
     //Player Input Methods
@@ -83,6 +113,9 @@ public class ServerManager : MonoBehaviourPunCallbacks
         SetActivePanel(CustomScreen.name);
     }   
 
+
+
+
     public void CreateCustomRoom()              // Create Room with properties by using User Inputs.
     {
         if(string.IsNullOrEmpty(customRoomName.text))
@@ -111,7 +144,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         OnConnectedToMaster();
         PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
-        cnvas.enabled = false;
+       SetActivePanel(lobbyScreen.name);
         inputCanvas.enabled = true;
         
     }
@@ -120,12 +153,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     private void PlayerListText() // Print Connected Players in the Room. 
     {
-        int playerCount = 0;
+        
         playerList.text = "";
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            playerCount ++;
-            playerList.text += playerCount + p.NickName + "- \n";
+            playerList.text += PhotonNetwork.CountOfPlayersInRooms + p.NickName + "- \n";
             Debug.Log("hello");
         }
     }
@@ -216,7 +248,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        /*
+        
         foreach (Transform trans in roomListContent)
         {
             Destroy(trans.gameObject);
@@ -227,7 +259,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
             Debug.Log("lisstt");
             Instantiate(roomListItemPrefab,roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
             
-        }*/
+        }
+
         
     }
 
