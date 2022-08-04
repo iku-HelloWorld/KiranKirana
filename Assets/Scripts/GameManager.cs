@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject waitingPanel;
     public TextMeshProUGUI waitingText;
+
     
     //public GameObject barrier;
 
@@ -26,8 +27,7 @@ public class GameManager : MonoBehaviour
 
     private Collider[] barrierColliders;
 
-    public GameObject A;
-    public GameObject B;
+    
 
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
@@ -57,44 +57,29 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-            List<Quizquestion> quizquestions = new List<Quizquestion>();
-            quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
-            quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
-        quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru","A"));
+        List<Quizquestion> quizquestions = ListOluþtur();
 
-        question.text = quizquestions[questionindex].question;
-        option1.text = quizquestions[questionindex].option1;
-        option2.text= quizquestions[questionindex].option2;
+        CheckOption(quizquestions);
+        WaitingQuestion();
 
+        QuestionPhase();
 
+        answer();
 
-        if (quizquestions[questionindex].trueOption == "A")
+    }
+
+    private void answer()
+    {
+        if (questionTimer <= 0)
         {
-            rightA = true;
+
+            answeringPhase();
         }
+    }
 
-        if (quizquestions[questionindex].trueOption == "B")
-        {
-            rightB = true;
-        }
-
-
-        if (goTimeBool)
-        {
-            goTime -= Time.deltaTime;
-            waitingPanel.SetActive(true);
-            waitingText.text= "Lütfen soru alanýna ilerleyiniz kalan süre" + (int)goTime;
-
-            if (goTime <= 0)
-            {
-                goTimeBool = false;
-            }
-        }
-
-        
-
-
-        if (questionTimerBool&&goTimeBool==false)
+    private void QuestionPhase()
+    {
+        if (questionTimerBool && goTimeBool == false)
         {
             waitingPanel.SetActive(false);
             EnableCollider(barrierColliders, true);
@@ -104,17 +89,48 @@ public class GameManager : MonoBehaviour
             answeringTimer = 3.0f;
             questionTimer -= Time.deltaTime;
         }
-       
+    }
 
-        if (questionTimer <= 0)
+    private void WaitingQuestion()
+    {
+        if (goTimeBool)
         {
-            
-            answeringPhase();
+            goTime -= Time.deltaTime;
+            waitingPanel.SetActive(true);
+            waitingText.text = "Lütfen soru alanýna ilerleyiniz kalan süre " + (int)goTime;
+
+            if (goTime <= 0)
+            {
+                goTimeBool = false;
+            }
+        }
+    }
+
+    private void CheckOption(List<Quizquestion> quizquestions)
+    {
+        if (quizquestions[questionindex].trueOption == "A")
+        {
+            rightA = true;
         }
 
-        
-
+        if (quizquestions[questionindex].trueOption == "B")
+        {
+            rightB = true;
         }
+    }
+
+    private List<Quizquestion> ListOluþtur()
+    {
+        List<Quizquestion> quizquestions = new List<Quizquestion>();
+        quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
+        quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
+        quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru", "A"));
+
+        question.text = quizquestions[questionindex].question;
+        option1.text = quizquestions[questionindex].option1;
+        option2.text = quizquestions[questionindex].option2;
+        return quizquestions;
+    }
 
     private void answeringPhase()
     {
@@ -139,6 +155,7 @@ public class GameManager : MonoBehaviour
                 answeringTimerBool = false;
                 questionTimerBool = true;
                 questionindex++;
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
                 cevapSayac.SetActive(false);
             }
 

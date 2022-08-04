@@ -16,6 +16,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CreateOrJoinScreen;             // Panels
     [SerializeField] GameObject joinRoomScreen;
     [SerializeField] GameObject CustomScreen;
+    [SerializeField] Canvas inputCanvas;
 
 
 
@@ -39,6 +40,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        inputCanvas.enabled = false;
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
        // buttonText = this.gameObject.transform.GetChild(0).gameObject;
@@ -75,16 +77,23 @@ public class ServerManager : MonoBehaviourPunCallbacks
     #region Create Or join 
 
     
-    public void CreateRoom()                  // Method For User Input Button
+   public void CreateRoom()                  // Method For User Input Button
     {
+        OnConnectedToMaster();
         SetActivePanel(CustomScreen.name);
-    }    
+    }   
 
     public void CreateCustomRoom()              // Create Room with properties by using User Inputs.
     {
+        if(string.IsNullOrEmpty(customRoomName.text))
+        {
+                    OnConnectedToMaster();
+            return;
+            
+        }
         PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
-        
-        //SetActivePanel(lobbyScreen.name);
+        OnConnectedToMaster();
+        SetActivePanel(lobbyScreen.name);
     }
 
     
@@ -103,6 +112,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         OnConnectedToMaster();
         PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         cnvas.enabled = false;
+        inputCanvas.enabled = true;
         
     }
     
@@ -152,12 +162,20 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to Lobby");
         SetActivePanel(CreateOrJoinScreen.name);
+        //PhotonNetwork.CreateRoom("b", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        /*PhotonNetwork.CreateRoom("at", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom("ads", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom("dada", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom("customRoomName.text", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom("asdasd", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom("adadfafafa", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom("daafsafafas", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);*/
        
     }     
     public override void OnJoinedRoom()
     {
         Debug.Log("Odaya Girildi.");     
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(0, 10,0), Quaternion.identity);      
+        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(-13.95f, 45.26671f, -22.24386f), Quaternion.identity);      
        
     }
     public override void OnDisconnected(DisconnectCause cause)
