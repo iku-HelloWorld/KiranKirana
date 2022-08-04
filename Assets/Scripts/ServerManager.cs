@@ -26,7 +26,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField customJoinRoomName;     // Custom Room Name which User wants to join.
     private bool isReady = false;
     [SerializeField] Canvas cnvas;
+
+    //***********************************
     [SerializeField] GameObject buttonText;
+    [SerializeField] Transform roomListContent;
+    [SerializeField] GameObject roomListItemPrefab;
+
 
     void Start()
     {
@@ -51,6 +56,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
 
     }
+
+
+
+
+
+
+
 
     #region Create Or join 
 
@@ -97,16 +109,6 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
     }
 
-   
-
-
-    public void RoomButton()
-    {
-        PhotonNetwork.JoinRoom(this.gameObject.GetComponent<TextMeshProUGUI>().text);
-    }
-
-
-
     
     public void PlayerReady()   // Player Ready Status 
     {
@@ -135,7 +137,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Odaya Girildi.");     
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(1,10,1), Quaternion.identity);      
+        GameObject oyuncu = PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);      
        
     }
     public override void OnDisconnected(DisconnectCause cause)
@@ -168,6 +170,22 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
     }
+
+     public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        foreach (Transform trans in roomListContent)
+        {
+            Destroy(trans.gameObject);
+            
+        }
+        for (int i = 0; i < roomList.Count; i++)
+        {
+            Instantiate(roomListItemPrefab,roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+            
+        }
+        
+    }
+
 
    
 
