@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public GameObject cevapSayac;
 
     public GameObject questionPanel;
+
+    public GameObject waitingPanel;
+    public TextMeshProUGUI waitingText;
     
     //public GameObject barrier;
 
@@ -79,7 +82,8 @@ public class GameManager : MonoBehaviour
         if (goTimeBool)
         {
             goTime -= Time.deltaTime;
-            Debug.Log("Lütfen soru alanýna ilerleyiniz kalan süre" + (int)goTime);
+            waitingPanel.SetActive(true);
+            waitingText.text= "Lütfen soru alanýna ilerleyiniz kalan süre" + (int)goTime;
 
             if (goTime <= 0)
             {
@@ -92,6 +96,7 @@ public class GameManager : MonoBehaviour
 
         if (questionTimerBool&&goTimeBool==false)
         {
+            waitingPanel.SetActive(false);
             EnableCollider(barrierColliders, true);
             questionPanel.SetActive(true);
             soruSayac.SetActive(true);
@@ -127,6 +132,7 @@ public class GameManager : MonoBehaviour
             {
                 EnableCollider(barrierColliders, true);
                 questionPanel.SetActive(false);
+               
                 goTimeBool = true;
                 goTime = 5.0f;
                 questionTimer = 5.0f;
