@@ -1,13 +1,15 @@
 using Photon.Pun;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using ExitGames.Client.Photon;
 
-public class MyPlayer : MonoBehaviour
+
+public class MyPlayer : MonoBehaviourPunCallbacks
 {
     
     [SerializeField] AudioClip walkingSound;
-
     Hashtable props;
+    
 
 
     public bool enableMobileInputs = false;
@@ -39,29 +41,14 @@ public class MyPlayer : MonoBehaviour
 
 
 
-        props = new Hashtable
-        {
-            {"status", false}
-
-       };
-
-       PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-
-    }
-
-
-    public void Status()
+    props = new Hashtable
     {
-        props.TryGetValue("status", out object playerStatus);
-        props["status"] = !(bool)playerStatus;
-        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-        if((bool)props["status"])
-        {
-            Debug.Log(PhotonNetwork.LocalPlayer.NickName + "true adadsdada");
-        }
-        else{
-            Debug.Log("false");
-        }
+        {"status", false}
+
+    };
+
+    //PhotonNetwork.LocalPlayer.SetCustomProperties();
+
     }
 
     void Update()
