@@ -23,7 +23,7 @@ public class MyPlayer : MonoBehaviour
 
     Transform cameraTransform;
 
-    public DynamicJoystick joystick;
+    DynamicJoystick joystick;
 
     AudioSource aSource;
     PhotonView pw;
@@ -34,11 +34,13 @@ public class MyPlayer : MonoBehaviour
         aSource = GetComponent<AudioSource>();
         pw = GetComponent<PhotonView>();
 
+        joystick = FindObjectOfType<DynamicJoystick>();
+
     }
 
     void Update()
     {
-
+        Debug.Log(pw.IsMine);
 
         if (pw.IsMine)
         {
@@ -48,7 +50,7 @@ public class MyPlayer : MonoBehaviour
             {
 
                 input = new Vector2(joystick.Horizontal, joystick.Vertical);
-
+                Debug.Log(input);
             }
             else
             {
@@ -63,6 +65,7 @@ public class MyPlayer : MonoBehaviour
             {
                 float rotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, rotation, ref currentVelocity, smoothRotationTime);
+                
 
             }
 
