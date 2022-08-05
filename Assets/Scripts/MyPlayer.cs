@@ -53,7 +53,7 @@ public class MyPlayer : MonoBehaviourPunCallbacks
 
     void Update()
     {
-        Debug.Log(pw.IsMine);
+//        Debug.Log(pw.IsMine);
 
         if (pw.IsMine)
         {
@@ -63,7 +63,7 @@ public class MyPlayer : MonoBehaviourPunCallbacks
             {
 
                 input = new Vector2(joystick.Horizontal, joystick.Vertical);
-                Debug.Log(input);
+//                Debug.Log(input);
             }
             else
             {
