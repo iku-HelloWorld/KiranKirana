@@ -110,19 +110,23 @@ public class GameManager : MonoBehaviour
     {
         if (quizquestions[questionindex].trueOption == "A")
         {
+            
             rightA = true;
+            rightB = false;
         }
 
-        if (quizquestions[questionindex].trueOption == "B")
+        else if (quizquestions[questionindex].trueOption == "B")
         {
             rightB = true;
+            rightA = false;
+            
         }
     }
 
     private List<Quizquestion> ListOlustur()
     {
         List<Quizquestion> quizquestions = new List<Quizquestion>();
-        quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "A"));
+        quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "B"));
         quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
         quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru", "A"));
 
