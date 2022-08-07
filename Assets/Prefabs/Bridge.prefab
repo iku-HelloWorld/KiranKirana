@@ -1,5 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1588251025286754023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6162299724570903816}
+  m_Layer: 0
+  m_Name: JointPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6162299724570903816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588251025286754023}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -5.615588, y: -2.4752274, z: 6.8920393}
+  m_LocalScale: {x: 1, y: 1, z: 1.2193071}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3522745021619241469}
+  - {fileID: 3522745021328322274}
+  - {fileID: 3522745021345749530}
+  - {fileID: 3522745021405099915}
+  m_Father: {fileID: 3522745021360635086}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3522745020283945917
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +50,6 @@ GameObject:
   - component: {fileID: 3522745020283945858}
   - component: {fileID: 3522745020283945859}
   - component: {fileID: 3522745020283945916}
-  - component: {fileID: 7143632892189346238}
   m_Layer: 0
   m_Name: Joint (4)
   m_TagString: Untagged
@@ -36,7 +70,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745020283945863
 MeshFilter:
@@ -190,18 +224,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7143632892189346238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745020283945917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3522745020399671769
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +257,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3522745020399671773
 MeshFilter:
@@ -348,7 +370,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3522745020501658863
 MeshRenderer:
@@ -436,7 +458,6 @@ GameObject:
   - component: {fileID: 3522745020544174334}
   - component: {fileID: 3522745020544174335}
   - component: {fileID: 3522745020544174328}
-  - component: {fileID: 6048611317980270948}
   m_Layer: 0
   m_Name: Joint (7)
   m_TagString: Untagged
@@ -457,7 +478,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745020544174275
 MeshFilter:
@@ -611,18 +632,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6048611317980270948
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745020544174329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3522745020553464014
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +665,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3522745020553464018
 MeshFilter:
@@ -752,7 +761,6 @@ GameObject:
   - component: {fileID: 3522745020563061672}
   - component: {fileID: 3522745020563061673}
   - component: {fileID: 3522745020563061674}
-  - component: {fileID: 7219417420406362345}
   m_Layer: 0
   m_Name: Joint (5)
   m_TagString: Untagged
@@ -773,7 +781,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745020563061677
 MeshFilter:
@@ -927,18 +935,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7219417420406362345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745020563061675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3522745020790256846
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +970,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745020790256848
 MeshFilter:
@@ -1161,7 +1157,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3522745020858797086
 MeshFilter:
@@ -1277,7 +1273,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745021298886338
 MeshFilter:
@@ -1446,7 +1442,6 @@ GameObject:
   - component: {fileID: 3522745021328322334}
   - component: {fileID: 3522745021328322335}
   - component: {fileID: 3522745021328322328}
-  - component: {fileID: 8403935404317463461}
   m_Layer: 0
   m_Name: Joint (3)
   m_TagString: Untagged
@@ -1461,13 +1456,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3522745021328322329}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.4, y: 0.12, z: -4.477}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -1.2155854, y: 2.5952263, z: 9.324163}
+  m_LocalScale: {x: 0.5000001, y: 0.41006902, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 6
+  m_Father: {fileID: 6162299724570903816}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745021328322275
 MeshFilter:
@@ -1561,7 +1556,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.44000003, y: 0.11999994, z: 0.53}
+  m_ConnectedAnchor: {x: -0.44000015, y: 0.11999893, z: 0.45151067}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1597,7 +1592,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.44000003, y: 0.11999994, z: -1}
+  m_ConnectedAnchor: {x: -0.44000015, y: 0.11999893, z: -0.9984894}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1621,18 +1616,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &8403935404317463461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745021328322329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3522745021345749521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,7 +1631,6 @@ GameObject:
   - component: {fileID: 3522745021345749526}
   - component: {fileID: 3522745021345749527}
   - component: {fileID: 3522745021345749520}
-  - component: {fileID: 5656757613508686750}
   m_Layer: 0
   m_Name: Joint (9)
   m_TagString: Untagged
@@ -1663,13 +1645,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3522745021345749521}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -4.4, y: 0.12, z: 4.38}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -1.215592, y: 2.5952263, z: 2.0602045}
+  m_LocalScale: {x: 0.5000001, y: 0.41006902, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 14
+  m_Father: {fileID: 6162299724570903816}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745021345749531
 MeshFilter:
@@ -1763,7 +1745,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.44000003, y: 0.11999994, z: 0.44000006}
+  m_ConnectedAnchor: {x: -0.43999955, y: 0.109998934, z: 0.44001102}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1799,7 +1781,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.44000003, y: 0.11999994, z: -1}
+  m_ConnectedAnchor: {x: -0.43999955, y: 0.11999893, z: -0.99998903}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1823,18 +1805,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &5656757613508686750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745021345749521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3522745021360635087
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1815,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3522745021360635086}
   - component: {fileID: 6223487348613959313}
+  - component: {fileID: 2536922917215522899}
   m_Layer: 0
   m_Name: Bridge
   m_TagString: Untagged
@@ -1864,13 +1835,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6162299724570903816}
   - {fileID: 3522745020501658861}
   - {fileID: 3522745021679922642}
   - {fileID: 3522745021298886337}
   - {fileID: 3522745020790256855}
   - {fileID: 3522745020553464017}
-  - {fileID: 3522745021619241469}
-  - {fileID: 3522745021328322274}
   - {fileID: 3522745022185426424}
   - {fileID: 3522745020283945862}
   - {fileID: 3522745020563061676}
@@ -1878,8 +1848,6 @@ Transform:
   - {fileID: 3522745020544174274}
   - {fileID: 3522745022234666206}
   - {fileID: 3522745020399671772}
-  - {fileID: 3522745021345749530}
-  - {fileID: 3522745021405099915}
   - {fileID: 3522745022219871210}
   - {fileID: 3522745022015934459}
   - {fileID: 3522745021852897028}
@@ -1898,6 +1866,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &2536922917215522899
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3522745021360635087}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10.008712, y: 1, z: 13.769806}
+  m_Center: {x: -0.008320331, y: 0, z: -0.0040001115}
 --- !u!1 &3522745021405099906
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,7 +1894,6 @@ GameObject:
   - component: {fileID: 3522745021405099911}
   - component: {fileID: 3522745021405099904}
   - component: {fileID: 3522745021405099905}
-  - component: {fileID: 6177475282316097941}
   m_Layer: 0
   m_Name: Joint (8)
   m_TagString: Untagged
@@ -1928,13 +1908,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3522745021405099906}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.4, y: 0.12, z: 4.38}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -10.015598, y: 2.5952263, z: 2.0602033}
+  m_LocalScale: {x: 0.5000001, y: 0.41006902, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 15
+  m_Father: {fileID: 6162299724570903816}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745021405099908
 MeshFilter:
@@ -2028,7 +2008,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.44000003, y: 0.11999994, z: 0.44000006}
+  m_ConnectedAnchor: {x: 0.44000068, y: 0.109998934, z: 0.44001102}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -2064,7 +2044,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.44000003, y: 0.11999994, z: -1}
+  m_ConnectedAnchor: {x: 0.44000068, y: 0.11999893, z: -0.99998903}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -2088,18 +2068,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6177475282316097941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745021405099906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3522745021619241460
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,7 +2083,6 @@ GameObject:
   - component: {fileID: 3522745021619241465}
   - component: {fileID: 3522745021619241466}
   - component: {fileID: 3522745021619241467}
-  - component: {fileID: 4210150266968803880}
   m_Layer: 0
   m_Name: Joint (2)
   m_TagString: Untagged
@@ -2130,13 +2097,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3522745021619241460}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.4, y: 0.12, z: -4.48}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.7071068, w: 0}
+  m_LocalPosition: {x: -10.015599, y: 2.5952263, z: 9.326634}
+  m_LocalScale: {x: 0.5000001, y: 0.41006902, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 5
+  m_Father: {fileID: 6162299724570903816}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745021619241470
 MeshFilter:
@@ -2230,7 +2197,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.44000003, y: 0.11999994, z: 0.53}
+  m_ConnectedAnchor: {x: 0.44000083, y: 0.11999893, z: 0.4500041}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -2266,7 +2233,7 @@ HingeJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.44000003, y: 0.11999994, z: -1}
+  m_ConnectedAnchor: {x: 0.44000083, y: 0.11999893, z: -0.99999595}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -2290,18 +2257,6 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &4210150266968803880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745021619241460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3522745021679922638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,7 +2290,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3522745021679922643
 MeshFilter:
@@ -2451,7 +2406,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 18
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745021852897029
 MeshFilter:
@@ -2640,7 +2595,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 17
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745022015934452
 MeshFilter:
@@ -2827,7 +2782,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3522745022185426425
 MeshFilter:
@@ -2940,7 +2895,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 16
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &3522745022219871204
 MeshRenderer:
@@ -3028,7 +2983,6 @@ GameObject:
   - component: {fileID: 3522745022234666202}
   - component: {fileID: 3522745022234666203}
   - component: {fileID: 3522745022234666196}
-  - component: {fileID: 617802247225954253}
   m_Layer: 0
   m_Name: Joint (6)
   m_TagString: Untagged
@@ -3049,7 +3003,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3522745021360635086}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &3522745022234666207
 MeshFilter:
@@ -3203,15 +3157,3 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &617802247225954253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3522745022234666197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

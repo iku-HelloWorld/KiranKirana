@@ -11,30 +11,42 @@ public class colorChange : MonoBehaviour
 
     void Start()
     {
-        Destroy(GetComponent<HingeJoint>()); //else 'in içine yerleştirilecek
+         
     }
 
     // Update is called once per frame
     void Update()
     {
-        trueA = FindObjectOfType<GameManager>().rightA;
-        Debug.Log(trueA);
+        trueA = FindObjectOfType<GameManager>().rightA;  
         trueB = FindObjectOfType<GameManager>().rightB;
+        if (trueA)
+        {
+            Debug.Log("A doğru");
+        }
+        if (trueB)
+        {
+            Debug.Log("B doğru");
+
+        }
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
+       
 
-        if ((other.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (other.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
+        if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A") ) || (other.gameObject.tag == "Player" &&( trueB && transform.gameObject.tag == "B")))
         {
 
-            Debug.Log("Cevap dogru");
 
+            Debug.Log("Cevap doğru");
         }
-        else
+        else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
         {
-            /*Destroy(GetComponent<HingeJoint>());*/
-            /*transform.GetChild(0).GetComponent<Light>().color = Color.red*/
+            Debug.Log("cevap yanlış");
+            transform.GetChild(0).gameObject.SetActive(false);
+
             ;
         }
 
