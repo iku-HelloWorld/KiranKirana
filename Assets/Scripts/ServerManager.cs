@@ -112,6 +112,29 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     }
 
+    public void Startscene()
+    {
+
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            
+            if(p.CustomProperties.ContainsKey("status") == false)
+            {
+                Debug.Log("hazır  olmayan oyuncular var");
+               return;
+            }
+        }
+
+        FindObjectOfType<GameManager>().enabled = true;
+        cnvas.enabled = false;
+        inputCanvas.enabled = true;
+
+
+
+
+
+
+    }
 
 
 
@@ -142,17 +165,17 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
     
-    public void JoinRoom()      // Method For User Input Button
+     void JoinRoom()      // Method For User Input Button
     {
         SetActivePanel(joinRoomScreen.name);
     }
     
-    public void JoinCustomRoom()        // Join Custom Room by using User Input
+     void JoinCustomRoom()        // Join Custom Room by using User Input
     {
         PhotonNetwork.JoinRoom(customJoinRoomName.text);       
         SetActivePanel(lobbyScreen.name);
     }
-    public void JoinRandomRoom()        // Join Random Room Method
+     void JoinRandomRoom()        // Join Random Room Method
     {
         OnConnectedToMaster();
         PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
@@ -185,6 +208,9 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
         }
     }
+
+
+
 
 
     public void JoinListRoom(RoomInfo info) 

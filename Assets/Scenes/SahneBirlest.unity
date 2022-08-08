@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4406,6 +4406,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 41752913, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 795760430}
+    - target: {fileID: 41752913, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Startscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007509687, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_text
+      value: 'Start
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 8883329133823063122, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4502,6 +4516,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 795760430}
+    - target: {fileID: 8883329134028018923, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8883329134513393322, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
