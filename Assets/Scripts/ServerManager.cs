@@ -88,17 +88,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
         
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 
-        if ((bool)playerStatus)
-        {
-          
-           
-        }
-        else
-        {
-          //  props["status"] = true;
-            
-        }
-        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+       
+       
     }
 
      void Awake() {
@@ -174,20 +165,24 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     private void PlayerListText() // Print Connected Players in the Room. 
     {
+       
         
         playerList.text = "";
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            if(p.CustomProperties.ContainsKey("status") == true)
+            
+            if(p.CustomProperties.ContainsKey("status") == false)
             {
-                    playerList.text +=  p.NickName + "-" + "     Hazır" +"\n";
+                Debug.Log("false");
+                    playerList.text +=  p.NickName + "-" + "     Hazır değil " +"\n"; 
             }
-            else
+            else if(p.CustomProperties.ContainsKey("status") == true)
             {
-                playerList.text +=  p.NickName + "-" + "     Hazır Değil" +"\n";
+                Debug.Log("true");
+                     playerList.text +=  p.NickName + "-" + "     Hazır " +"\n";      
             }
             
-            Debug.Log("hello");
+
         }
     }
 
