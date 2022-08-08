@@ -10,6 +10,7 @@ using Photon.Pun.Demo.PunBasics;
 public class ServerManager : MonoBehaviourPunCallbacks
 {
     public static ServerManager instance;
+    ExitGames.Client.Photon.Hashtable props;
 
     [SerializeField] GameObject loginScreen;
     [SerializeField] GameObject lobbyScreen;
@@ -45,6 +46,59 @@ public class ServerManager : MonoBehaviourPunCallbacks
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
        // buttonText = this.gameObject.transform.GetChild(0).gameObject;
        
+
+       props = new ExitGames.Client.Photon.Hashtable
+    {
+        {"status", false}       
+    };
+
+    }
+
+
+
+    public void IsRoomReady()
+    {   
+        foreach(Player  p in PhotonNetwork.PlayerList)
+        {
+            if(p.CustomProperties.ContainsKey("status") == true)
+            {
+                continue;
+            }
+            else{
+                Debug.Log("hazır olamyan oyuncular var");
+                return;
+            }
+
+
+        }
+
+        Debug.Log("herkes hazır");
+
+
+
+    }
+
+
+
+    public void Status()
+    {
+
+        props.TryGetValue("status", out object playerStatus);
+        props["status"] = !(bool)playerStatus;
+        
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        if ((bool)playerStatus)
+        {
+          
+           
+        }
+        else
+        {
+          //  props["status"] = true;
+            
+        }
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
     }
 
      void Awake() {
@@ -120,12 +174,19 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     private void PlayerListText() // Print Connected Players in the Room. 
     {
-        int playerCount = 0;
+        
         playerList.text = "";
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            playerCount ++;
-            playerList.text += playerCount + p.NickName + "- \n";
+            if(p.CustomProperties.ContainsKey("status") == true)
+            {
+                    playerList.text +=  p.NickName + "-" + "     Hazır" +"\n";
+            }
+            else
+            {
+                playerList.text +=  p.NickName + "-" + "     Hazır Değil" +"\n";
+            }
+            
             Debug.Log("hello");
         }
     }
@@ -164,6 +225,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to Lobby");
         SetActivePanel(CreateOrJoinScreen.name);
+        
         //PhotonNetwork.CreateRoom("b", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         /*PhotonNetwork.CreateRoom("at", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         PhotonNetwork.CreateRoom("ads", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);

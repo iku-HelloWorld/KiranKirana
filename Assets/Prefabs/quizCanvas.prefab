@@ -337,8 +337,6 @@ MonoBehaviour:
   waitingText: {fileID: 1537224108}
   rightA: 0
   rightB: 0
-  A: {fileID: 0}
-  B: {fileID: 0}
   questionTimer: 10
   answeringTimer: 5
   goTime: 5
