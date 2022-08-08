@@ -2,13 +2,14 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ExitGames.Client.Photon;
 
 
 public class MyPlayer : MonoBehaviourPunCallbacks
 {
     
     [SerializeField] AudioClip walkingSound;
-    Hashtable props;
+    ExitGames.Client.Photon.Hashtable props;
     
 
 
@@ -41,18 +42,41 @@ public class MyPlayer : MonoBehaviourPunCallbacks
 
 
 
-    props = new Hashtable
-    {
-        {"status", false}
-
-    };
-
-    //PhotonNetwork.LocalPlayer.SetCustomProperties();
+    
+    
 
     }
 
+
+
+
+
+     public void Status()
+    {
+
+        props.TryGetValue("status", out object playerStatus);
+        props["status"] = !(bool)playerStatus;
+        
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+
+        if ((bool)playerStatus)
+        {
+          //  props["status"] = false;
+            Debug.Log("oyuncu hazır");
+        }
+        else
+        {
+          //  props["status"] = true;
+            Debug.Log("hazır değil");
+        }
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+    }
+
+
+
     void Update()
     {
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 //        Debug.Log(pw.IsMine);
 
         if (pw.IsMine)
