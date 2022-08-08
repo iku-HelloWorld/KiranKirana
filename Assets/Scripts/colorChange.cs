@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class colorChange : MonoBehaviour
+
+public class colorChange : MonoBehaviourPunCallbacks
 {
+
+    PhotonView pw;
     bool trueA;
     bool trueB;
 
@@ -11,7 +15,7 @@ public class colorChange : MonoBehaviour
 
     void Start()
     {
-         
+        pw = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -34,9 +38,7 @@ public class colorChange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
-
-        if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A") ) || (other.gameObject.tag == "Player" &&( trueB && transform.gameObject.tag == "B")))
+        if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A")) || (other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "B")))
         {
 
 
@@ -45,11 +47,17 @@ public class colorChange : MonoBehaviour
         else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
         {
             Debug.Log("cevap yanlış");
-            transform.GetChild(0).gameObject.SetActive(false);
+            pw.RPC("GameMechanic", RpcTarget.All);
 
-            ;
         }
+       
 
+    }
+
+    [PunRPC]
+    void GameMechanic()
+    {
+        Destroy(gameObject);
     }
 
 
