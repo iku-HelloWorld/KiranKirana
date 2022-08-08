@@ -2663,6 +2663,10 @@ PrefabInstance:
       value: 164.26953
       objectReference: {fileID: 0}
     - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: questionTimer
       value: 3
       objectReference: {fileID: 0}
