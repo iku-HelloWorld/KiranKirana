@@ -12,17 +12,19 @@ public class colorChange : MonoBehaviourPunCallbacks
     bool trueB;
     bool answerReveal;
 
+
     bool answered = true;
-   [SerializeField] ParticleSystem confetti;
+    [SerializeField] ParticleSystem confetti;
     void Start()
     {
         pw = GetComponent<PhotonView>();
+        GetComponent<Animator>().SetBool("WrongAnswer", true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        trueA = FindObjectOfType<GameManager>().rightA;  
+        trueA = FindObjectOfType<GameManager>().rightA;
         trueB = FindObjectOfType<GameManager>().rightB;
         if (trueA)
         {
@@ -49,16 +51,17 @@ public class colorChange : MonoBehaviourPunCallbacks
             {
                 confetti.Play();
             }
-            
+
 
         }
         else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
         {
             Debug.Log("cevap yanlış");
+
             pw.RPC("GameMechanic", RpcTarget.All);
 
         }
-       
+
 
     }
 
