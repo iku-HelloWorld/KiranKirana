@@ -7,16 +7,16 @@ TerrainLayer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Stylized Sand
-  m_DiffuseTexture: {fileID: 2800000, guid: da7b2a01626e7224d92acb5c2e151193, type: 3}
+  m_DiffuseTexture: {fileID: 2800000, guid: d4b97a19c27bd4036add72f6e8d8ecb0, type: 3}
   m_NormalMapTexture: {fileID: 0}
   m_MaskMapTexture: {fileID: 0}
-  m_TileSize: {x: 50, y: 50}
+  m_TileSize: {x: 2000, y: 2000}
   m_TileOffset: {x: 0, y: 0}
   m_Specular: {r: 0.9811321, g: 0.9617446, b: 0.83766466, a: 1}
   m_Metallic: 0
   m_Smoothness: 0
   m_NormalScale: 1
   m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
-  m_DiffuseRemapMax: {x: 1, y: 1, z: 1, w: 1}
+  m_DiffuseRemapMax: {x: 0.5283019, y: 0.5283019, z: 0.5283019, w: 1}
   m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
   m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}
