@@ -40,7 +40,7 @@ public class CameraMovement : MonoBehaviour
         mainCamera.enabled = true;
 
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject player in players)
         {
             if (player.GetComponent<PhotonView>().IsMine)

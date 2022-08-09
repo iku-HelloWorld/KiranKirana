@@ -17,6 +17,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CreateOrJoinScreen;             // Panels
     [SerializeField] GameObject joinRoomScreen;
     [SerializeField] GameObject CustomScreen;
+    [SerializeField] Canvas spectateAndPlayAgain;
     [SerializeField] Canvas inputCanvas;
 
 
@@ -42,6 +43,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     void Start()
     {
         inputCanvas.enabled = false;
+        spectateAndPlayAgain.enabled = false;
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
        // buttonText = this.gameObject.transform.GetChild(0).gameObject;
