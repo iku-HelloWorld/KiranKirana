@@ -6856,6 +6856,10 @@ PrefabInstance:
       value: 45.18
       objectReference: {fileID: 0}
     - target: {fileID: 4405344730931815336, guid: 29680d224910ce046ba56d7df069612b, type: 3}
+      propertyPath: m_Name
+      value: brokenGlass
+      objectReference: {fileID: 0}
+    - target: {fileID: 4405344730931815336, guid: 29680d224910ce046ba56d7df069612b, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
