@@ -49,7 +49,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
        props = new ExitGames.Client.Photon.Hashtable
     {
-        {"status", false}       
+        {"status", true}       
     };
 
     }
@@ -82,11 +82,22 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     public void Status()
     {
-
         props.TryGetValue("status", out object playerStatus);
         props["status"] = !(bool)playerStatus;
         
+
+        if((bool)props["status"])
+        {
+            Debug.Log("oyuncu hazır");
+        }
+        else{
+            Debug.Log("Hazır değil");
+        }
+
+
+
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+       
 
        
        
@@ -118,13 +129,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             
-            if(p.CustomProperties.ContainsKey("status") == false)
+            if(p.CustomProperties.ContainsKey("status") == false || ! p.IsMasterClient)
             {
                 Debug.Log("hazır  olmayan oyuncular var");
                return;
             }
         }
-
+        Debug.Log("herkes hazır");
         FindObjectOfType<GameManager>().enabled = true;
         cnvas.enabled = false;
         inputCanvas.enabled = true;
@@ -196,7 +207,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
             if(p.CustomProperties.ContainsKey("status") == false)
             {
                 Debug.Log("false");
-                    playerList.text +=  p.NickName + "-" + "     Hazır değil " +"\n"; 
+                     playerList.text +=  p.NickName + "-" + "     Hazır değil " +"\n"; 
             }
             else if(p.CustomProperties.ContainsKey("status") == true)
             {
