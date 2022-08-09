@@ -19,18 +19,22 @@ public class GameManager : MonoBehaviour
     public GameObject waitingPanel;
     public TextMeshProUGUI waitingText;
 
-    
+    public GameObject answerPanel;
+    public TextMeshProUGUI answerText;
+
+    public GameObject waitingAreas;
     //public GameObject barrier;
 
     public bool rightA=false;
     public bool rightB = false;
-
+    public bool answerReveal;
     private Collider[] barrierColliders;
 
     
 
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
+    [SerializeField] float answerRevealTimer = 3.0f;
 
     [SerializeField] float goTime = 5.0f;
 
@@ -40,7 +44,7 @@ public class GameManager : MonoBehaviour
     
 
 
-    int questionindex = 0;
+   [SerializeField] int questionindex = 0;
   
 
     private void Start()
@@ -52,7 +56,7 @@ public class GameManager : MonoBehaviour
             barrierColliders[i] = barrier[i].GetComponent<Collider>();
         }
         goTimeBool = true;
-        questionPanel.SetActive(false);
+        SetActivePanel(questionPanel.name);
 
     }
     private void Update()
@@ -60,14 +64,34 @@ public class GameManager : MonoBehaviour
         List<Quizquestion> quizquestions = ListOlustur();
 
         CheckOption(quizquestions);
-        WaitingQuestion();
+       
 
         QuestionPhase();
 
         answer();
 
+        answerRevealPhase();
+        
     }
 
+    private void updatePosition()
+    {
+        FindObjectOfType<MyPlayer>().gameObject.transform.position=waitingAreas.gameObject.transform.GetChild(questionindex-1).position;
+    }
+
+    private void QuestionPhase()
+    {
+        if (questionTimerBool && answerReveal == false)
+        {
+            SetActivePanel(questionPanel.name);
+            EnableCollider(barrierColliders, true);
+
+            soruSayac.SetActive(true);
+            soruSayac.GetComponent<TextMeshProUGUI>().text = "Düþünme aþamasý kalan süre:" + (int)questionTimer;
+            answeringTimer = 3.0f;
+            questionTimer -= Time.deltaTime;
+        }
+    }
     private void answer()
     {
         if (questionTimer <= 0)
@@ -77,34 +101,79 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void QuestionPhase()
+    private void answeringPhase()
     {
-        if (questionTimerBool && goTimeBool == false)
-        {
-            waitingPanel.SetActive(false);
-            EnableCollider(barrierColliders, true);
-            questionPanel.SetActive(true);
-            soruSayac.SetActive(true);
-            soruSayac.GetComponent<TextMeshProUGUI>().text = "Düþünme aþamasý kalan süre:" + (int)questionTimer;
-            answeringTimer = 3.0f;
-            questionTimer -= Time.deltaTime;
-        }
-    }
+        EnableCollider(barrierColliders, false);
+        answeringTimerBool = true;
+        questionTimerBool = false;
 
-    private void WaitingQuestion()
-    {
-        if (goTimeBool)
+        soruSayac.SetActive(false);
+        if (answeringTimerBool)
         {
-            goTime -= Time.deltaTime;
-            waitingPanel.SetActive(true);
-            waitingText.text = "Lütfen soru alanýna ilerleyiniz kalan süre " + (int)goTime;
-
-            if (goTime <= 0)
+            answeringTimer -= Time.deltaTime;
+            cevapSayac.SetActive(true);
+            cevapSayac.GetComponent<TextMeshProUGUI>().text = "Cevaplamak için kalan süre" + (int)answeringTimer;
+            if (answeringTimer <= 0)
             {
-                goTimeBool = false;
+                answerReveal = true;
+                EnableCollider(barrierColliders, true);
+                questionTimer = 5.0f;
+                answeringTimerBool = false;
+                questionindex++;
+                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
+                
             }
+
+
         }
+
+
+
+
     }
+
+
+    private void answerRevealPhase()
+    {
+        if (answerReveal)
+        {
+            cevapSayac.SetActive(false);
+            SetActivePanel(answerPanel.name);
+            answerRevealTimer -= Time.deltaTime;
+
+           
+            if (answerRevealTimer <= 0)
+            {
+                questionTimerBool = true;
+                answerReveal = false;
+                answerRevealTimer = 3.0f;
+                updatePosition();
+            }
+
+
+
+        }
+            
+    }
+
+  
+
+   
+
+    //private void WaitingQuestion()
+    //{
+    //    if (goTimeBool)
+    //    {
+    //        goTime -= Time.deltaTime;
+    //        SetActivePanel(waitingPanel.name);
+    //        waitingText.text = "Lütfen soru alanýna ilerleyiniz kalan süre " + (int)goTime;
+
+    //        if (goTime <= 0)
+    //        {
+    //            goTimeBool = false;
+    //        }
+    //    }
+    //}
 
     private void CheckOption(List<Quizquestion> quizquestions)
     {
@@ -130,47 +199,20 @@ public class GameManager : MonoBehaviour
         quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
         quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru", "A"));
 
+        int questionIndextag = questionindex;
+
         question.text = quizquestions[questionindex].question;
+        answerText.text = "Doðru cevap: " + quizquestions[questionindex].trueOption;
         option1.text = quizquestions[questionindex].option1;
         option2.text = quizquestions[questionindex].option2;
+
+        
+
+
         return quizquestions;
     }
 
-    private void answeringPhase()
-    {
-        EnableCollider(barrierColliders, false);
-        answeringTimerBool = true;
-        questionTimerBool = false;
-       
-        soruSayac.SetActive(false);
-        if (answeringTimerBool)
-        {
-            answeringTimer -= Time.deltaTime;
-            cevapSayac.SetActive(true);
-            cevapSayac.GetComponent<TextMeshProUGUI>().text = "Cevaplamak için kalan süre" + (int)answeringTimer;
-            if (answeringTimer <= 0)
-            {
-                EnableCollider(barrierColliders, true);
-                questionPanel.SetActive(false);
-               
-                goTimeBool = true;
-                goTime = 5.0f;
-                questionTimer = 5.0f;
-                answeringTimerBool = false;
-                questionTimerBool = true;
-                questionindex++;
-                transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
-                cevapSayac.SetActive(false);
-            }
-
-
-        }
-        
-
-        
-
-    }
-
+   
     void EnableCollider(Collider[] cd, bool enable)
     {
         for (int i = 0; i < cd.Length; i++)
@@ -179,7 +221,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    public void SetActivePanel(string activePanel)      // Set Active Panel Method
+    {
+        questionPanel.SetActive(activePanel.Equals(questionPanel.name));
+        waitingPanel.SetActive(activePanel.Equals(waitingPanel.name));
+        answerPanel.SetActive(activePanel.Equals(answerPanel.name));
+        
+    }
 
 
 

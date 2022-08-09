@@ -1820,7 +1820,7 @@ GameObject:
   - component: {fileID: 7874045274500257543}
   m_Layer: 0
   m_Name: Bridge
-  m_TagString: A
+  m_TagString: B
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1869,6 +1869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  confetti: {fileID: 1444099997}
 --- !u!65 &2536922917215522899
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3256,6 +3257,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d250717616161ed4787cd9a008166d45, type: 3}
+--- !u!198 &1444099997 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7353207728487077839, guid: d250717616161ed4787cd9a008166d45, type: 3}
+  m_PrefabInstance: {fileID: 7353207727246680146}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1444099998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7353207728487077836, guid: d250717616161ed4787cd9a008166d45, type: 3}

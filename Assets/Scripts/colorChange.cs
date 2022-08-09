@@ -10,9 +10,10 @@ public class colorChange : MonoBehaviourPunCallbacks
     PhotonView pw;
     bool trueA;
     bool trueB;
+    bool answerReveal;
 
     bool answered = true;
-
+   [SerializeField] ParticleSystem confetti;
     void Start()
     {
         pw = GetComponent<PhotonView>();
@@ -34,6 +35,8 @@ public class colorChange : MonoBehaviourPunCallbacks
         }
 
 
+        answerReveal = FindObjectOfType<GameManager>().answerReveal;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,7 +45,12 @@ public class colorChange : MonoBehaviourPunCallbacks
         {
 
 
-            Debug.Log("Cevap doğru");
+            if (answerReveal)
+            {
+                confetti.Play();
+            }
+            
+
         }
         else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
         {
