@@ -11,7 +11,7 @@ public class colorChange : MonoBehaviourPunCallbacks
     bool trueA;
     bool trueB;
 
-    bool answered = true;
+    //bool answered = true;
 
     void Start()
     {
@@ -25,11 +25,11 @@ public class colorChange : MonoBehaviourPunCallbacks
         trueB = FindObjectOfType<GameManager>().rightB;
         if (trueA)
         {
-            Debug.Log("A doğru");
+            //Debug.Log("A doğru");
         }
         if (trueB)
         {
-            Debug.Log("B doğru");
+            //Debug.Log("B doğru");
 
         }
 

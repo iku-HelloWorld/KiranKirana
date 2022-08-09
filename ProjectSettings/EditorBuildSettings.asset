@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SahneBirlest.unity
-    guid: 5bcac61510f173042a46d2f583a17c27
+    path: Assets/Scenes/Deniz.unity
+    guid: 87392f0d8c5af4a43af0feeb24491058
   m_configObjects: {}
