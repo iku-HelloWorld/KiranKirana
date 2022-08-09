@@ -18,12 +18,15 @@ public class colorChange : MonoBehaviourPunCallbacks
     void Start()
     {
         pw = GetComponent<PhotonView>();
-        GetComponent<Animator>().SetBool("WrongAnswer", true);
+        GameObject.Find("brokenGlass").GetComponent<Animator>().SetBool("WrongAnswer", true);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+
         trueA = FindObjectOfType<GameManager>().rightA;
         trueB = FindObjectOfType<GameManager>().rightB;
         if (trueA)
