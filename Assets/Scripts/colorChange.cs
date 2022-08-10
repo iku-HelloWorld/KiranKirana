@@ -20,9 +20,9 @@ public class colorChange : MonoBehaviourPunCallbacks
     [SerializeField] ParticleSystem confetti;
     void Start()
     {
-        /* pw = GetComponent<PhotonView>();
-         solidGlass = GameObject.Find("solidGlass");
-         solidGlass.SetActive(true);*/
+        pw = GetComponent<PhotonView>();
+        /*solidGlass = GameObject.Find("solidGlass");
+        solidGlass.SetActive(false);*/
 
         brokenGlass = GameObject.Find("brokenGlass");
         brokenGlass.SetActive(true);
@@ -59,8 +59,8 @@ public class colorChange : MonoBehaviourPunCallbacks
 
 
             Debug.Log("Cevap doğru ");
-                confetti.Play();
-            
+            confetti.Play();
+
 
 
         }
