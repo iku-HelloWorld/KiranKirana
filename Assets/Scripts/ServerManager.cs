@@ -17,8 +17,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CreateOrJoinScreen;             // Panels
     [SerializeField] GameObject joinRoomScreen;
     [SerializeField] GameObject CustomScreen;
-    
     [SerializeField] Canvas inputCanvas;
+    [SerializeField] Canvas loseCanvas;
+
+
 
     [SerializeField] TextMeshProUGUI playerList; // Player List Text
 
@@ -40,8 +42,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        //loseCanvas.enabled = false;
         inputCanvas.enabled = false;
-       
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
        // buttonText = this.gameObject.transform.GetChild(0).gameObject;
