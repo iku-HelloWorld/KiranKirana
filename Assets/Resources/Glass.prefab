@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 2760434101683619093}
   - component: {fileID: 6539362698998535462}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: solidGlass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
