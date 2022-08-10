@@ -138,10 +138,11 @@ public class GameManager : MonoBehaviour
     {
         if (answerReveal)
         {
+            //enablescript(true);
             cevapSayac.SetActive(false);
             SetActivePanel(answerPanel.name);
             answerRevealTimer -= Time.deltaTime;
-            enablescript(true);
+            
 
             if (answerRevealTimer <= 0)
             {
@@ -150,7 +151,7 @@ public class GameManager : MonoBehaviour
                 answerReveal = false;
                 answerRevealTimer = 3.0f;
                 updatePosition();
-                enablescript(false);
+                // enablescript(false);
 
 
 
@@ -211,7 +212,7 @@ public class GameManager : MonoBehaviour
     {
         List<Quizquestion> quizquestions = new List<Quizquestion>();
         quizquestions.Add(new Quizquestion("Türkiyenin baþkenti neresidir", "Ýstanbul", "Ankara", "B"));
-        quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
+        quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "B"));
         quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru", "A"));
 
         
