@@ -277,6 +277,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &111774362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+  m_PrefabInstance: {fileID: 1348659947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &124430935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -940,6 +945,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5400000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
+--- !u!1 &503117679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+  m_PrefabInstance: {fileID: 2126490284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &521719929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -997,6 +1007,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83415dfb01e213342b4c2c14901e8e77, type: 3}
+--- !u!1 &569616305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+  m_PrefabInstance: {fileID: 890214076}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &602293585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,6 +2059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge
       objectReference: {fileID: 0}
+    - target: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+      propertyPath: m_TagString
+      value: A
+      objectReference: {fileID: 0}
     - target: {fileID: 6954973809045975874, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
       propertyPath: sceneViewId
       value: 4
@@ -2380,6 +2399,34 @@ PrefabInstance:
       propertyPath: waitingAreas
       value: 
       objectReference: {fileID: 484874099}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: answerRevealTimer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: bridges.Array.data[0]
+      value: 
+      objectReference: {fileID: 1520043417}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: bridges.Array.data[1]
+      value: 
+      objectReference: {fileID: 569616305}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: bridges.Array.data[2]
+      value: 
+      objectReference: {fileID: 1937229956}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: bridges.Array.data[3]
+      value: 
+      objectReference: {fileID: 2117710754}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: bridges.Array.data[4]
+      value: 
+      objectReference: {fileID: 111774362}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: bridges.Array.data[5]
+      value: 
+      objectReference: {fileID: 503117679}
     - target: {fileID: 6293574288813460675, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2769,6 +2816,7 @@ MonoBehaviour:
   answeringTimer: 3
   answerRevealTimer: 3
   goTime: 5
+  bridges: []
   questionindex: 0
 --- !u!1001 &1348659947
 PrefabInstance:
@@ -2828,6 +2876,10 @@ PrefabInstance:
     - target: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
       propertyPath: m_Name
       value: Bridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+      propertyPath: m_TagString
+      value: A
       objectReference: {fileID: 0}
     - target: {fileID: 6954973809045975874, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
       propertyPath: sceneViewId
@@ -2917,6 +2969,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1167855583655005506, guid: 83415dfb01e213342b4c2c14901e8e77, type: 3}
   m_PrefabInstance: {fileID: 10704691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1520043417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+  m_PrefabInstance: {fileID: 1670443787}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1619325889 stripped
 Transform:
@@ -3530,6 +3587,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912376512}
   m_CullTransparentMesh: 1
+--- !u!1 &1937229956 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+  m_PrefabInstance: {fileID: 1056216793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1963233922 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1963233922, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
@@ -3764,6 +3826,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063505138}
   m_CullTransparentMesh: 1
+--- !u!1 &2117710754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3522745021360635087, guid: 60617a8b2a1ae6d4abdd153c4e3cb412, type: 3}
+  m_PrefabInstance: {fileID: 917708921}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2126490284
 PrefabInstance:
   m_ObjectHideFlags: 0

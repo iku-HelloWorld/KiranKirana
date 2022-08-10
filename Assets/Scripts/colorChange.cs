@@ -58,10 +58,9 @@ public class colorChange : MonoBehaviourPunCallbacks
         {
 
 
-            if (answerReveal)
-            {
+            Debug.Log("Cevap doğru ");
                 confetti.Play();
-            }
+            
 
 
         }
