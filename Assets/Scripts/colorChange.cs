@@ -10,6 +10,8 @@ public class colorChange : MonoBehaviourPunCallbacks
     PhotonView pw;
     bool trueA;
     bool trueB;
+    bool trueAnswer;
+    bool falseAnswer;
     bool answerReveal;
 
     GameObject brokenGlass;
@@ -24,9 +26,9 @@ public class colorChange : MonoBehaviourPunCallbacks
         /*solidGlass = GameObject.Find("solidGlass");
         solidGlass.SetActive(false);*/
 
-        brokenGlass = GameObject.Find("brokenGlass");
-        brokenGlass.SetActive(true);
-        brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
+        //brokenGlass = GameObject.Find("brokenGlass");
+        //brokenGlass.SetActive(true);
+        //brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
     }
 
     // Update is called once per frame
@@ -47,32 +49,53 @@ public class colorChange : MonoBehaviourPunCallbacks
 
         }
 
+        
+
 
         answerReveal = FindObjectOfType<GameManager>().answerReveal;
 
-    }
+        if (answerReveal)
+        {
+            if (trueAnswer)
+            {
+                confetti.Play();
+            }
 
+            if (falseAnswer)
+            {
+                pw.RPC("GameMechanic", RpcTarget.All);
+            }
+
+        }
+
+    }
+   
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A")) || (other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "B")))
-        {
+
+        
+
+            if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A")) || (other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "B")))
+            {
+
+            trueAnswer = true;
+            falseAnswer = false;
+                Debug.Log("Cevap doğru ");
+             
 
 
-            Debug.Log("Cevap doğru ");
-            confetti.Play();
 
+            }
+            else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
+            {
+                Debug.Log("cevap yanlış");
+            falseAnswer = true;
+            trueAnswer = false;
+                
 
+            
 
         }
-        else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
-        {
-            Debug.Log("cevap yanlış");
-
-            pw.RPC("GameMechanic", RpcTarget.All);
-
-        }
-
-
     }
 
     [PunRPC]
