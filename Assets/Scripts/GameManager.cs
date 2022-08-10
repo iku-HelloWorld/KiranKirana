@@ -27,17 +27,18 @@ public class GameManager : MonoBehaviour
 
     public bool rightA=false;
     public bool rightB = false;
-    public bool answerReveal;
+     [SerializeField]public bool answerReveal;
     private Collider[] barrierColliders;
 
     
 
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
-    [SerializeField] float answerRevealTimer = 3.0f;
+    [SerializeField] float answerRevealTimer = 10.0f;
 
     [SerializeField] float goTime = 5.0f;
 
+    public GameObject[] bridges;
     private bool questionTimerBool = true;
     private bool answeringTimerBool = true;
     private bool goTimeBool;
@@ -119,7 +120,7 @@ public class GameManager : MonoBehaviour
                 EnableCollider(barrierColliders, true);
                 questionTimer = 5.0f;
                 answeringTimerBool = false;
-                questionindex++;
+                
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
                 
             }
@@ -140,25 +141,39 @@ public class GameManager : MonoBehaviour
             cevapSayac.SetActive(false);
             SetActivePanel(answerPanel.name);
             answerRevealTimer -= Time.deltaTime;
+            enablescript(true);
 
-           
             if (answerRevealTimer <= 0)
             {
+                questionindex++;
                 questionTimerBool = true;
                 answerReveal = false;
                 answerRevealTimer = 3.0f;
                 updatePosition();
+                enablescript(false);
+
+
+
+
             }
 
 
 
         }
-            
+
     }
 
-  
+    private void enablescript(bool enable)
+    {
+        foreach (GameObject bridges in bridges)
+        {
+            bridges.GetComponent<colorChange>().enabled = enable;
+        }
+    }
 
-   
+
+
+
 
     //private void WaitingQuestion()
     //{
@@ -199,7 +214,7 @@ public class GameManager : MonoBehaviour
         quizquestions.Add(new Quizquestion("Ýstanbul kaç yýlýnda fethedilmiþtir", "1453", "1456", "A"));
         quizquestions.Add(new Quizquestion("Özkan Harundan daha iyi cs oynar", "Doðru", "Doðru", "A"));
 
-        int questionIndextag = questionindex;
+        
 
         question.text = quizquestions[questionindex].question;
         answerText.text = "Doðru cevap: " + quizquestions[questionindex].trueOption;
