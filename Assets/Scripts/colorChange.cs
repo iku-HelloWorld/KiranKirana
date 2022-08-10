@@ -12,21 +12,13 @@ public class colorChange : MonoBehaviourPunCallbacks
     bool trueB;
     bool answerReveal;
 
-    GameObject brokenGlass;
-    GameObject solidGlass;
-
 
     bool answered = true;
     [SerializeField] ParticleSystem confetti;
     void Start()
     {
-        /* pw = GetComponent<PhotonView>();
-         solidGlass = GameObject.Find("solidGlass");
-         solidGlass.SetActive(true);*/
-
-        brokenGlass = GameObject.Find("brokenGlass");
-        brokenGlass.SetActive(true);
-        brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
+        pw = GetComponent<PhotonView>();
+        GameObject.Find("brokenGlass").GetComponent<Animator>().SetBool("WrongAnswer", true);
     }
 
     // Update is called once per frame
@@ -58,9 +50,10 @@ public class colorChange : MonoBehaviourPunCallbacks
         {
 
 
-            Debug.Log("Cevap doğru ");
+            if (answerReveal)
+            {
                 confetti.Play();
-            
+            }
 
 
         }
