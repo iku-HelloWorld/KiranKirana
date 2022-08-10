@@ -28,7 +28,6 @@ public class colorChange : MonoBehaviourPunCallbacks
 
         brokenGlass = GameObject.Find("brokenGlass");
         brokenGlass.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -49,7 +48,7 @@ public class colorChange : MonoBehaviourPunCallbacks
 
         }
 
-
+        
 
 
         answerReveal = FindObjectOfType<GameManager>().answerReveal;
@@ -69,31 +68,32 @@ public class colorChange : MonoBehaviourPunCallbacks
         }
 
     }
-
+   
     private void OnTriggerEnter(Collider other)
     {
 
+        
 
-
-        if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A")) || (other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "B")))
-        {
+            if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A")) || (other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "B")))
+            {
 
             trueAnswer = true;
             falseAnswer = false;
-            Debug.Log("Cevap doğru ");
+                Debug.Log("Cevap doğru ");
+             
 
 
 
-
-        }
-        else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
-        {
-            Debug.Log("cevap yanlış");
+            }
+            else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
+            {
+                Debug.Log("cevap yanlış");
             falseAnswer = true;
             trueAnswer = false;
 
+                
 
-
+            
 
         }
     }
