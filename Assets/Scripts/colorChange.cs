@@ -23,12 +23,11 @@ public class colorChange : MonoBehaviourPunCallbacks
     void Start()
     {
         pw = GetComponent<PhotonView>();
-        /*solidGlass = GameObject.Find("solidGlass");
-        solidGlass.SetActive(false);*/
+        solidGlass = GameObject.Find("solidGlass");
+        solidGlass.SetActive(true);
 
-        //brokenGlass = GameObject.Find("brokenGlass");
-        //brokenGlass.SetActive(true);
-        //brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
+        brokenGlass = GameObject.Find("brokenGlass");
+        brokenGlass.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,6 +90,7 @@ public class colorChange : MonoBehaviourPunCallbacks
                 Debug.Log("cevap yanlış");
             falseAnswer = true;
             trueAnswer = false;
+
                 
 
             
@@ -101,7 +101,9 @@ public class colorChange : MonoBehaviourPunCallbacks
     [PunRPC]
     void GameMechanic()
     {
-        Destroy(gameObject);
+        solidGlass.SetActive(false);
+        brokenGlass.SetActive(true);
+        brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
     }
 
 
