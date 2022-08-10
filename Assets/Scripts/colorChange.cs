@@ -37,6 +37,8 @@ public class colorChange : MonoBehaviourPunCallbacks
 
         answerReveal = FindObjectOfType<GameManager>().answerReveal;
 
+       
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,10 +47,9 @@ public class colorChange : MonoBehaviourPunCallbacks
         {
 
 
-            if (answerReveal)
-            {
+            Debug.Log("doğru cevap");
                 confetti.Play();
-            }
+            
             
 
         }
