@@ -36,10 +36,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
     [SerializeField] float answerRevealTimer = 10.0f;
-
     [SerializeField] float goTime = 5.0f;
 
-    public GameObject[] bridges;
+  
     private bool questionTimerBool = true;
     private bool answeringTimerBool = true;
     private bool goTimeBool;
@@ -83,7 +82,7 @@ public class GameManager : MonoBehaviour
 
     private void QuestionPhase()
     {
-        if (questionTimerBool && answerReveal == false)
+        if (questionTimerBool && answerReveal == false)  //questiontimerbool false olduðu için set active panel çalýþmayý býrakýyor.
         {
             SetActivePanel(questionPanel.name);
             EnableCollider(barrierColliders, true);
@@ -144,7 +143,7 @@ public class GameManager : MonoBehaviour
             SetActivePanel(answerPanel.name);
             answerRevealTimer -= Time.deltaTime;
 
-           
+
             //StartCoroutine(canvasCoroutine());
 
 
@@ -157,8 +156,8 @@ public class GameManager : MonoBehaviour
                 answerReveal = false;
                 answerRevealTimer = 3.0f;
                 updatePosition();
-                
 
+                transitionPanel.SetActive(false);
 
 
             }
@@ -237,12 +236,13 @@ public class GameManager : MonoBehaviour
         
     }
 
-    IEnumerator canvasCoroutine()
-    {
-        yield return new WaitForSeconds(1.0f);
-        transitionPanel.SetActive(true);
-        answerRevealTimer -= Time.deltaTime;
-    }
+    //IEnumerator canvasCoroutine()
+    //{
+    //    yield return new WaitForSeconds(1.0f);
+    //    transitionPanel.SetActive(true);
+    //    answerRevealTimer -= Time.deltaTime;
+    //    answerReveal = false;
+    //}
 
 }
 
