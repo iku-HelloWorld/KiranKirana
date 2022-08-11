@@ -21,13 +21,15 @@ public class GameManager : MonoBehaviour
 
     public GameObject answerPanel;
     public TextMeshProUGUI answerText;
+    public GameObject transitionPanel;
 
     public GameObject waitingAreas;
     //public GameObject barrier;
 
-    public bool rightA=false;
+    public bool rightA= false;
     public bool rightB = false;
-     [SerializeField]public bool answerReveal;
+    public bool transitionBool = false;
+    [SerializeField]public bool answerReveal;
     private Collider[] barrierColliders;
 
     
@@ -35,10 +37,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
     [SerializeField] float answerRevealTimer = 10.0f;
-
     [SerializeField] float goTime = 5.0f;
 
-    public GameObject[] bridges;
+  
     private bool questionTimerBool = true;
     private bool answeringTimerBool = true;
     private bool goTimeBool;
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
 
     private void QuestionPhase()
     {
-        if (questionTimerBool && answerReveal == false)
+        if (questionTimerBool && answerReveal == false)  //questiontimerbool false olduðu için set active panel çalýþmayý býrakýyor.
         {
             SetActivePanel(questionPanel.name);
             EnableCollider(barrierColliders, true);
@@ -136,24 +137,33 @@ public class GameManager : MonoBehaviour
 
     private void answerRevealPhase()
     {
-        if (answerReveal)
+        if (answerReveal&&transitionBool==false)
         {
-            //enablescript(true);
+            
             cevapSayac.SetActive(false);
             SetActivePanel(answerPanel.name);
             answerRevealTimer -= Time.deltaTime;
-            
+
+
+            if (0 < answerRevealTimer&&answerRevealTimer<=2)
+            {
+                transitionBool = true;
+                
+            }
+
 
             if (answerRevealTimer <= 0)
             {
+                //SetActivePanel(transitionPanel.name);
+                //transitionPanel.SetActive(false);
                 questionindex++;
                 questionTimerBool = true;
                 answerReveal = false;
-                answerRevealTimer = 3.0f;
+                answerRevealTimer = 4.0f;
                 updatePosition();
-                // enablescript(false);
+                transitionBool = false;
 
-
+                transitionPanel.SetActive(false);
 
 
             }
@@ -162,35 +172,31 @@ public class GameManager : MonoBehaviour
 
         }
 
-    }
-
-    private void enablescript(bool enable)
-    {
-        foreach (GameObject bridges in bridges)
+        if (transitionBool)
         {
-            bridges.GetComponent<colorChange>().enabled = enable;
+            transitionPanel.SetActive(true);
+            answerRevealTimer -= Time.deltaTime;
+            if (answerRevealTimer <= 0)
+            {
+                transitionBool = false;
+            }
         }
+
     }
 
-
-
-
-
-    //private void WaitingQuestion()
+    //private void enablescript(bool enable)
     //{
-    //    if (goTimeBool)
+    //    foreach (GameObject bridges in bridges)
     //    {
-    //        goTime -= Time.deltaTime;
-    //        SetActivePanel(waitingPanel.name);
-    //        waitingText.text = "Lütfen soru alanýna ilerleyiniz kalan süre " + (int)goTime;
-
-    //        if (goTime <= 0)
-    //        {
-    //            goTimeBool = false;
-    //        }
+    //        bridges.GetComponent<colorChange>().enabled = enable;
     //    }
     //}
 
+
+
+
+
+    
     private void CheckOption(List<Quizquestion> quizquestions)
     {
         if (quizquestions[questionindex].trueOption == "A")
@@ -242,20 +248,27 @@ public class GameManager : MonoBehaviour
         questionPanel.SetActive(activePanel.Equals(questionPanel.name));
         waitingPanel.SetActive(activePanel.Equals(waitingPanel.name));
         answerPanel.SetActive(activePanel.Equals(answerPanel.name));
+        transitionPanel.SetActive(activePanel.Equals(transitionPanel.name));
         
     }
 
-
+    //IEnumerator canvasCoroutine()
+    //{
+    //    yield return new WaitForSeconds(1.0f);
+    //    transitionPanel.SetActive(true);
+    //    answerRevealTimer -= Time.deltaTime;
+    //    answerReveal = false;
+    //}
 
 }
 
 
 
 
-    
 
 
-    
+
+
 
 
 
