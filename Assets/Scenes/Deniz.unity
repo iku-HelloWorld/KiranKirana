@@ -3179,6 +3179,7 @@ MonoBehaviour:
   answeringTimer: 3
   answerRevealTimer: 3
   goTime: 5
+  bridges: []
   questionindex: 0
 --- !u!1001 &1348659947
 PrefabInstance:
