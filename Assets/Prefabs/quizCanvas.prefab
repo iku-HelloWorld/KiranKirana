@@ -550,6 +550,7 @@ MonoBehaviour:
   waitingText: {fileID: 1537224108}
   answerPanel: {fileID: 1126673467}
   answerText: {fileID: 1263114995}
+  transitionPanel: {fileID: 0}
   waitingAreas: {fileID: 0}
   rightA: 0
   rightB: 0
@@ -558,13 +559,6 @@ MonoBehaviour:
   answeringTimer: 5
   answerRevealTimer: 3
   goTime: 5
-  bridges:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   questionindex: 0
 --- !u!1 &6293574289190488125
 GameObject:
