@@ -26,9 +26,10 @@ public class GameManager : MonoBehaviour
     public GameObject waitingAreas;
     //public GameObject barrier;
 
-    public bool rightA=false;
+    public bool rightA= false;
     public bool rightB = false;
-     [SerializeField]public bool answerReveal;
+    public bool transitionBool = false;
+    [SerializeField]public bool answerReveal;
     private Collider[] barrierColliders;
 
     
@@ -136,7 +137,7 @@ public class GameManager : MonoBehaviour
 
     private void answerRevealPhase()
     {
-        if (answerReveal)
+        if (answerReveal&&transitionBool==false)
         {
             
             cevapSayac.SetActive(false);
@@ -144,7 +145,11 @@ public class GameManager : MonoBehaviour
             answerRevealTimer -= Time.deltaTime;
 
 
-            //StartCoroutine(canvasCoroutine());
+            if (0 < answerRevealTimer&&answerRevealTimer<=2)
+            {
+                transitionBool = true;
+                
+            }
 
 
             if (answerRevealTimer <= 0)
@@ -156,6 +161,7 @@ public class GameManager : MonoBehaviour
                 answerReveal = false;
                 answerRevealTimer = 3.0f;
                 updatePosition();
+                transitionBool = false;
 
                 transitionPanel.SetActive(false);
 
@@ -164,6 +170,12 @@ public class GameManager : MonoBehaviour
 
 
 
+        }
+
+        if (transitionBool)
+        {
+            transitionPanel.SetActive(true);
+            answerRevealTimer -= Time.deltaTime;
         }
 
     }
