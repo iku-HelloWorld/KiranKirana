@@ -24,10 +24,15 @@ public class colorChange : MonoBehaviourPunCallbacks
     {
         pw = GetComponent<PhotonView>();
         //solidGlass = GameObject.Find("solidGlass");
-        //solidGlass.SetActive(true);
+        //solidGlass.SetActive(false);
 
         //brokenGlass = GameObject.Find("brokenGlass");
-        //brokenGlass.SetActive(false);
+        //brokenGlass.SetActive(true);
+
+        
+
+        transform.GetChild(0).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -58,18 +63,20 @@ public class colorChange : MonoBehaviourPunCallbacks
             if (trueAnswer)
             {
                 confetti.Play();
+                trueAnswer = false;
             }
 
             if (falseAnswer)
             {
                 pw.RPC("GameMechanic", RpcTarget.All);
+                falseAnswer = false;
             }
 
         }
 
     }
    
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
 
         
@@ -79,7 +86,7 @@ public class colorChange : MonoBehaviourPunCallbacks
 
             trueAnswer = true;
             falseAnswer = false;
-                Debug.Log("Cevap doğru ");
+            Debug.Log("Cevap doğru ");
              
 
 
@@ -103,9 +110,14 @@ public class colorChange : MonoBehaviourPunCallbacks
     {
         //solidGlass.SetActive(false);
         //brokenGlass.SetActive(true);
+
+        transform.GetChild(0).gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("WrongAnswer", true);
+        transform.gameObject.GetComponent<BoxCollider>().enabled = false;
         //brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
 
-        Destroy(gameObject);
+
     }
 
 

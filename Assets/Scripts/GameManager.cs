@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
                 questionindex++;
                 questionTimerBool = true;
                 answerReveal = false;
-                answerRevealTimer = 3.0f;
+                answerRevealTimer = 4.0f;
                 updatePosition();
                 transitionBool = false;
 
@@ -176,6 +176,10 @@ public class GameManager : MonoBehaviour
         {
             transitionPanel.SetActive(true);
             answerRevealTimer -= Time.deltaTime;
+            if (answerRevealTimer <= 0)
+            {
+                transitionBool = false;
+            }
         }
 
     }
