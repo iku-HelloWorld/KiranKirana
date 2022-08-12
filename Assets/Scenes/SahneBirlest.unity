@@ -3111,49 +3111,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 934247056108749648, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_Size.y
-      value: 0.6927986
-      objectReference: {fileID: 0}
-    - target: {fileID: 934247056108749648, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_Center.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 934247056108749648, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_Center.y
-      value: 0.05819893
-      objectReference: {fileID: 0}
     - target: {fileID: 934247056108749649, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
       propertyPath: sceneViewId
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2536573964511972089, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3290594368278021481, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
       propertyPath: m_Name
       value: Glass
       objectReference: {fileID: 0}
-    - target: {fileID: 4928036224640618187, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5703868828820591729, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5703868828820591729, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.23
-      objectReference: {fileID: 0}
-    - target: {fileID: 5703868828820591729, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3078232953821672604, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-    - {fileID: 6212547482555278511, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
 --- !u!1001 &1851818552
 PrefabInstance:
