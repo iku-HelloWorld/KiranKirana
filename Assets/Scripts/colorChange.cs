@@ -14,6 +14,10 @@ public class colorChange : MonoBehaviourPunCallbacks
     bool falseAnswer;
     bool answerReveal;
 
+    AudioSource audioSource;
+    [SerializeField]AudioClip glassBreak;
+    [SerializeField] AudioClip winSound;
+
     GameObject brokenGlass;
     GameObject solidGlass;
 
@@ -29,7 +33,7 @@ public class colorChange : MonoBehaviourPunCallbacks
         //brokenGlass = GameObject.Find("brokenGlass");
         //brokenGlass.SetActive(true);
 
-        
+        audioSource = transform.GetComponent<AudioSource>();
 
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(false);
@@ -62,8 +66,13 @@ public class colorChange : MonoBehaviourPunCallbacks
         {
             if (trueAnswer)
             {
-                confetti.Play();
-                trueAnswer = false;
+                if (pw.IsMine)
+                {
+                    confetti.Play();
+                    audioSource.PlayOneShot(winSound);
+                    trueAnswer = false;
+                }
+                
             }
 
             if (falseAnswer)
@@ -115,6 +124,7 @@ public class colorChange : MonoBehaviourPunCallbacks
         transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("WrongAnswer", true);
         transform.gameObject.GetComponent<BoxCollider>().enabled = false;
+        audioSource.PlayOneShot(glassBreak);
         //brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
 
 
