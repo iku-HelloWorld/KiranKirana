@@ -14,40 +14,57 @@ public class RestartOrSpectate : MonoBehaviour
     GameObject[] players;
 
     int counter;
+
     
-    List<Transform> targets;
 
     public Canvas loseCanvas;
     public Canvas controllerCanvas;
     public Canvas LoginCanvas;
     public Canvas quitCanvas;
+    public Transform myTransform;
+
+    GameObject camGameObject;
+
+
 
     void Start()
     {
+        camGameObject = GameObject.Find("initialCamPos").gameObject;
+        
         counter = 0;
         m_MainCamera = Camera.main;
         m_MainCamera.enabled = true;
-
+       
         GetAllPlayersInGame();
             
-        }
-    void Update()
+     }
+    void LateUpdate()
     {
 
-        //GetAllPlayersInGame();
+        GetAllPlayersInGame();
 
     }
+    List<GameObject> targets = new List<GameObject>();
 
     public void GetAllPlayersInGame()
     {
         
+
         players = GameObject.FindGameObjectsWithTag("Player");
 
-        foreach (GameObject player in players)
+
+
+        targets[0] = camGameObject;
+
+        if (players != null)
         {
-            //targets.Add(player.transform.GetChild(0).transform);
+            foreach (GameObject player in players)
+            {
+                targets.Add(player);
+            }
+
         }
-        AssignCameraToTarget();
+        AssignCameraToTarget(players);
         
     }
 
@@ -55,11 +72,19 @@ public class RestartOrSpectate : MonoBehaviour
     {
         GetAllPlayersInGame();
         counter++;
+        Debug.Log(counter);
+        
     }
 
-    void AssignCameraToTarget()
+    public void AssignCameraToTarget(GameObject[] camTargets)
     {
-        m_MainCamera.transform.SetPositionAndRotation(new Vector3(-27.3999996f, 62.5999985f, -37.4000015f), new Quaternion(0.0502322726f, 0.280282021f, -0.0146889426f, 0.958489954f));
+        if(counter <= camTargets.Length)
+        {
+            counter = 0;
+        }
+
+        m_MainCamera.transform.SetPositionAndRotation(camTargets[0].transform.position, camTargets[0].transform.rotation);
+        //m_MainCamera.transform.SetPositionAndRotation(new Vector3(-27.3999996f, 62.5999985f, -37.4000015f), new Quaternion(0.0502322726f, 0.280282021f, -0.0146889426f, 0.958489954f));
     }
 
 

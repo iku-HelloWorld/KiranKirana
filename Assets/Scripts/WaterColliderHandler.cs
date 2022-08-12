@@ -11,6 +11,9 @@ public class WaterColliderHandler : MonoBehaviour
     public Canvas loseCanvas;
     public Canvas controllerCanvas;
 
+    [SerializeField] GameObject initialCameraPos;
+    GameObject camGameObject;
+
     private void Start()
     {
         pw = GetComponent<PhotonView>();
@@ -42,6 +45,7 @@ public class WaterColliderHandler : MonoBehaviour
             GameObject restartMenager = FindObjectOfType<RestartOrSpectate>().gameObject;
             restartMenager.GetComponent<RestartOrSpectate>().enabled = true;
             PhotonNetwork.Destroy(gameObject);
+            camGameObject = Instantiate(initialCameraPos, new Vector3(-27.3999996f, 62.5999985f, -37.4000015f), new Quaternion(0.0502322726f, 0.280282021f, -0.0146889426f, 0.958489954f));
         }
 
     }

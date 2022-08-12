@@ -398,6 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loseCanvas: {fileID: 0}
   controllerCanvas: {fileID: 0}
+  initialCameraPos: {fileID: 0}
 --- !u!1 &8246613559125973888
 GameObject:
   m_ObjectHideFlags: 0
