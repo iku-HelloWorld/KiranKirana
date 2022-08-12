@@ -14,7 +14,7 @@ public class RestartOrSpectate : MonoBehaviour
     GameObject[] players;
 
     public int counter=0;
-
+    
     
 
     public Canvas loseCanvas;
@@ -68,11 +68,12 @@ public class RestartOrSpectate : MonoBehaviour
         {
             foreach (GameObject player in players)
             {
-                targets.Add(player);
+                targets.Add(player.transform.GetChild(0).gameObject);
             }
 
         }
-        AssignCameraToTarget(targets);
+        GameObject[] targetArray = targets.ToArray();
+        AssignCameraToTarget(targetArray);
         
     }
 
@@ -85,9 +86,9 @@ public class RestartOrSpectate : MonoBehaviour
 
     }
 
-    public void AssignCameraToTarget(List<GameObject> camTargets)
+    public void AssignCameraToTarget(GameObject[] camTargets)
     {
-        if(counter > camTargets.Capacity)
+        if(counter > camTargets.Length)
         {
             counter = 0;
         }
