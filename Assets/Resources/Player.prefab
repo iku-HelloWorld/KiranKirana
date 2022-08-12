@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkingSound: {fileID: 8300000, guid: b241b2e6b91f14e4ca501459237e655f, type: 3}
-  enableMobileInputs: 0
+  enableMobileInputs: 1
   moveSpeed: 10.56
   smoothRotationTime: 0.25
 --- !u!114 &1999495984
@@ -765,7 +765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loseCanvas: {fileID: 0}
   controllerCanvas: {fileID: 0}
-  initialCameraPos: {fileID: 0}
+  initialCameraPos: {fileID: 7203425409957575317, guid: 1dd40b42b5be1e64993c43b92b6c4b22, type: 3}
 --- !u!1 &8246613559125973888
 GameObject:
   m_ObjectHideFlags: 0
