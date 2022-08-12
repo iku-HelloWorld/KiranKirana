@@ -51,7 +51,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
        props = new ExitGames.Client.Photon.Hashtable
     {
-        {"status", true}       
+        {"status", false}       
     };
 
     }
@@ -84,10 +84,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     public void Status()
     {
-        props.TryGetValue("status", out object playerStatus);
-        props["status"] = !(bool)playerStatus;
-        
-
+        props["status"] = !(bool)props["status"];
         if((bool)props["status"])
         {
             Debug.Log("oyuncu hazır");
@@ -95,10 +92,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
         else{
             Debug.Log("Hazır değil");
         }
-
-
-
-        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+        PhotonNetwork.SetPlayerCustomProperties(props);
+        
        
 
        
@@ -129,12 +124,16 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
 
         foreach (Player p in PhotonNetwork.PlayerList)
-        {
+        {   
+            Debug.Log(p.NickName);
             
-            if(p.CustomProperties.ContainsKey("status") == false || ! p.IsMasterClient)
-            {
-                Debug.Log("hazır  olmayan oyuncular var");
-               return;
+            //PhotonNetwork.LocalPlayer.CustomProperties();
+
+            if(!p.CustomProperties.ContainsKey("status"))
+            {   
+                
+                Debug.Log("hazır  olmayan oyuncular var" + p.NickName);
+                return;
             }
         }
         Debug.Log("herkes hazır");
@@ -173,7 +172,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
             return;
             
         }
-        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
         OnConnectedToMaster();
         SetActivePanel(lobbyScreen.name);
     }
@@ -191,8 +190,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
      void JoinRandomRoom()        // Join Random Room Method
     {
+       // RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 10, CustomRoomProperties = props };
         OnConnectedToMaster();
-        PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
+     //   PhotonNetwork.JoinRandomOrCreateRoom(roomOps);
         SetActivePanel(lobbyScreen.name);
         
     }
@@ -206,7 +207,6 @@ public class ServerManager : MonoBehaviourPunCallbacks
         playerList.text = "";
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            
             
                      playerList.text +=  p.NickName + "-" + p.CustomProperties["status"] +"\n"; 
             
@@ -268,7 +268,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }     
     public override void OnJoinedRoom()
     {
+        props.TryGetValue("status", out object playerStatus);
+        props["status"] = !(bool)playerStatus;
+        
+
+        
         Debug.Log("Odaya Girildi.");     
+        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
               
        
     }

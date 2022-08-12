@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6789,6 +6789,7 @@ MonoBehaviour:
   joinRoomScreen: {fileID: 155143975}
   CustomScreen: {fileID: 169740462}
   inputCanvas: {fileID: 1190417251}
+  loseCanvas: {fileID: 0}
   playerList: {fileID: 468253711}
   nicknameText: {fileID: 1086870845}
   customRoomName: {fileID: 908255677}
@@ -8021,11 +8022,19 @@ MonoBehaviour:
   questionPanel: {fileID: 0}
   waitingPanel: {fileID: 0}
   waitingText: {fileID: 0}
+  answerPanel: {fileID: 0}
+  answerText: {fileID: 0}
+  transitionPanel: {fileID: 0}
+  waitingAreas: {fileID: 0}
   rightA: 0
   rightB: 0
+  transitionBool: 0
+  answerReveal: 0
   questionTimer: 5
   answeringTimer: 3
+  answerRevealTimer: 10
   goTime: 5
+  questionindex: 0
 --- !u!1001 &1348659947
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9344,6 +9353,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8883329134080496482, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883329134171656629, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8883329134513393322, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -9369,12 +9386,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 795760430}
     - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 795760430}
+    - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 795760430}
+    - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetNickname
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ServerManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883329135366904467, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8883329135391675328, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000022888184
+      objectReference: {fileID: 0}
+    - target: {fileID: 8883329135660932461, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
