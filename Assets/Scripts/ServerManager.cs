@@ -75,7 +75,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
 
         Debug.Log("herkes hazır");
-
+        
 
 
     }
@@ -141,6 +141,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         FindObjectOfType<GameManager>().enabled = true;
         cnvas.enabled = false;
         inputCanvas.enabled = true;
+        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
 
 
 
@@ -206,16 +207,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             
-            if(p.CustomProperties.ContainsKey("status") == false)
-            {
-                Debug.Log("false");
-                     playerList.text +=  p.NickName + "-" + "     Hazır değil " +"\n"; 
-            }
-            else if(p.CustomProperties.ContainsKey("status") == true)
-            {
-                Debug.Log("true");
-                     playerList.text +=  p.NickName + "-" + "     Hazır " +"\n";      
-            }
+            
+                     playerList.text +=  p.NickName + "-" + p.CustomProperties["status"] +"\n"; 
+            
+           
+                    // playerList.text +=  p.NickName + "-" + "     Hazır " +"\n";      
+            
             
 
         }
@@ -272,7 +269,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Odaya Girildi.");     
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);      
+              
        
     }
     public override void OnDisconnected(DisconnectCause cause)
