@@ -3215,10 +3215,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glass
       objectReference: {fileID: 0}
-    - target: {fileID: 3290594368278021481, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
-      propertyPath: m_TagString
-      value: A
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
 --- !u!1001 &1851818552
@@ -3883,6 +3879,10 @@ PrefabInstance:
     - target: {fileID: 3290594368278021481, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
       propertyPath: m_Name
       value: Glass (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290594368278021481, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
+      propertyPath: m_TagString
+      value: B
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}

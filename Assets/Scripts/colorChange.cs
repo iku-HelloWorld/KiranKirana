@@ -66,9 +66,13 @@ public class colorChange : MonoBehaviourPunCallbacks
         {
             if (trueAnswer)
             {
-                confetti.Play();
-                audioSource.PlayOneShot(winSound);
-                trueAnswer = false;
+                if (pw.IsMine)
+                {
+                    confetti.Play();
+                    audioSource.PlayOneShot(winSound);
+                    trueAnswer = false;
+                }
+                
             }
 
             if (falseAnswer)
