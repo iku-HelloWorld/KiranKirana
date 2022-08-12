@@ -13,15 +13,15 @@ public class RestartOrSpectate : MonoBehaviour
     Camera m_MainCamera;
     GameObject[] players;
 
-    int counter;
-
+    public int counter=0;
+    
     
 
     public Canvas loseCanvas;
     public Canvas controllerCanvas;
     public Canvas LoginCanvas;
     public Canvas quitCanvas;
-    public Transform myTransform;
+    
 
     GameObject camGameObject;
 
@@ -29,61 +29,72 @@ public class RestartOrSpectate : MonoBehaviour
 
     void Start()
     {
-        camGameObject = GameObject.Find("initialCamPos").gameObject;
+        camGameObject = GameObject.Find("InitialCamPos").gameObject;
         
-        counter = 0;
+       
         m_MainCamera = Camera.main;
         m_MainCamera.enabled = true;
+
+        
        
-        GetAllPlayersInGame();
+        //GetAllPlayersInGame();
             
      }
     void LateUpdate()
     {
-
+        Debug.Log(counter);
         GetAllPlayersInGame();
+        
 
     }
-    List<GameObject> targets = new List<GameObject>();
+    
+    
 
     public void GetAllPlayersInGame()
     {
-        
 
+        List<GameObject> targets = new List<GameObject>();
+        targets.Add(camGameObject);
         players = GameObject.FindGameObjectsWithTag("Player");
 
+        if (counter > players.Length + 1)
+        {
+            counter = 0;
+        }
 
-
-        targets[0] = camGameObject;
+        targets.Add(camGameObject);
 
         if (players != null)
         {
             foreach (GameObject player in players)
             {
-                targets.Add(player);
+                targets.Add(player.transform.GetChild(0).gameObject);
             }
 
         }
-        AssignCameraToTarget(players);
+        GameObject[] targetArray = targets.ToArray();
+        AssignCameraToTarget(targetArray);
         
     }
 
     public void ChangeCameraIndex()
     {
+
         GetAllPlayersInGame();
         counter++;
-        Debug.Log(counter);
-        
+
+
     }
 
     public void AssignCameraToTarget(GameObject[] camTargets)
     {
-        if(counter <= camTargets.Length)
+        if(counter > camTargets.Length)
         {
             counter = 0;
         }
 
-        m_MainCamera.transform.SetPositionAndRotation(camTargets[0].transform.position, camTargets[0].transform.rotation);
+        
+        m_MainCamera.transform.SetPositionAndRotation(camTargets[counter].transform.position - m_MainCamera.transform.forward * 5f, camTargets[counter].transform.rotation);
         //m_MainCamera.transform.SetPositionAndRotation(new Vector3(-27.3999996f, 62.5999985f, -37.4000015f), new Quaternion(0.0502322726f, 0.280282021f, -0.0146889426f, 0.958489954f));
     }
 
