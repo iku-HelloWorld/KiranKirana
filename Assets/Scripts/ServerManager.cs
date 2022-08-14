@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
@@ -42,6 +43,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+         PhotonView pw = PhotonView.Get(this);
         //loseCanvas.enabled = false;
         inputCanvas.enabled = false;
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
@@ -128,19 +130,17 @@ public class ServerManager : MonoBehaviourPunCallbacks
             Debug.Log(p.NickName);
             
             //PhotonNetwork.LocalPlayer.CustomProperties();
-
-            if(!p.CustomProperties.ContainsKey("status"))
+            bool isready = Convert.ToBoolean(p.CustomProperties["status"]);
+                
+            if(!isready)
             {   
                 
                 Debug.Log("hazır  olmayan oyuncular var" + p.NickName);
                 return;
             }
         }
-        Debug.Log("herkes hazır");
-        FindObjectOfType<GameManager>().enabled = true;
-        cnvas.enabled = false;
-        inputCanvas.enabled = true;
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+
+        
 
 
 
@@ -330,7 +330,18 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
 
-    
+    [PunRPC]
+
+    void Startrpc()
+    {
+
+        Debug.Log("herkes hazır");
+        FindObjectOfType<GameManager>().enabled = true;
+        cnvas.enabled = false;
+        inputCanvas.enabled = true;
+        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+
+    }
 
 
    
