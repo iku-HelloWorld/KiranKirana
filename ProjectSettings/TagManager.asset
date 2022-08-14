@@ -8,6 +8,7 @@ TagManager:
   - B
   - Barrier
   - Water
+  - waitingArea
   layers:
   - Default
   - TransparentFX

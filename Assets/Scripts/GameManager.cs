@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     
 
 
-   [SerializeField] int questionindex = 0;
+   [SerializeField] public int questionindex = 0;
   
 
     private void Start()
@@ -76,10 +76,10 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void updatePosition()
-    {
-        FindObjectOfType<MyPlayer>().gameObject.transform.position=waitingAreas.gameObject.transform.GetChild(questionindex-1).position;
-    }
+    //private void updatePosition()
+    //{
+    //    FindObjectOfType<MyPlayer>().gameObject.transform.position=waitingAreas.gameObject.transform.GetChild(questionindex-1).position;
+    //}
 
     private void QuestionPhase()
     {
@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
 
         soruSayac.SetActive(false);
         if (answeringTimerBool)
-        {
+        { 
             answeringTimer -= Time.deltaTime;
             cevapSayac.SetActive(true);
             cevapSayac.GetComponent<TextMeshProUGUI>().text = "Cevaplamak için kalan süre" + (int)answeringTimer;
@@ -154,13 +154,15 @@ public class GameManager : MonoBehaviour
 
             if (answerRevealTimer <= 0)
             {
+                
                 //SetActivePanel(transitionPanel.name);
                 //transitionPanel.SetActive(false);
                 questionindex++;
                 questionTimerBool = true;
                 answerReveal = false;
                 answerRevealTimer = 4.0f;
-                updatePosition();
+                //updatePosition();
+                FindObjectOfType<teleportSc>().teleportCharacter();
                 transitionBool = false;
 
                 transitionPanel.SetActive(false);
