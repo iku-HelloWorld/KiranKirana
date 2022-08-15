@@ -1195,6 +1195,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 382238568758230111, guid: 9726044ed78c495419be8e15f2f1da7c, type: 3}
   m_PrefabInstance: {fileID: 424233784}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &685899293 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6293574288813460687, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+  m_PrefabInstance: {fileID: 1131391858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &685899294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685899293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
+--- !u!114 &685899295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685899293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents:
+  - {fileID: 685899294}
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!4 &695290152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
@@ -2057,6 +2101,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: waitingAreas
       value: 
       objectReference: {fileID: 484874099}
@@ -2064,9 +2112,13 @@ PrefabInstance:
       propertyPath: transitionPanel
       value: 
       objectReference: {fileID: 972954708}
-    - target: {fileID: 953941756, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
-      propertyPath: answerRevealTimer
-      value: 4
+    - target: {fileID: 1126673467, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1339563613675145233, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_text
+      value: a
       objectReference: {fileID: 0}
     - target: {fileID: 6293574288813460675, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_Pivot.x
@@ -2159,6 +2211,14 @@ PrefabInstance:
     - target: {fileID: 6293574288813460687, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_Name
       value: quizCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293574288813460687, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6293574289768410327, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
@@ -3792,7 +3852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8883329133823063126, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8883329133847300367, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
