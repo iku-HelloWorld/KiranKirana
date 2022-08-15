@@ -1270,6 +1270,7 @@ GameObject:
   - component: {fileID: 8883329133823063121}
   - component: {fileID: 8883329133823063120}
   - component: {fileID: 8883329133823063127}
+  - component: {fileID: 1875650936}
   m_Layer: 5
   m_Name: LobbyCanvas 1
   m_TagString: Untagged
@@ -1363,6 +1364,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1875650936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883329133823063126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 7
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &8883329133847300365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,7 +1690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8883329134080496483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5146,6 +5169,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ServerManager, Assembly-CSharp
+        m_MethodName: SetNickname
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8883329135391675335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5615,6 +5650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LobbyScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 8196262807161028568, guid: acd57b942cf0c43c3919fd5fb91af753, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8196262807161028571, guid: acd57b942cf0c43c3919fd5fb91af753, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5701,6 +5740,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd57b942cf0c43c3919fd5fb91af753, type: 3}
+--- !u!1 &8883329135660932461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8196262807161028568, guid: acd57b942cf0c43c3919fd5fb91af753, type: 3}
+  m_PrefabInstance: {fileID: 790686645126341301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750304418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8883329135660932461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 1
+  OwnershipTransfer: 0
+  observableSearch: 1
+  ObservedComponents: []
+  sceneViewId: 10
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!224 &8883329135660932462 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8196262807161028571, guid: acd57b942cf0c43c3919fd5fb91af753, type: 3}

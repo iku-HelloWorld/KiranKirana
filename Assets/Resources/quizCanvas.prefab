@@ -507,7 +507,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8304017444022987620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +554,6 @@ MonoBehaviour:
   questionTimer: 3
   answeringTimer: 5
   answerRevealTimer: 4
-  goTime: 5
   questionindex: 0
 --- !u!114 &2624067678178865862
 MonoBehaviour:
