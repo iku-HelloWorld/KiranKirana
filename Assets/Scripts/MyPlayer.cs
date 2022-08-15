@@ -28,7 +28,7 @@ public class MyPlayer : MonoBehaviourPunCallbacks
     Transform cameraTransform;
 
     DynamicJoystick joystick;
-
+    Animator animationController;
     AudioSource aSource;
     PhotonView pw;
 
@@ -39,11 +39,11 @@ public class MyPlayer : MonoBehaviourPunCallbacks
         pw = GetComponent<PhotonView>();
 
         joystick = FindObjectOfType<DynamicJoystick>();
+        animationController = GetComponent<Animator>();
+        animationController.SetBool("walking", false);
 
 
 
-    
-    
 
     }
 
@@ -132,13 +132,13 @@ public class MyPlayer : MonoBehaviourPunCallbacks
 
     private void WalkAnima()
     {
-        GetComponent<Actions>().Walk();
-        
+        animationController.SetBool("walking", true);
+
     }
 
     private void StopWalking()
     {
-        GetComponent<Actions>().Stay();
+        animationController.SetBool("walking", false);
         StopSound();
     }
 
