@@ -760,9 +760,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8246613559125973568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f9df40b904061e4b92b7e9fbcb1a4e0, type: 3}
+  m_Script: {fileID: 11500000, guid: 430b3638dc523439cbec7452aa6412aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loseCanvas: {fileID: 0}
+  controllerCanvas: {fileID: 0}
+  initialCameraPos: {fileID: 0}
 --- !u!1 &8246613559125973888
 GameObject:
   m_ObjectHideFlags: 0

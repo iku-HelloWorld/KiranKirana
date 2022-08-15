@@ -19,6 +19,7 @@ public class CameraMovement : MonoBehaviour
     PhotonView pw;
     Camera mainCamera;
     
+    
 
     
     FixedTouchField touchField;
@@ -32,10 +33,7 @@ public class CameraMovement : MonoBehaviour
         enableMobileInputs = GetComponent<MyPlayer>().enableMobileInputs;
         
 
-        pw = GetComponent<PhotonView>();
-
-       
-        
+        pw = GetComponent<PhotonView>();    
         mainCamera = Camera.main;
         mainCamera.enabled = true;
 
