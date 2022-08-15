@@ -161,7 +161,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
         
        //pw.RPC("Startgm", RpcTarget.All, 10, false);
-       PhotonNetwork.Instantiate("quizCanvas", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+       PhotonNetwork.Instantiate("quizCanvas", new Vector3(-1.04f, 40.99f, 27.3f), Quaternion.identity);
     //   PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
         GetComponent<PhotonView>().RPC("Startgm", RpcTarget.All );
       //  pw.RPC("Startgm", RpcTarget.All);
