@@ -8,19 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI question;
 
-    public TextMeshProUGUI option1;
-    public TextMeshProUGUI option2;
+    public GameObject option1;
+    public GameObject option2;
 
     public GameObject soruSayac;
     public GameObject cevapSayac;
 
     public GameObject questionPanel;
 
-    public GameObject waitingPanel;
-    public TextMeshProUGUI waitingText;
+  
 
     public GameObject answerPanel;
-    public TextMeshProUGUI answerText;
+    public GameObject answerText;
     public GameObject transitionPanel;
 
     public GameObject waitingAreas;
@@ -89,7 +88,10 @@ public class GameManager : MonoBehaviour
             EnableCollider(barrierColliders, true);
 
             soruSayac.SetActive(true);
-            soruSayac.GetComponent<TextMeshProUGUI>().text = "Düþünme aþamasý kalan süre:" + (int)questionTimer;
+            
+
+            soruSayac.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (int)questionTimer+" saniye";
+
             answeringTimer = 3.0f;
             questionTimer -= Time.deltaTime;
         }
@@ -114,7 +116,7 @@ public class GameManager : MonoBehaviour
         { 
             answeringTimer -= Time.deltaTime;
             cevapSayac.SetActive(true);
-            cevapSayac.GetComponent<TextMeshProUGUI>().text = "Cevaplamak için kalan süre" + (int)answeringTimer;
+            cevapSayac.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (int)answeringTimer + " saniye";
             if (answeringTimer <= 0)
             {
                 answerReveal = true;
@@ -226,9 +228,9 @@ public class GameManager : MonoBehaviour
         
 
         question.text = quizquestions[questionindex].question;
-        answerText.text = "Doðru cevap: " + quizquestions[questionindex].trueOption;
-        option1.text = quizquestions[questionindex].option1;
-        option2.text = quizquestions[questionindex].option2;
+        answerText.GetComponent<TextMeshProUGUI>().text = "Doðru cevap: " + quizquestions[questionindex].trueOption;
+        option1.GetComponent<TextMeshProUGUI>().text = quizquestions[questionindex].option1;
+        option2.GetComponent<TextMeshProUGUI>().text = quizquestions[questionindex].option2;
 
         
 
@@ -248,7 +250,7 @@ public class GameManager : MonoBehaviour
     public void SetActivePanel(string activePanel)      // Set Active Panel Method
     {
         questionPanel.SetActive(activePanel.Equals(questionPanel.name));
-        waitingPanel.SetActive(activePanel.Equals(waitingPanel.name));
+       
         answerPanel.SetActive(activePanel.Equals(answerPanel.name));
         transitionPanel.SetActive(activePanel.Equals(transitionPanel.name));
         
