@@ -143,20 +143,20 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
 
       //  quizcanv.SetActive(true);
-
+         Debug.Log("herkes hazır");
 
 
         pw.RPC("Startgm", RpcTarget.All, 8, true);
        pw.RPC("Startgm", RpcTarget.All, 10, false);
-        
+        PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
 
       //  pw.RPC("Startgm", RpcTarget.All);
 
-        Debug.Log("herkes hazır");
-        FindObjectOfType<GameManager>().enabled = true;
-        cnvas.enabled = false;
+       
+        //FindObjectOfType<GameManager>().enabled = true;
+        //cnvas.enabled = false;
         inputCanvas.enabled = true;
-        PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        //PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
         
     }
 
@@ -340,7 +340,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         cnvas.enabled = false;
        //().enabled = true;
         inputCanvas.enabled = true;*/
-        PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        
         qpw = PhotonView.Find(id);
         qpw.transform.gameObject.SetActive(statu);
         

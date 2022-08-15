@@ -6764,6 +6764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 795760431}
   - component: {fileID: 795760430}
+  - component: {fileID: 795760432}
   m_Layer: 0
   m_Name: Server
   m_TagString: Untagged
@@ -6783,6 +6784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5208458a6a914e03945e407b0cb66ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizcanv: {fileID: 0}
   loginScreen: {fileID: 9374329}
   lobbyScreen: {fileID: 1750304417}
   CreateOrJoinScreen: {fileID: 848856107}
@@ -6814,6 +6816,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &795760432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795760429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 11
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &848856107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8883329134474403815, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
@@ -7483,6 +7507,30 @@ PrefabInstance:
       propertyPath: questionTimer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4710266713123926868, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710266713123926868, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710266714610222484, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710266714610222484, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848959181470438161, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4848959181470438161, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6293574288813460675, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7602,11 +7650,11 @@ PrefabInstance:
     - target: {fileID: 6293574289438623849, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6293574289438623849, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 8248030770639639578, guid: 1ddbc97ca8eda42749e1e1eb08026b42, type: 2}
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6293574289768410326, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -101.73047
@@ -8591,6 +8639,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8883329135660932461, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
   m_PrefabInstance: {fileID: 8883329134179195852}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1750304418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750304417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 10
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1800022832
 GameObject:
   m_ObjectHideFlags: 0
