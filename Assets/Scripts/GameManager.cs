@@ -36,12 +36,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
     [SerializeField] float answerRevealTimer = 10.0f;
-    [SerializeField] float goTime = 5.0f;
+   
 
   
     private bool questionTimerBool = true;
     private bool answeringTimerBool = true;
-    private bool goTimeBool;
+  
     
 
 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             barrierColliders[i] = barrier[i].GetComponent<Collider>();
         }
-        goTimeBool = true;
+        
         SetActivePanel(questionPanel.name);
 
     }
@@ -75,10 +75,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    //private void updatePosition()
-    //{
-    //    FindObjectOfType<MyPlayer>().gameObject.transform.position=waitingAreas.gameObject.transform.GetChild(questionindex-1).position;
-    //}
+    
 
     private void QuestionPhase()
     {
@@ -157,13 +154,12 @@ public class GameManager : MonoBehaviour
             if (answerRevealTimer <= 0)
             {
                 
-                //SetActivePanel(transitionPanel.name);
-                //transitionPanel.SetActive(false);
+               
                 questionindex++;
                 questionTimerBool = true;
                 answerReveal = false;
                 answerRevealTimer = 4.0f;
-                //updatePosition();
+               
                 FindObjectOfType<teleportSc>().teleportCharacter();
                 transitionBool = false;
 
@@ -188,14 +184,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //private void enablescript(bool enable)
-    //{
-    //    foreach (GameObject bridges in bridges)
-    //    {
-    //        bridges.GetComponent<colorChange>().enabled = enable;
-    //    }
-    //}
-
+   
 
 
 
@@ -256,13 +245,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    //IEnumerator canvasCoroutine()
-    //{
-    //    yield return new WaitForSeconds(1.0f);
-    //    transitionPanel.SetActive(true);
-    //    answerRevealTimer -= Time.deltaTime;
-    //    answerReveal = false;
-    //}
 
 }
 
