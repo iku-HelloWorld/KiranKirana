@@ -47,7 +47,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
          PhotonView pw = PhotonView.Get(this);
         //loseCanvas.enabled = false;
-        inputCanvas.enabled = false;
+        //inputCanvas.enabled = false;
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
        // buttonText = this.gameObject.transform.GetChild(0).gameObject;
@@ -57,6 +57,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         {"status", false}       
     };
+
+    }
+
+    void InputController()
+    {
+        inputCanvas.GetComponent<Canvas>().enabled = true;
 
     }
 
@@ -111,6 +117,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
     void Update()
     {     
             PlayerListText();               // bunu Update den çıkarmanın yolunu bul                              
+
+
+            if(FindObjectOfType<GameManager>().enabled)
+            {
+                Debug.Log("Gmae manager açıldı");
+                InputController();
+            }
     }
 
     //Player Input Methods
@@ -347,6 +360,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
        // qpw = PhotonView.Find(id);
         //qpw.transform.gameObject.SetActive(false);
         //GameObject.Find("LobbyScreen").gameObject.SetActive(false);
+
 
     }
        
