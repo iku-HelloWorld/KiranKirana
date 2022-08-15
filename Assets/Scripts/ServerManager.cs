@@ -146,8 +146,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
 
 
-       // pw.RPC("Startgm", RpcTarget.All, 8);
-      //  pw.RPC("Startgm", RpcTarget.All, 7);
+        pw.RPC("Startgm", RpcTarget.All, 8, true);
+       pw.RPC("Startgm", RpcTarget.All, 10, false);
         
 
       //  pw.RPC("Startgm", RpcTarget.All);
@@ -331,7 +331,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void Startgm(int id)
+    void Startgm(int id, bool statu)
     {
 
         Debug.Log("herkes hazır");
@@ -339,26 +339,14 @@ public class ServerManager : MonoBehaviourPunCallbacks
        // PhotonView.FindObjectOfType<GameManager>().enabled = true;
         cnvas.enabled = false;
        //().enabled = true;
-        inputCanvas.enabled = true;
-        PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);*/
-         pw = PhotonView.Find(id);
-        pw.transform.gameObject.SetActive(true);
+        inputCanvas.enabled = true;*/
+        PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        qpw = PhotonView.Find(id);
+        qpw.transform.gameObject.SetActive(statu);
         
 
     }
-
-        
- //void RemoveBlock(int BlockToRemove, bool setActive)
- /*{
-     PhotonView Disable = PhotonView.Find(BlockToRemove);
-         Disable.transform.gameObject.SetActive(setActive);
- }
- */
-
-  
-
-   
-
+       
 }
 
 
