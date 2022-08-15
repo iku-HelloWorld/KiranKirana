@@ -8,19 +8,18 @@ public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI question;
 
-    public TextMeshProUGUI option1;
-    public TextMeshProUGUI option2;
+    public GameObject option1;
+    public GameObject option2;
 
     public GameObject soruSayac;
     public GameObject cevapSayac;
 
     public GameObject questionPanel;
 
-    public GameObject waitingPanel;
-    public TextMeshProUGUI waitingText;
+  
 
     public GameObject answerPanel;
-    public TextMeshProUGUI answerText;
+    public GameObject answerText;
     public GameObject transitionPanel;
 
     public GameObject waitingAreas;
@@ -37,16 +36,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
     [SerializeField] float answerRevealTimer = 10.0f;
-    [SerializeField] float goTime = 5.0f;
+   
 
   
     private bool questionTimerBool = true;
     private bool answeringTimerBool = true;
-    private bool goTimeBool;
+  
     
 
 
-   [SerializeField] int questionindex = 0;
+   [SerializeField] public int questionindex = 0;
   
 
     private void Start()
@@ -57,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             barrierColliders[i] = barrier[i].GetComponent<Collider>();
         }
-        goTimeBool = true;
+        
         SetActivePanel(questionPanel.name);
 
     }
@@ -76,10 +75,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    private void updatePosition()
-    {
-        FindObjectOfType<MyPlayer>().gameObject.transform.position=waitingAreas.gameObject.transform.GetChild(questionindex-1).position;
-    }
+    
 
     private void QuestionPhase()
     {
@@ -89,7 +85,10 @@ public class GameManager : MonoBehaviour
             EnableCollider(barrierColliders, true);
 
             soruSayac.SetActive(true);
-            soruSayac.GetComponent<TextMeshProUGUI>().text = "Düþünme aþamasý kalan süre:" + (int)questionTimer;
+            
+
+            soruSayac.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (int)questionTimer+" saniye";
+
             answeringTimer = 3.0f;
             questionTimer -= Time.deltaTime;
         }
@@ -111,10 +110,10 @@ public class GameManager : MonoBehaviour
 
         soruSayac.SetActive(false);
         if (answeringTimerBool)
-        {
+        { 
             answeringTimer -= Time.deltaTime;
             cevapSayac.SetActive(true);
-            cevapSayac.GetComponent<TextMeshProUGUI>().text = "Cevaplamak için kalan süre" + (int)answeringTimer;
+            cevapSayac.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (int)answeringTimer + " saniye";
             if (answeringTimer <= 0)
             {
                 answerReveal = true;
@@ -154,13 +153,14 @@ public class GameManager : MonoBehaviour
 
             if (answerRevealTimer <= 0)
             {
-                //SetActivePanel(transitionPanel.name);
-                //transitionPanel.SetActive(false);
+                
+               
                 questionindex++;
                 questionTimerBool = true;
                 answerReveal = false;
                 answerRevealTimer = 4.0f;
-                updatePosition();
+               
+                FindObjectOfType<teleportSc>().teleportCharacter();
                 transitionBool = false;
 
                 transitionPanel.SetActive(false);
@@ -184,14 +184,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //private void enablescript(bool enable)
-    //{
-    //    foreach (GameObject bridges in bridges)
-    //    {
-    //        bridges.GetComponent<colorChange>().enabled = enable;
-    //    }
-    //}
-
+   
 
 
 
@@ -224,9 +217,9 @@ public class GameManager : MonoBehaviour
         
 
         question.text = quizquestions[questionindex].question;
-        answerText.text = "Doðru cevap: " + quizquestions[questionindex].trueOption;
-        option1.text = quizquestions[questionindex].option1;
-        option2.text = quizquestions[questionindex].option2;
+        answerText.GetComponent<TextMeshProUGUI>().text = "Doðru cevap: " + quizquestions[questionindex].trueOption;
+        option1.GetComponent<TextMeshProUGUI>().text = quizquestions[questionindex].option1;
+        option2.GetComponent<TextMeshProUGUI>().text = quizquestions[questionindex].option2;
 
         
 
@@ -246,19 +239,12 @@ public class GameManager : MonoBehaviour
     public void SetActivePanel(string activePanel)      // Set Active Panel Method
     {
         questionPanel.SetActive(activePanel.Equals(questionPanel.name));
-        waitingPanel.SetActive(activePanel.Equals(waitingPanel.name));
+       
         answerPanel.SetActive(activePanel.Equals(answerPanel.name));
         transitionPanel.SetActive(activePanel.Equals(transitionPanel.name));
         
     }
 
-    //IEnumerator canvasCoroutine()
-    //{
-    //    yield return new WaitForSeconds(1.0f);
-    //    transitionPanel.SetActive(true);
-    //    answerRevealTimer -= Time.deltaTime;
-    //    answerReveal = false;
-    //}
 
 }
 

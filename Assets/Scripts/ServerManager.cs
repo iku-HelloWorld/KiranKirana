@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
@@ -12,6 +13,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public static ServerManager instance;
     ExitGames.Client.Photon.Hashtable props;
 
+    [SerializeField] GameObject quizcanv;
+
     [SerializeField] GameObject loginScreen;
     [SerializeField] GameObject lobbyScreen;
     [SerializeField] GameObject CreateOrJoinScreen;             // Panels
@@ -19,8 +22,6 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CustomScreen;
     [SerializeField] Canvas inputCanvas;
     [SerializeField] Canvas loseCanvas;
-
-
 
     [SerializeField] TextMeshProUGUI playerList; // Player List Text
 
@@ -35,6 +36,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
     //***********************************
     [SerializeField] GameObject buttonText;
 
+    PhotonView pw;
+    PhotonView qpw;
 
     [SerializeField] Transform roomListContent;
     [SerializeField] GameObject roomListItemPrefab;
@@ -42,6 +45,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+         PhotonView pw = PhotonView.Get(this);
         //loseCanvas.enabled = false;
         inputCanvas.enabled = false;
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
@@ -128,32 +132,34 @@ public class ServerManager : MonoBehaviourPunCallbacks
             Debug.Log(p.NickName);
             
             //PhotonNetwork.LocalPlayer.CustomProperties();
-
-            if(!p.CustomProperties.ContainsKey("status"))
+            bool isready = Convert.ToBoolean(p.CustomProperties["status"]);
+                
+            if(!isready)
             {   
                 
                 Debug.Log("hazır  olmayan oyuncular var" + p.NickName);
                 return;
             }
         }
-        Debug.Log("herkes hazır");
-        FindObjectOfType<GameManager>().enabled = true;
-        cnvas.enabled = false;
+
+      //  quizcanv.SetActive(true);
+        // Debug.Log("herkes hazır");
+
+
+        
+       //pw.RPC("Startgm", RpcTarget.All, 10, false);
+       PhotonNetwork.Instantiate("quizCanvas", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+    //   PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        GetComponent<PhotonView>().RPC("Startgm", RpcTarget.All );
+      //  pw.RPC("Startgm", RpcTarget.All);
+
+       
+        //FindObjectOfType<GameManager>().enabled = true;
+        //cnvas.enabled = false;
         inputCanvas.enabled = true;
-        GameObject oyuncu = PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
-
-
-
-
-
-
+        //PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        
     }
-
-
-
-
-
-
 
     #region Create Or join 
 
@@ -192,7 +198,9 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
        // RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 10, CustomRoomProperties = props };
         OnConnectedToMaster();
-        PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
+      //  PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
+           //PhotonNetwork.JoinRandomOrCreateRoom()
+        PhotonNetwork.JoinRandomOrCreateRoom(props,15);
      //   PhotonNetwork.JoinRandomOrCreateRoom(roomOps);
         SetActivePanel(lobbyScreen.name);
         
@@ -202,7 +210,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     private void PlayerListText() // Print Connected Players in the Room. 
     {
-       
+     
         
         playerList.text = "";
         foreach (Player p in PhotonNetwork.PlayerList)
@@ -212,9 +220,6 @@ public class ServerManager : MonoBehaviourPunCallbacks
             
            
                     // playerList.text +=  p.NickName + "-" + "     Hazır " +"\n";      
-            
-            
-
         }
     }
 
@@ -264,17 +269,15 @@ public class ServerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.CreateRoom("asdasd", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         PhotonNetwork.CreateRoom("adadfafafa", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);
         PhotonNetwork.CreateRoom("daafsafafas", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true }, TypedLobby.Default);*/
-       
     }     
     public override void OnJoinedRoom()
     {
         props.TryGetValue("status", out object playerStatus);
         props["status"] = !(bool)playerStatus;
-        
-
-        
         Debug.Log("Odaya Girildi.");     
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+      //  PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+
               
        
     }
@@ -329,12 +332,23 @@ public class ServerManager : MonoBehaviourPunCallbacks
         
     }
 
+    [PunRPC]
+    void Startgm()
+    {
+         PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        Debug.Log("herkes hazır");
+      /*  quizcanv.GetComponent<GameManager>().enabled = true;
+       // PhotonView.FindObjectOfType<GameManager>().enabled = true;
+        cnvas.enabled = false;
+       //().enabled = true;
+        inputCanvas.enabled = true;*/
+        PhotonView.Find(10).transform.gameObject.SetActive(false);
+       // qpw = PhotonView.Find(id);
+        //qpw.transform.gameObject.SetActive(false);
+        //GameObject.Find("LobbyScreen").gameObject.SetActive(false);
 
-    
-
-
-   
-
+    }
+       
 }
 
 
