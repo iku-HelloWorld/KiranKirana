@@ -2005,6 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5208458a6a914e03945e407b0cb66ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizcanv: {fileID: 0}
   loginScreen: {fileID: 9374329}
   lobbyScreen: {fileID: 1750304417}
   CreateOrJoinScreen: {fileID: 848856107}
@@ -2931,15 +2932,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5688160923995160551, guid: c28296d2ea2d2dc40a9c8f3ac2e01831, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -133.4
+      value: -124.9
       objectReference: {fileID: 0}
     - target: {fileID: 5688160923995160551, guid: c28296d2ea2d2dc40a9c8f3ac2e01831, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -7.3
       objectReference: {fileID: 0}
     - target: {fileID: 5688160923995160551, guid: c28296d2ea2d2dc40a9c8f3ac2e01831, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 170.9
+      value: 362.3
       objectReference: {fileID: 0}
     - target: {fileID: 5688160923995160551, guid: c28296d2ea2d2dc40a9c8f3ac2e01831, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3310,13 +3311,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   question: {fileID: 1912376514}
-  option1: {fileID: 1975283423}
-  option2: {fileID: 622772349}
+  option1: {fileID: 0}
+  option2: {fileID: 0}
   soruSayac: {fileID: 1656933526}
   cevapSayac: {fileID: 602293585}
   questionPanel: {fileID: 0}
-  waitingPanel: {fileID: 0}
-  waitingText: {fileID: 0}
   answerPanel: {fileID: 0}
   answerText: {fileID: 0}
   transitionPanel: {fileID: 0}
@@ -4378,7 +4377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3905282642992608683, guid: 529b3451c895d40699ca54ef0aafc5b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3905282642992608683, guid: 529b3451c895d40699ca54ef0aafc5b9, type: 3}
       propertyPath: m_LocalPosition.z

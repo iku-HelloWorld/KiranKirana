@@ -143,13 +143,14 @@ public class ServerManager : MonoBehaviourPunCallbacks
         }
 
       //  quizcanv.SetActive(true);
-         Debug.Log("herkes hazır");
+        // Debug.Log("herkes hazır");
 
 
-        pw.RPC("Startgm", RpcTarget.All, 8, true);
-       pw.RPC("Startgm", RpcTarget.All, 10, false);
-        PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
-
+        
+       //pw.RPC("Startgm", RpcTarget.All, 10, false);
+       PhotonNetwork.Instantiate("quizCanvas", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+    //   PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        GetComponent<PhotonView>().RPC("Startgm", RpcTarget.All );
       //  pw.RPC("Startgm", RpcTarget.All);
 
        
@@ -275,6 +276,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         props["status"] = !(bool)playerStatus;
         Debug.Log("Odaya Girildi.");     
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
+      //  PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
 
               
        
@@ -331,19 +333,19 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void Startgm(int id, bool statu)
+    void Startgm()
     {
-
+         PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
         Debug.Log("herkes hazır");
       /*  quizcanv.GetComponent<GameManager>().enabled = true;
        // PhotonView.FindObjectOfType<GameManager>().enabled = true;
         cnvas.enabled = false;
        //().enabled = true;
         inputCanvas.enabled = true;*/
-        
-        qpw = PhotonView.Find(id);
-        qpw.transform.gameObject.SetActive(statu);
-        
+        PhotonView.Find(10).transform.gameObject.SetActive(false);
+       // qpw = PhotonView.Find(id);
+        //qpw.transform.gameObject.SetActive(false);
+        //GameObject.Find("LobbyScreen").gameObject.SetActive(false);
 
     }
        
