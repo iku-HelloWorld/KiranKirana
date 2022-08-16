@@ -355,7 +355,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         cnvas.enabled = false;
        //().enabled = true;
         inputCanvas.enabled = true;*/
-        PhotonView.Find(10).transform.gameObject.SetActive(false);
+        PhotonView.Find(14).transform.gameObject.SetActive(false);
         PhotonView.Find(7).transform.gameObject.SetActive(true);
        // qpw = PhotonView.Find(id);
         //qpw.transform.gameObject.SetActive(false);
