@@ -20,13 +20,12 @@ public class teleportSc : MonoBehaviourPunCallbacks
         questionIndex = FindObjectOfType<GameManager>().questionindex;
         Debug.Log("soru indexi" + questionIndex);
     }
-
+    
    public void teleportCharacter()
     {
-        if (pw.IsMine)
-        {
+       
             transform.position = GameObject.FindGameObjectWithTag("waitingArea").transform.GetChild(questionIndex).position;
-        }
+        
         
     }
 
