@@ -11,6 +11,7 @@ TagManager:
   - waitingArea
   - DynamicJoystick
   - Controller
+  - transition
   layers:
   - Default
   - TransparentFX
