@@ -1212,13 +1212,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quizcanv: {fileID: 0}
   loginScreen: {fileID: 9374329}
-  lobbyScreen: {fileID: 0}
+  lobbyScreen: {fileID: 1130129077}
   CreateOrJoinScreen: {fileID: 848856107}
   joinRoomScreen: {fileID: 155143975}
   CustomScreen: {fileID: 169740462}
   inputCanvas: {fileID: 1190417251}
   loseCanvas: {fileID: 0}
-  playerList: {fileID: 0}
+  playerList: {fileID: 1687634881}
   nicknameText: {fileID: 1086870845}
   customRoomName: {fileID: 908255677}
   customRoomcapacity: {fileID: 1057355262}
@@ -1726,6 +1726,11 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &1130129077 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9153266362061980903, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+  m_PrefabInstance: {fileID: 8883329134179195852}
+  m_PrefabAsset: {fileID: 0}
 --- !u!223 &1190417251 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 3909793334901723087, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
@@ -2118,6 +2123,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
   m_PrefabInstance: {fileID: 1205284697}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1687634881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9153266363425881673, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+  m_PrefabInstance: {fileID: 8883329134179195852}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1736770814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,9 +2788,21 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 306530144882983131, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 795760430}
+    - target: {fileID: 306530144882983131, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Startscene
+      objectReference: {fileID: 0}
     - target: {fileID: 397055579575620411, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119824270548324393, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: sceneViewId
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3072763950725846806, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2955,6 +2983,18 @@ PrefabInstance:
     - target: {fileID: 8883329135391675328, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000022888184
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153266362061980903, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9153266362269949326, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 795760430}
+    - target: {fileID: 9153266362269949326, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Status
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
