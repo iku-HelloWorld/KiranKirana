@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using Photon.Pun;
 
 public class GameManager : MonoBehaviour
 {
-    public TextMeshProUGUI question;
+    public GameObject question;
 
     public GameObject option1;
     public GameObject option2;
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject questionPanel;
 
-  
+    Canvas gameController;
 
     public GameObject answerPanel;
     public GameObject answerText;
@@ -47,10 +48,18 @@ public class GameManager : MonoBehaviour
 
    [SerializeField] public int questionindex = 0;
   
+    [PunRPC]
+    public void EnableControllerCanvas()
+    {
+        gameController = GameObject.FindGameObjectWithTag("Controller").GetComponent<Canvas>();
+        gameController.enabled = true;
+
+    }
 
     private void Start()
     {
         GameObject[] barrier = GameObject.FindGameObjectsWithTag("Barrier");
+        
         barrierColliders = new Collider[barrier.Length];
         for(int i = 0; i < barrierColliders.Length; i++)
         {
@@ -58,7 +67,7 @@ public class GameManager : MonoBehaviour
         }
         
         SetActivePanel(questionPanel.name);
-
+        
     }
     private void Update()
     {
@@ -216,7 +225,7 @@ public class GameManager : MonoBehaviour
 
         
 
-        question.text = quizquestions[questionindex].question;
+        question.GetComponent<TextMeshProUGUI>().text = quizquestions[questionindex].question;
         answerText.GetComponent<TextMeshProUGUI>().text = "Doðru cevap: " + quizquestions[questionindex].trueOption;
         option1.GetComponent<TextMeshProUGUI>().text = quizquestions[questionindex].option1;
         option2.GetComponent<TextMeshProUGUI>().text = quizquestions[questionindex].option2;

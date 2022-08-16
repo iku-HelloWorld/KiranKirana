@@ -47,7 +47,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
          PhotonView pw = PhotonView.Get(this);
         //loseCanvas.enabled = false;
-        inputCanvas.enabled = false;
+        //inputCanvas.enabled = false;
         PhotonNetwork.ConnectUsingSettings();       // Connect To Server
         SetActivePanel(loginScreen.name);                 // Define Active Panel 
        // buttonText = this.gameObject.transform.GetChild(0).gameObject;
@@ -57,6 +57,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         {"status", false}       
     };
+
+    }
+
+    void InputController()
+    {
+        inputCanvas.GetComponent<Canvas>().enabled = true;
 
     }
 
@@ -111,6 +117,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
     void Update()
     {     
             PlayerListText();               // bunu Update den çıkarmanın yolunu bul                              
+
+
+            if(FindObjectOfType<GameManager>().enabled)
+            {
+                Debug.Log("Gmae manager açıldı");
+                InputController();
+            }
     }
 
     //Player Input Methods
@@ -148,7 +161,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
         
        //pw.RPC("Startgm", RpcTarget.All, 10, false);
-       PhotonNetwork.Instantiate("quizCanvas", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+       PhotonNetwork.Instantiate("quizCanvas", new Vector3(-1.04f, 40.99f, 27.3f), Quaternion.identity);
     //   PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
         GetComponent<PhotonView>().RPC("Startgm", RpcTarget.All );
       //  pw.RPC("Startgm", RpcTarget.All);
@@ -156,7 +169,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
        
         //FindObjectOfType<GameManager>().enabled = true;
         //cnvas.enabled = false;
-        inputCanvas.enabled = true;
+     //   inputCanvas.enabled = true;
         //PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
         
     }
@@ -343,9 +356,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
        //().enabled = true;
         inputCanvas.enabled = true;*/
         PhotonView.Find(10).transform.gameObject.SetActive(false);
+        PhotonView.Find(7).transform.gameObject.SetActive(true);
        // qpw = PhotonView.Find(id);
         //qpw.transform.gameObject.SetActive(false);
         //GameObject.Find("LobbyScreen").gameObject.SetActive(false);
+
 
     }
        

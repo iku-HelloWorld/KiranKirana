@@ -9,6 +9,8 @@ TagManager:
   - Barrier
   - Water
   - waitingArea
+  - DynamicJoystick
+  - Controller
   layers:
   - Default
   - TransparentFX
