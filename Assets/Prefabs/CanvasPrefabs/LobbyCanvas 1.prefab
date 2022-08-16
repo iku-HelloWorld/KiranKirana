@@ -1383,7 +1383,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 8
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &8883329133847300365
@@ -5646,6 +5646,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8883329133823063122}
     m_Modifications:
+    - target: {fileID: 86268678199077654, guid: acd57b942cf0c43c3919fd5fb91af753, type: 3}
+      propertyPath: sceneViewId
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8196262807161028568, guid: acd57b942cf0c43c3919fd5fb91af753, type: 3}
       propertyPath: m_Name
       value: LobbyScreen
