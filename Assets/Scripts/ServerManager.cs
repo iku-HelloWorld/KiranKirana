@@ -190,6 +190,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
             return;
             
         }
+        
+       //  byte capacity = (byte)customRoomcapacity;
         PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
         OnConnectedToMaster();
         SetActivePanel(lobbyScreen.name);
@@ -208,11 +210,12 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
      void JoinRandomRoom()        // Join Random Room Method
     {
-       // RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 10, CustomRoomProperties = props };
+       
+        RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 10, CustomRoomProperties = props };
         OnConnectedToMaster();
       //  PhotonNetwork.JoinOrCreateRoom("ODA 1", new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
            //PhotonNetwork.JoinRandomOrCreateRoom()
-        PhotonNetwork.JoinRandomOrCreateRoom(props,15);
+        PhotonNetwork.JoinRandomOrCreateRoom(props, 15, MatchmakingMode.FillRoom, TypedLobby.Default, sqlLobbyFilter:null, roomName: null, roomOps);
      //   PhotonNetwork.JoinRandomOrCreateRoom(roomOps);
         SetActivePanel(lobbyScreen.name);
         
@@ -355,7 +358,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
         cnvas.enabled = false;
        //().enabled = true;
         inputCanvas.enabled = true;*/
-        PhotonView.Find(14).transform.gameObject.SetActive(false);
+        PhotonView.Find(8).transform.gameObject.SetActive(false);
         PhotonView.Find(7).transform.gameObject.SetActive(true);
 
        // qpw = PhotonView.Find(id);
