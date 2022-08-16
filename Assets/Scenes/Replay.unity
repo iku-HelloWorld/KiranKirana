@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quizcanv: {fileID: 0}
   loginScreen: {fileID: 9374329}
-  lobbyScreen: {fileID: 1750304417}
+  lobbyScreen: {fileID: 0}
   CreateOrJoinScreen: {fileID: 848856107}
   joinRoomScreen: {fileID: 155143975}
   CustomScreen: {fileID: 169740462}
@@ -2803,7 +2803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c84c217ef68e564fba63b737d50a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  question: {fileID: 1912376514}
+  question: {fileID: 0}
   option1: {fileID: 0}
   option2: {fileID: 0}
   soruSayac: {fileID: 1656933526}
@@ -3228,11 +3228,6 @@ Transform:
   m_Father: {fileID: 158987851}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!1 &1750304417 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8883329135660932461, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
-  m_PrefabInstance: {fileID: 8883329134179195852}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1800022832
 GameObject:
   m_ObjectHideFlags: 0
@@ -4048,15 +4043,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3048793007692738183, guid: 5b727832c473b9a4093107607035e1f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.077003986
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 3048793007692738183, guid: 5b727832c473b9a4093107607035e1f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.021898422
+      value: 46.02
       objectReference: {fileID: 0}
     - target: {fileID: 3048793007692738183, guid: 5b727832c473b9a4093107607035e1f3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0027934338
+      value: -11.59
       objectReference: {fileID: 0}
     - target: {fileID: 3048793007692738183, guid: 5b727832c473b9a4093107607035e1f3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4089,10 +4084,6 @@ PrefabInstance:
     - target: {fileID: 5800951497730062117, guid: 5b727832c473b9a4093107607035e1f3, type: 3}
       propertyPath: sceneViewId
       value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5800951497730062117, guid: 5b727832c473b9a4093107607035e1f3, type: 3}
-      propertyPath: ObservedComponents.Array.size
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b727832c473b9a4093107607035e1f3, type: 3}
