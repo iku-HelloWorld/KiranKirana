@@ -815,17 +815,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &468253711 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8883329133787604931, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
-  m_PrefabInstance: {fileID: 8883329134179195852}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &484874099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,6 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5208458a6a914e03945e407b0cb66ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quizcanv: {fileID: 0}
   loginScreen: {fileID: 9374329}
   lobbyScreen: {fileID: 1750304417}
   CreateOrJoinScreen: {fileID: 848856107}
@@ -1639,7 +1629,7 @@ MonoBehaviour:
   CustomScreen: {fileID: 169740462}
   inputCanvas: {fileID: 1190417251}
   loseCanvas: {fileID: 0}
-  playerList: {fileID: 468253711}
+  playerList: {fileID: 0}
   nicknameText: {fileID: 1086870845}
   customRoomName: {fileID: 908255677}
   customRoomcapacity: {fileID: 1057355262}
@@ -2418,6 +2408,30 @@ PrefabInstance:
       propertyPath: waitingAreas
       value: 
       objectReference: {fileID: 484874099}
+    - target: {fileID: 4710266713123926868, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710266713123926868, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710266714610222484, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710266714610222484, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_isOrthographic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848959181470438161, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4848959181470438161, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6293574288813460675, guid: 07bcba07e0fab0848a4b99806c3752c9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2790,13 +2804,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   question: {fileID: 1912376514}
-  option1: {fileID: 1975283423}
-  option2: {fileID: 622772349}
+  option1: {fileID: 0}
+  option2: {fileID: 0}
   soruSayac: {fileID: 1656933526}
   cevapSayac: {fileID: 602293585}
   questionPanel: {fileID: 0}
-  waitingPanel: {fileID: 0}
-  waitingText: {fileID: 0}
   answerPanel: {fileID: 0}
   answerText: {fileID: 0}
   transitionPanel: {fileID: 0}
@@ -2808,7 +2820,6 @@ MonoBehaviour:
   questionTimer: 5
   answeringTimer: 3
   answerRevealTimer: 3
-  goTime: 5
   questionindex: 0
 --- !u!1001 &1348659947
 PrefabInstance:
@@ -4309,6 +4320,14 @@ PrefabInstance:
     - target: {fileID: 41752913, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Startscene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1750304418, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: sceneViewId
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1875650936, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
+      propertyPath: sceneViewId
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2007509687, guid: 1326df35a4cad2c43a3b545a89e30f9c, type: 3}
       propertyPath: m_text
