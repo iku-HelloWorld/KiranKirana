@@ -20,9 +20,10 @@ public class teleportSc : MonoBehaviourPunCallbacks
     void Update()
     {
         questionIndex = FindObjectOfType<GameManager>().questionindex;
+        answerRevealTimer = FindObjectOfType<GameManager>().answerRevealTimer;
         Debug.Log("soru indexi" + questionIndex);
         teleportCharacter();
-        answerRevealTimer = FindObjectOfType<GameManager>().answerRevealTimer;
+       
     }
     
    public void teleportCharacter()
