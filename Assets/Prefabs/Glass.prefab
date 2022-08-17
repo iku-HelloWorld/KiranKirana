@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4210759004128956949}
   m_Layer: 0
   m_Name: Glass
-  m_TagString: A
+  m_TagString: B
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glassBreak: {fileID: 8300000, guid: cc4d10c5a09e90e49aacddd1c48d54a6, type: 3}
-  winSound: {fileID: 8300000, guid: 14f85a5114b523c4f8b1d20584dba38a, type: 3}
+  glassBreak: {fileID: 8300000, guid: 3ab176e0ff4a13c4f97946f8a24a3b39, type: 3}
+  winSound: {fileID: 8300000, guid: d4204c06256c9ce43a1ce8b789c73e3f, type: 3}
   confetti: {fileID: 7236679166309527815}
 --- !u!65 &934247056108749648
 BoxCollider:
