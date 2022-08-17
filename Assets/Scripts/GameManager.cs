@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject answerPanel;
     public GameObject answerText;
-    public GameObject transitionPanel;
+   
 
     public GameObject waitingAreas;
     //public GameObject barrier;
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] float questionTimer = 10.0f;
     [SerializeField] float answeringTimer = 5.0f;
-    [SerializeField] float answerRevealTimer = 10.0f;
+    [SerializeField] public float answerRevealTimer = 10.0f;
    
 
   
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
         }
         
         SetActivePanel(questionPanel.name);
+       
         
     }
     private void Update()
@@ -168,12 +169,12 @@ public class GameManager : MonoBehaviour
                 questionTimerBool = true;
                 answerReveal = false;
                 answerRevealTimer = 4.0f;
-               
-                FindObjectOfType<teleportSc>().teleportCharacter();
+                Debug.Log("ea");
+                //FindObjectOfType<teleportSc>().teleportCharacter();
                 transitionBool = false;
 
-                transitionPanel.SetActive(false);
 
+                //FindObjectOfType<transitionSc>().gameObject.SetActive(false);
 
             }
 
@@ -183,7 +184,8 @@ public class GameManager : MonoBehaviour
 
         if (transitionBool)
         {
-            transitionPanel.SetActive(true);
+            //FindObjectOfType<transitionSc>().gameObject.SetActive(true);
+
             answerRevealTimer -= Time.deltaTime;
             if (answerRevealTimer <= 0)
             {
@@ -250,7 +252,7 @@ public class GameManager : MonoBehaviour
         questionPanel.SetActive(activePanel.Equals(questionPanel.name));
        
         answerPanel.SetActive(activePanel.Equals(answerPanel.name));
-        transitionPanel.SetActive(activePanel.Equals(transitionPanel.name));
+        //transitionPanel.SetActive(activePanel.Equals(transitionPanel.name));
         
     }
 

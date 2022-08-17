@@ -390,7 +390,6 @@ MonoBehaviour:
   questionPanel: {fileID: 8304017443069381501}
   answerPanel: {fileID: 2624067678855662481}
   answerText: {fileID: 3962492179104165821}
-  transitionPanel: {fileID: 1284609998809040443, guid: 88559bc40b61be54fba5f0ec5570e71d, type: 3}
   waitingAreas: {fileID: 7865993940622364347, guid: a02cce0940a205d45a2ea14ba46b09a3, type: 3}
   rightA: 0
   rightB: 0
