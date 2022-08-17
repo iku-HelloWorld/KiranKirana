@@ -43,45 +43,45 @@ public class colorChange : MonoBehaviourPunCallbacks
     void Update()
     {
 
-
-
-        trueA = FindObjectOfType<GameManager>().rightA;
-        trueB = FindObjectOfType<GameManager>().rightB;
-        if (trueA)
-        {
-            Debug.Log("A doğru");
-        }
-        if (trueB)
-        {
-            Debug.Log("B doğru");
-
-        }
-
         
 
-
-        answerReveal = FindObjectOfType<GameManager>().answerReveal;
-
-        if (answerReveal)
-        {
-            if (trueAnswer)
+            trueA = FindObjectOfType<GameManager>().rightA;
+            trueB = FindObjectOfType<GameManager>().rightB;
+            if (trueA)
             {
-                if (pw.IsMine)
+                Debug.Log("A doğru");
+            }
+            if (trueB)
+            {
+                Debug.Log("B doğru");
+
+            }
+
+
+
+
+            answerReveal = FindObjectOfType<GameManager>().answerReveal;
+
+            if (answerReveal)
+            {
+                if (trueAnswer)
                 {
-                    confetti.Play();
-                    audioSource.PlayOneShot(winSound);
-                    trueAnswer = false;
+
+                   confetti.Play();
+                   audioSource.PlayOneShot(winSound);
+                   trueAnswer = false;
+                    
+
                 }
-                
-            }
 
-            if (falseAnswer)
-            {
-                pw.RPC("GameMechanic", RpcTarget.All);
-                falseAnswer = false;
-            }
+                if (falseAnswer)
+                {
+                    pw.RPC("GameMechanic", RpcTarget.All);
+                    falseAnswer = false;
+                }
 
-        }
+            }
+        
 
     }
    
