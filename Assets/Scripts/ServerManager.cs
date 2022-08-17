@@ -118,11 +118,6 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {     
             PlayerListText();               // bunu Update den çıkarmanın yolunu bul                              
 
-            if(FindObjectOfType<GameManager>().enabled)
-            {
-                InputController();
-
-            }
     }
 
     //Player Input Methods
@@ -163,14 +158,22 @@ public class ServerManager : MonoBehaviourPunCallbacks
        PhotonNetwork.Instantiate("quizCanvas", new Vector3(1.700012f, 41.59998f, 25.4f), Quaternion.identity);
     //   PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
         GetComponent<PhotonView>().RPC("Startgm", RpcTarget.All );
-      //  pw.RPC("Startgm", RpcTarget.All);
+        //  pw.RPC("Startgm", RpcTarget.All);
 
-       
+
         //FindObjectOfType<GameManager>().enabled = true;
         //cnvas.enabled = false;
-     //   inputCanvas.enabled = true;
+        //   inputCanvas.enabled = true;
         //PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
-        
+
+
+
+        if (FindObjectOfType<GameManager>().enabled)
+        {
+            InputController();
+
+        }
+
     }
 
     #region Create Or join 
