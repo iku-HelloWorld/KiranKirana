@@ -190,9 +190,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
             return;
             
         }
-        
+       //bcustomRoomcapacity.text;
+        Byte.TryParse(customRoomcapacity.text, out byte capacity);
        //  byte capacity = (byte)customRoomcapacity;
-        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = capacity, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
         OnConnectedToMaster();
         SetActivePanel(lobbyScreen.name);
     }
