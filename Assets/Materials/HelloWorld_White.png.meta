@@ -1,9 +1,13 @@
 fileFormatVersion: 2
-guid: 800a2da8104deae4aaccb14c462b14d0
+<<<<<<<< HEAD:Assets/Materials/HelloWorld_White.png.meta
+guid: f581594365efc44c19a2bb80b1f37538
+========
+guid: 1a68ea239630eef47b731649a5f85f42
+>>>>>>>> environment:Assets/Prefabs/environments/Distant Lands/Thalassophobia - Low Poly Oceans/Contents/Materials/Textures/Tropical Fish Atlas.png.meta
 TextureImporter:
-  internalIDToNameTable: []
+  fileIDToRecycleName: {}
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 9
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -23,8 +27,6 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
-  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -34,12 +36,21 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 1
+<<<<<<<< HEAD:Assets/Materials/HelloWorld_White.png.meta
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 0
   nPOTScale: 0
+========
+    aniso: -1
+    mipBias: -100
+    wrapU: -1
+    wrapV: -1
+    wrapW: -1
+  nPOTScale: 1
+>>>>>>>> environment:Assets/Prefabs/environments/Distant Lands/Thalassophobia - Low Poly Oceans/Contents/Materials/Textures/Tropical Fish Atlas.png.meta
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
@@ -56,17 +67,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
-  applyGammaDecoding: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 32
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -75,6 +82,18 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 32
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+<<<<<<<< HEAD:Assets/Materials/HelloWorld_White.png.meta
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
@@ -124,20 +143,24 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+========
+>>>>>>>> environment:Assets/Prefabs/environments/Distant Lands/Thalassophobia - Low Poly Oceans/Contents/Materials/Textures/Tropical Fish Atlas.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
+<<<<<<<< HEAD:Assets/Materials/HelloWorld_White.png.meta
     spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
+========
+    spriteID: 
+>>>>>>>> environment:Assets/Prefabs/environments/Distant Lands/Thalassophobia - Low Poly Oceans/Contents/Materials/Textures/Tropical Fish Atlas.png.meta
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
-    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

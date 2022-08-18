@@ -66,7 +66,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     }
 
-
+    
 
     public void IsRoomReady()
     {   
@@ -321,14 +321,17 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Joining Random room has failed" + message + "-" + returnCode);
+        SetActivePanel(loginScreen.name);
     }
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
          Debug.Log("Joinning has Failed" + message + "-" + returnCode);
+         SetActivePanel(loginScreen.name);
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
+        SetActivePanel(loginScreen.name);
     }
 
 
