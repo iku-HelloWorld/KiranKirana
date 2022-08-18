@@ -68,7 +68,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     }
 
-
+    
 
     public void IsRoomReady()
     {   
@@ -195,9 +195,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
             return;
             
         }
-        
+       //bcustomRoomcapacity.text;
+        Byte.TryParse(customRoomcapacity.text, out byte capacity);
        //  byte capacity = (byte)customRoomcapacity;
-        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = capacity, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
         OnConnectedToMaster();
         SetActivePanel(lobbyScreen.name);
     }
@@ -323,14 +324,17 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Joining Random room has failed" + message + "-" + returnCode);
+        SetActivePanel(loginScreen.name);
     }
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
          Debug.Log("Joinning has Failed" + message + "-" + returnCode);
+         SetActivePanel(loginScreen.name);
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
+        SetActivePanel(loginScreen.name);
     }
 
 

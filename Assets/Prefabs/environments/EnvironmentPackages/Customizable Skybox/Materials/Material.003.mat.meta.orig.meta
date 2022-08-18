@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/EnvironmentPackages/Customizable Skybox/Materials/Material.003.mat.meta.orig.meta
+<<<<<<<< HEAD:Assets/Prefabs/environments/EnvironmentPackages/Customizable Skybox/Materials/Material.003.mat.meta.orig.meta
+guid: 3ceae55f5e52840d0937442d50b9a1fb
+DefaultImporter:
+========
+guid: d51519d1eb51f4aed984c53436ad69ee
+PrefabImporter:
+>>>>>>>> environment:Assets/Prefabs/environments/pencilprefab.prefab.meta
+=======
+guid: 161aaf1304ad241648d9cfabce135ec3
+DefaultImporter:
+>>>>>>> environment:Assets/Prefabs/environments/EnvironmentPackages/Customizable Skybox/Materials/Material.003.mat.meta.orig.meta
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
