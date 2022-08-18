@@ -20,7 +20,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CreateOrJoinScreen;             // Panels
     [SerializeField] GameObject joinRoomScreen;
     [SerializeField] GameObject CustomScreen;
-    [SerializeField] Canvas inputCanvas;
+    //[SerializeField] Canvas inputCanvas;
     [SerializeField] Canvas loseCanvas;
 
     [SerializeField] TextMeshProUGUI playerList; // Player List Text
@@ -62,7 +62,9 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void InputController()
     {
-        inputCanvas.GetComponent<Canvas>().enabled = true;
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Canvas>().enabled = true;
+        //inputCanvas.GetComponent<Canvas>().enabled = true;
+        FindObjectOfType<transitionSc>().enabled = true;
 
     }
 
@@ -294,10 +296,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
         props["status"] = !(bool)playerStatus;
         Debug.Log("Odaya Girildi.");     
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-      //  PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        
+        //  PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
 
-              
-       
+
+
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -354,7 +357,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void Startgm()
     {
-         PhotonNetwork.Instantiate("Player", new Vector3(-8.86f, 47.0600014f, -22.8600006f), Quaternion.identity);
+         PhotonNetwork.Instantiate("Walking", new Vector3(-8.86f, 45.28f, -22.8600006f), Quaternion.identity);
         Debug.Log("herkes hazır");
       /*  quizcanv.GetComponent<GameManager>().enabled = true;
        // PhotonView.FindObjectOfType<GameManager>().enabled = true;
@@ -363,8 +366,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
         inputCanvas.enabled = true;*/
         PhotonView.Find(8).transform.gameObject.SetActive(false);
         PhotonView.Find(7).transform.gameObject.SetActive(true);
-
-       // qpw = PhotonView.Find(id);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Canvas>().enabled = true;
+        // qpw = PhotonView.Find(id);
         //qpw.transform.gameObject.SetActive(false);
         //GameObject.Find("LobbyScreen").gameObject.SetActive(false);
 

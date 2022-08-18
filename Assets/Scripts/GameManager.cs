@@ -114,6 +114,7 @@ public class GameManager : MonoBehaviour
 
     private void answeringPhase()
     {
+        
         EnableCollider(barrierColliders, false);
         answeringTimerBool = true;
         questionTimerBool = false;
@@ -172,7 +173,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("ea");
                 //FindObjectOfType<teleportSc>().teleportCharacter();
                 transitionBool = false;
-
+                FindObjectOfType<transitionSc>().transitionClose();
 
                 //FindObjectOfType<transitionSc>().gameObject.SetActive(false);
 
