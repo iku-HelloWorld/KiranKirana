@@ -778,6 +778,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1190417256, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
+      propertyPath: sceneViewId
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2226092390367812188, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -6787,7 +6791,6 @@ MonoBehaviour:
   CreateOrJoinScreen: {fileID: 848856107}
   joinRoomScreen: {fileID: 155143975}
   CustomScreen: {fileID: 169740462}
-  inputCanvas: {fileID: 1190417251}
   loseCanvas: {fileID: 0}
   playerList: {fileID: 1086365377}
   nicknameText: {fileID: 1086870845}
@@ -7496,11 +7499,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: d29ba28bd5caaed429838de8bac7be72, type: 3}
   m_PrefabInstance: {fileID: 124430935}
   m_PrefabAsset: {fileID: 0}
---- !u!223 &1190417251 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 3909793334901723087, guid: f9ae5d02f8b868646865c281061d4602, type: 3}
-  m_PrefabInstance: {fileID: 353556196}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1192890757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7905,7 +7903,6 @@ MonoBehaviour:
   questionPanel: {fileID: 0}
   answerPanel: {fileID: 0}
   answerText: {fileID: 0}
-  transitionPanel: {fileID: 0}
   waitingAreas: {fileID: 0}
   rightA: 0
   rightB: 0
