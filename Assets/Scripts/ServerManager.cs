@@ -20,7 +20,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
     [SerializeField] GameObject CreateOrJoinScreen;             // Panels
     [SerializeField] GameObject joinRoomScreen;
     [SerializeField] GameObject CustomScreen;
-    [SerializeField] Canvas inputCanvas;
+    //[SerializeField] Canvas inputCanvas;
     [SerializeField] Canvas loseCanvas;
 
     [SerializeField] TextMeshProUGUI playerList; // Player List Text
@@ -62,11 +62,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void InputController()
     {
-        inputCanvas.GetComponent<Canvas>().enabled = true;
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Canvas>().enabled = true;
+        //inputCanvas.GetComponent<Canvas>().enabled = true;
+        FindObjectOfType<transitionSc>().enabled = true;
 
     }
 
-
+    
 
     public void IsRoomReady()
     {   
@@ -118,11 +120,6 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {     
             PlayerListText();               // bunu Update den çıkarmanın yolunu bul                              
 
-            if(FindObjectOfType<GameManager>().enabled)
-            {
-                InputController();
-
-            }
     }
 
     //Player Input Methods
@@ -160,17 +157,25 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
         
        //pw.RPC("Startgm", RpcTarget.All, 10, false);
-       PhotonNetwork.Instantiate("quizCanvas", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+       PhotonNetwork.Instantiate("quizCanvas", new Vector3(1.700012f, 41.59998f, 25.4f), Quaternion.identity);
     //   PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
         GetComponent<PhotonView>().RPC("Startgm", RpcTarget.All );
-      //  pw.RPC("Startgm", RpcTarget.All);
+        //  pw.RPC("Startgm", RpcTarget.All);
 
-       
+
         //FindObjectOfType<GameManager>().enabled = true;
         //cnvas.enabled = false;
-     //   inputCanvas.enabled = true;
+        //   inputCanvas.enabled = true;
         //PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
-        
+
+
+
+        if (FindObjectOfType<GameManager>().enabled)
+        {
+            InputController();
+
+        }
+
     }
 
     #region Create Or join 
@@ -190,9 +195,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
             return;
             
         }
-        
+       //bcustomRoomcapacity.text;
+        Byte.TryParse(customRoomcapacity.text, out byte capacity);
        //  byte capacity = (byte)customRoomcapacity;
-        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = 15, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
+        PhotonNetwork.CreateRoom(customRoomName.text, new RoomOptions { MaxPlayers = capacity, IsOpen = true, IsVisible = true, CustomRoomProperties = props }, TypedLobby.Default);
         OnConnectedToMaster();
         SetActivePanel(lobbyScreen.name);
     }
@@ -291,10 +297,11 @@ public class ServerManager : MonoBehaviourPunCallbacks
         props["status"] = !(bool)playerStatus;
         Debug.Log("Odaya Girildi.");     
         PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-      //  PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+        
+        //  PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
 
-              
-       
+
+
     }
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -317,14 +324,17 @@ public class ServerManager : MonoBehaviourPunCallbacks
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
         Debug.Log("Joining Random room has failed" + message + "-" + returnCode);
+        SetActivePanel(loginScreen.name);
     }
     public override void OnJoinRoomFailed(short returnCode, string message)
     {
          Debug.Log("Joinning has Failed" + message + "-" + returnCode);
+         SetActivePanel(loginScreen.name);
     }
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
         Debug.Log("The room could not be created." + message + " - " + returnCode);
+        SetActivePanel(loginScreen.name);
     }
 
 
@@ -351,7 +361,7 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
     void Startgm()
     {
-         PhotonNetwork.Instantiate("Player", new Vector3(-10.2600002f, 47.0600014f, -22.8600006f), Quaternion.identity);
+         PhotonNetwork.Instantiate("Walking", new Vector3(-8.86f, 45.28f, -22.8600006f), Quaternion.identity);
         Debug.Log("herkes hazır");
       /*  quizcanv.GetComponent<GameManager>().enabled = true;
        // PhotonView.FindObjectOfType<GameManager>().enabled = true;
@@ -360,8 +370,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
         inputCanvas.enabled = true;*/
         PhotonView.Find(8).transform.gameObject.SetActive(false);
         PhotonView.Find(7).transform.gameObject.SetActive(true);
-
-       // qpw = PhotonView.Find(id);
+        GameObject.FindGameObjectWithTag("GameController").GetComponent<Canvas>().enabled = true;
+        // qpw = PhotonView.Find(id);
         //qpw.transform.gameObject.SetActive(false);
         //GameObject.Find("LobbyScreen").gameObject.SetActive(false);
 

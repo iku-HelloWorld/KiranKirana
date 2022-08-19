@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using Photon.Realtime;
 
 
 public class colorChange : MonoBehaviourPunCallbacks
@@ -10,9 +11,10 @@ public class colorChange : MonoBehaviourPunCallbacks
     PhotonView pw;
     bool trueA;
     bool trueB;
-    bool trueAnswer;
-    bool falseAnswer;
+    public bool trueAnswer;
+    public bool falseAnswer;
     bool answerReveal;
+    float answerTimer;
 
     AudioSource audioSource;
     [SerializeField]AudioClip glassBreak;
@@ -22,16 +24,12 @@ public class colorChange : MonoBehaviourPunCallbacks
     GameObject solidGlass;
 
 
-    bool answered = true;
+    bool transitionBool;
     [SerializeField] ParticleSystem confetti;
     void Start()
     {
         pw = GetComponent<PhotonView>();
-        //solidGlass = GameObject.Find("solidGlass");
-        //solidGlass.SetActive(false);
-
-        //brokenGlass = GameObject.Find("brokenGlass");
-        //brokenGlass.SetActive(true);
+      
 
         audioSource = transform.GetComponent<AudioSource>();
 
@@ -43,71 +41,87 @@ public class colorChange : MonoBehaviourPunCallbacks
     void Update()
     {
 
-
-
-        trueA = FindObjectOfType<GameManager>().rightA;
-        trueB = FindObjectOfType<GameManager>().rightB;
-        if (trueA)
-        {
-            Debug.Log("A doğru");
-        }
-        if (trueB)
-        {
-            Debug.Log("B doğru");
-
-        }
-
         
 
+            trueA = FindObjectOfType<GameManager>().rightA;
+            trueB = FindObjectOfType<GameManager>().rightB;
+            transitionBool = FindObjectOfType<GameManager>().transitionBool;
+            answerTimer= FindObjectOfType<GameManager>().answerRevealTimer;
 
-        answerReveal = FindObjectOfType<GameManager>().answerReveal;
 
-        if (answerReveal)
-        {
-            if (trueAnswer)
+
+
+
+            answerReveal = FindObjectOfType<GameManager>().answerReveal;
+
+            if (answerReveal)
             {
-                if (pw.IsMine)
+                if (trueAnswer)
                 {
-                    confetti.Play();
+               
+                confetti.Play();
+                if (!audioSource.isPlaying)
+                {
                     audioSource.PlayOneShot(winSound);
-                    trueAnswer = false;
                 }
-                
-            }
+               
 
-            if (falseAnswer)
+               
+                   
+                    
+                }
+            else if (falseAnswer)
             {
                 pw.RPC("GameMechanic", RpcTarget.All);
                 falseAnswer = false;
+
             }
 
+            if (transitionBool&&trueAnswer)
+            {
+              
+                    FindObjectOfType<transitionSc>().TransitionHandler();
+                    //trueAnswer = false;
+              
+
+            }
+
+           
+            
+          
+
         }
+
+
+        
+       
+        
 
     }
    
     private void OnCollisionEnter(Collision other)
     {
+       
 
-        
 
-            if ((other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "A")) || (other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "B")))
+            if ((other.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (other.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B") )
             {
 
-            trueAnswer = true;
-            falseAnswer = false;
-            Debug.Log("Cevap doğru ");
-             
+                trueAnswer = true;
+                falseAnswer = false;
+                Debug.Log("Cevap doğru ");
+
 
 
 
             }
-            else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B") || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
+            else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B")  || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
             {
                 Debug.Log("cevap yanlış");
-            falseAnswer = true;
-            trueAnswer = false;
+                falseAnswer = true;
+                trueAnswer = false;
 
-                
+
 
             
 
@@ -117,38 +131,24 @@ public class colorChange : MonoBehaviourPunCallbacks
     [PunRPC]
     void GameMechanic()
     {
-        //solidGlass.SetActive(false);
-        //brokenGlass.SetActive(true);
+      
 
         transform.GetChild(0).gameObject.SetActive(false);
         transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("WrongAnswer", true);
         transform.gameObject.GetComponent<BoxCollider>().enabled = false;
-        audioSource.PlayOneShot(glassBreak);
-        //brokenGlass.GetComponent<Animator>().SetBool("WrongAnswer", true);
-
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(glassBreak);
+        }
+       
+        
 
     }
 
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-
-    //    answered = true;
-
-    //    if ((collision.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (collision.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"))
-    //    {
-
-    //        Debug.Log("Cevap do�ru");
-
-    //    }
-    //    else
-    //    {
-    //        /*transform.GetChild(0).GetComponent<Light>().color = Color.red*/;
-    //    }
 
 
 
-
-    //}
+  
 }
