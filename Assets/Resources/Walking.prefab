@@ -2168,6 +2168,7 @@ GameObject:
   - component: {fileID: 8881441971642920256}
   - component: {fileID: -8353380813671442143}
   - component: {fileID: 2937726904389519969}
+  - component: {fileID: 1781531396397827404}
   m_Layer: 0
   m_Name: Walking
   m_TagString: Player
@@ -2182,7 +2183,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5592408409109123071}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.0013095757, y: 0.08816779, z: 0.041406836, w: 0.99524385}
   m_LocalPosition: {x: 0.077003986, y: -0.021898422, z: -0.0027934338}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
@@ -2193,7 +2194,7 @@ Transform:
   - {fileID: 6317349425211304871}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.269, y: 10.114, z: 4.741}
 --- !u!95 &1168619959712403263
 Animator:
   serializedVersion: 4
@@ -2207,7 +2208,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d9bde9e225f6ef24789de2b016d19ce0, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2222,13 +2223,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5592408409109123071}
   serializedVersion: 2
-  m_Mass: 100
+  m_Mass: 200
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!136 &9037720766948701288
 CapsuleCollider:
@@ -2240,10 +2241,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.29501244
-  m_Height: 1.578204
+  m_Radius: 0.28044042
+  m_Height: 1.8310837
   m_Direction: 1
-  m_Center: {x: -0.022786045, y: 0.8941887, z: 2.0165633e-10}
+  m_Center: {x: -0.037358046, y: 0.87152946, z: 0}
 --- !u!114 &1011887604400827974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2457,6 +2458,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9554e68863526dc41ad53ae2b0261b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1781531396397827404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592408409109123071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da833ea22bd26e94e88313000e7a8367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loseCanvas: {fileID: 0}
+  controllerCanvas: {fileID: 0}
+  initialCameraPos: {fileID: 7203425409957575317, guid: 1dd40b42b5be1e64993c43b92b6c4b22, type: 3}
 --- !u!1 &5608643037392258060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3262,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5739522632355397447}
-  - component: {fileID: 3531842476079718312}
   m_Layer: 0
   m_Name: Character_Woman_v005
   m_TagString: Untagged
@@ -3271,22 +3286,6 @@ Transform:
   m_Father: {fileID: 5104805429711148357}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &3531842476079718312
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7973946134491076736}
-  serializedVersion: 2
-  m_Mass: 100
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &8176671754591329946
 GameObject:
   m_ObjectHideFlags: 0

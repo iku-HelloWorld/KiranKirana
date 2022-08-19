@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b64d93afa217804dab0c13b54cf7628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trueAnswer: 0
+  falseAnswer: 0
   glassBreak: {fileID: 8300000, guid: 3ab176e0ff4a13c4f97946f8a24a3b39, type: 3}
   winSound: {fileID: 8300000, guid: d4204c06256c9ce43a1ce8b789c73e3f, type: 3}
   confetti: {fileID: 7236679166309527815}
@@ -533,7 +535,7 @@ Animator:
   m_GameObject: {fileID: 4928036224640618187}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 53c1f3b470afde7468c022f1f70d4b49, type: 2}
+  m_Controller: {fileID: 9100000, guid: f1a76f544791fc44897215cc4b8aec24, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
