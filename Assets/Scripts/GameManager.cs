@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     
 
     [SerializeField] float questionTimer = 10.0f;
-    [SerializeField] float answeringTimer = 5.0f;
+    [SerializeField] public float answeringTimer = 5.0f;
     [SerializeField] public float answerRevealTimer = 10.0f;
    
 
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
             soruSayac.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (int)questionTimer+" saniye";
 
-            answeringTimer = 3.0f;
+            
             questionTimer -= Time.deltaTime;
         }
     }
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         EnableCollider(barrierColliders, false);
         answeringTimerBool = true;
         questionTimerBool = false;
-
+       
         soruSayac.SetActive(false);
         if (answeringTimerBool)
         { 
@@ -127,11 +127,12 @@ public class GameManager : MonoBehaviour
             cevapSayac.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (int)answeringTimer + " saniye";
             if (answeringTimer <= 0)
             {
+                //GameObject.FindGameObjectWithTag("Player").GetComponent<deathHandler>().enabled = true;
                 answerReveal = true;
                 EnableCollider(barrierColliders, true);
                 questionTimer = 5.0f;
                 answeringTimerBool = false;
-                
+               
                 transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + 20);
                 
             }
@@ -143,13 +144,13 @@ public class GameManager : MonoBehaviour
 
 
     }
-
+    
 
     private void answerRevealPhase()
     {
         if (answerReveal&&transitionBool==false)
         {
-            
+           
             cevapSayac.SetActive(false);
             SetActivePanel(answerPanel.name);
             answerRevealTimer -= Time.deltaTime;
@@ -164,8 +165,8 @@ public class GameManager : MonoBehaviour
 
             if (answerRevealTimer <= 0)
             {
-                
-               
+
+                answeringTimer = 5.0f;
                 questionindex++;
                 questionTimerBool = true;
                 answerReveal = false;

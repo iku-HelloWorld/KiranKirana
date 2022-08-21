@@ -22,19 +22,15 @@ public class teleportSc : MonoBehaviourPunCallbacks
         questionIndex = FindObjectOfType<GameManager>().questionindex;
         answerRevealTimer = FindObjectOfType<GameManager>().answerRevealTimer;
         Debug.Log("soru indexi" + questionIndex);
-        teleportCharacter();
+       
        
     }
-    
+    [PunRPC]
    public void teleportCharacter()
     {
-        if (pw.IsMine&&answerRevealTimer<=0)
-        {
-            transform.position = GameObject.FindGameObjectWithTag("waitingArea").transform.GetChild(questionIndex).position;
-        }
             
-        
-        
+            transform.position = GameObject.FindGameObjectWithTag("waitingArea").transform.GetChild(questionIndex).position;
+
     }
 
 
