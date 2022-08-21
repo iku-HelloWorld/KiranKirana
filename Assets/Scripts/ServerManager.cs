@@ -7,6 +7,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
 using Photon.Pun.Demo.PunBasics;
+using UnityEngine.SceneManagement;
 
 public class ServerManager : MonoBehaviourPunCallbacks
 {
@@ -204,17 +205,17 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
     
-     void JoinRoom()      // Method For User Input Button
+    public void JoinRoom()      // Method For User Input Button
     {
         SetActivePanel(joinRoomScreen.name);
     }
     
-     void JoinCustomRoom()        // Join Custom Room by using User Input
+    public void JoinCustomRoom()        // Join Custom Room by using User Input
     {
         PhotonNetwork.JoinRoom(customJoinRoomName.text);       
         SetActivePanel(lobbyScreen.name);
     }
-     void JoinRandomRoom()        // Join Random Room Method
+    public void JoinRandomRoom()        // Join Random Room Method
     {
        
         RoomOptions roomOps = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 10, CustomRoomProperties = props };
@@ -245,17 +246,13 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
 
 
-
-
+    
 
     public void JoinListRoom(RoomInfo info) 
     {
         PhotonNetwork.JoinRoom(info.Name);
         cnvas.enabled = false;
-
     }
-
-    
     public void PlayerReady()   // Player Ready Status 
     {   
         isReady = !isReady;
@@ -273,9 +270,39 @@ public class ServerManager : MonoBehaviourPunCallbacks
 
 
 
+    #region BackButtons
+
+    public void BackCOJButton()
+    {   
+        SetActivePanel(CreateOrJoinScreen.name);
+    }
+
+    public void BackJoinButton()
+    {
+        SetActivePanel(joinRoomScreen.name);
+        PhotonNetwork.LeaveRoom();
+    }
+
+    public void BackLogin()
+    {
+        SetActivePanel(loginScreen.name);
+        PhotonNetwork.LeaveLobby();
+    }
+
+    public void LeaveGame()
+    {
+        Application.Quit();
+    }
+
+    #endregion
+
+
+
    
     // Override Methods
 
+
+      #region  Override methods
 
     public override void OnJoinedLobby()
     {
@@ -357,6 +384,10 @@ public class ServerManager : MonoBehaviourPunCallbacks
         
     }
 
+
+    #endregion
+
+
     [PunRPC]
 
     void Startgm()
@@ -379,5 +410,4 @@ public class ServerManager : MonoBehaviourPunCallbacks
     }
        
 }
-
 
