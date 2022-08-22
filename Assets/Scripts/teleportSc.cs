@@ -6,6 +6,8 @@ public class teleportSc : MonoBehaviourPunCallbacks
 {
 
     int questionIndex;
+    bool mustDie;
+
     PhotonView pw;
     float answerRevealTimer;
   
@@ -21,18 +23,28 @@ public class teleportSc : MonoBehaviourPunCallbacks
     {
         questionIndex = FindObjectOfType<GameManager>().questionindex;
         answerRevealTimer = FindObjectOfType<GameManager>().answerRevealTimer;
+        mustDie = FindObjectOfType<deathHandler>().mustDie;
         Debug.Log("soru indexi" + questionIndex);
-       
-       
+
+
+        
+
     }
     [PunRPC]
    public void teleportCharacter()
     {
             
-            transform.position = GameObject.FindGameObjectWithTag("waitingArea").transform.GetChild(questionIndex).position;
+            transform.position = GameObject.FindGameObjectWithTag("waitingArea").transform.GetChild(questionIndex+1).position;
 
     }
 
+    public void destroyCharacter()
+    {
+        
+            PhotonNetwork.Destroy(gameObject);
+        
+        
+    }
 
     
 }

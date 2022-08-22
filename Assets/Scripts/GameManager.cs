@@ -34,9 +34,9 @@ public class GameManager : MonoBehaviour
 
     
 
-    [SerializeField] float questionTimer = 10.0f;
-    [SerializeField] public float answeringTimer = 5.0f;
-    [SerializeField] public float answerRevealTimer = 10.0f;
+    [SerializeField] float questionTimer;
+    [SerializeField] public float answeringTimer;
+    [SerializeField] public float answerRevealTimer;
    
 
   
@@ -163,7 +163,7 @@ public class GameManager : MonoBehaviour
             }
 
 
-            if (answerRevealTimer <= 0)
+            if (answerRevealTimer <= 0.2)
             {
 
                 answeringTimer = 5.0f;
