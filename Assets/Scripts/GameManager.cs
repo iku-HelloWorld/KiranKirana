@@ -89,6 +89,12 @@ public class GameManager : MonoBehaviour
 
     private void QuestionPhase()
     {
+        teleportSc[] _players = FindObjectsOfType<teleportSc>();
+        foreach (teleportSc player in _players)
+        {
+            player.gameObject.GetComponent<CapsuleCollider>().enabled = true;
+        }
+
         if (questionTimerBool && answerReveal == false)  //questiontimerbool false olduðu için set active panel çalýþmayý býrakýyor.
         {
             SetActivePanel(questionPanel.name);
