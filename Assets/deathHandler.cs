@@ -14,12 +14,10 @@ public class deathHandler : MonoBehaviour
     public Canvas loseCanvas;
     public Canvas controllerCanvas;
     [SerializeField] GameObject initialCameraPos;
-    GameObject camGameObject;
+    GameObject thePlayer;
     // Start is called before the first frame update
     void Start()
     {
-
-
 
         pw = GetComponent<PhotonView>();
         GameObject tempCanvas = GameObject.Find("LoseCanvas");
@@ -53,10 +51,12 @@ public class deathHandler : MonoBehaviour
                 FindObjectOfType<MyPlayer>().gameObject.GetPhotonView().enabled = false;
                 FindObjectOfType<MyPlayer>().gameObject.GetComponent<CameraMovement>().enabled = false;
                 GameObject restartMenager = FindObjectOfType<RestartOrSpectate>().gameObject;
-                if (FindObjectOfType<MyPlayer>().gameObject.GetComponent<PhotonView>().IsMine)
-                {
-                    //PhotonNetwork.Destroy()
-                }
+                
+                    if(thePlayer != null)
+                    {
+                        PhotonNetwork.Destroy(thePlayer);
+                    }
+                
                 restartMenager.GetComponent<RestartOrSpectate>().enabled = true;
                 //FindObjectOfType<teleportSc>().destroyCharacter();
                
@@ -78,7 +78,7 @@ public class deathHandler : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PhotonView>().IsMine)
         {
-
+            thePlayer = collision.gameObject;
             stillwaiting = true;
             
         }

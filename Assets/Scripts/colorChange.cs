@@ -113,7 +113,7 @@ public class colorChange : MonoBehaviourPunCallbacks
             
             trueAnswer = false;
             falseAnswer = false;
-            FindObjectOfType<teleportSc>().gameObject.GetComponent<PhotonView>().RPC("teleportCharacter", RpcTarget.All);
+            FindObjectOfType<teleportSc>().gameObject.GetComponent<teleportSc>().teleportCharacter();
 
         }
 

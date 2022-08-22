@@ -10,18 +10,37 @@ public class teleportSc : MonoBehaviourPunCallbacks
 
     PhotonView pw;
     float answerRevealTimer;
+
+    List<GameObject> waitingAreas;
+
+    
   
     // Start is called before the first frame update
     void Start()
     {
+        foreach(Transform child in transform)
+        {
+            
+        }
         pw = transform.GetComponent<PhotonView>();
-       
+        questionIndex = FindObjectOfType<GameManager>().questionindex;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        questionIndex = FindObjectOfType<GameManager>().questionindex;
+
+        if(questionIndex != FindObjectOfType<GameManager>().questionindex)
+        {
+            questionIndex = FindObjectOfType<GameManager>().questionindex;
+
+        }
+        
+        
+
+
+
         answerRevealTimer = FindObjectOfType<GameManager>().answerRevealTimer;
         mustDie = FindObjectOfType<deathHandler>().mustDie;
         Debug.Log("soru indexi" + questionIndex);
@@ -30,7 +49,9 @@ public class teleportSc : MonoBehaviourPunCallbacks
         
 
     }
-    [PunRPC]
+
+
+   
    public void teleportCharacter()
     {
             
