@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
                 
             }
 
-
+            
             if (answerRevealTimer <= 0.2)
             {
 

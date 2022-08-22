@@ -11,6 +11,7 @@ public class colorChange : MonoBehaviourPunCallbacks
     PhotonView pw;
     bool trueA;
     bool trueB;
+    bool isPlaying;
     public bool trueAnswer;
     public bool falseAnswer;
     bool answerReveal;
@@ -29,8 +30,8 @@ public class colorChange : MonoBehaviourPunCallbacks
     void Start()
     {
         pw = GetComponent<PhotonView>();
-      
 
+        isPlaying = true;
         audioSource = transform.GetComponent<AudioSource>();
 
         transform.GetChild(0).gameObject.SetActive(true);
@@ -70,12 +71,18 @@ public class colorChange : MonoBehaviourPunCallbacks
             {
                 if (trueAnswer)
                 {
-               
-                confetti.Play();
-                if (!audioSource.isPlaying)
+                if (isPlaying)
                 {
-                    audioSource.PlayOneShot(winSound);
+                    confetti.Play();
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.PlayOneShot(winSound);
+                    }
+
+                    isPlaying = false;
+
                 }
+               
                
 
                
@@ -114,6 +121,7 @@ public class colorChange : MonoBehaviourPunCallbacks
             trueAnswer = false;
             falseAnswer = false;
             FindObjectOfType<teleportSc>().gameObject.GetComponent<teleportSc>().teleportCharacter();
+            isPlaying = true;
 
         }
 

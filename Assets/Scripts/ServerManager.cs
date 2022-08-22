@@ -281,6 +281,8 @@ public class ServerManager : MonoBehaviourPunCallbacks
     {
         SetActivePanel(joinRoomScreen.name);
         PhotonNetwork.LeaveRoom();
+        PhotonNetwork.JoinLobby();
+
     }
 
     public void BackLogin()
