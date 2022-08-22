@@ -20,6 +20,7 @@ public class colorChange : MonoBehaviourPunCallbacks
     AudioSource audioSource;
     [SerializeField]AudioClip glassBreak;
     [SerializeField] AudioClip winSound;
+    [SerializeField] AudioClip fallSound;
 
     GameObject brokenGlass;
     GameObject solidGlass;
@@ -92,7 +93,14 @@ public class colorChange : MonoBehaviourPunCallbacks
             else if (falseAnswer)
             {
                 pw.RPC("GameMechanic", RpcTarget.All);
-                
+                if (!audioSource.isPlaying && isPlaying)
+                {
+                    audioSource.PlayOneShot(glassBreak);
+                   
+                }
+               
+                isPlaying = false;
+
 
             }
 
@@ -182,10 +190,7 @@ public class colorChange : MonoBehaviourPunCallbacks
         transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("WrongAnswer", true);
         transform.gameObject.GetComponent<BoxCollider>().enabled = false;
-        if (!audioSource.isPlaying)
-        {
-            audioSource.PlayOneShot(glassBreak);
-        }
+       
        
         
 
