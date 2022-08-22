@@ -120,7 +120,12 @@ public class colorChange : MonoBehaviourPunCallbacks
             
             trueAnswer = false;
             falseAnswer = false;
-            FindObjectOfType<teleportSc>().gameObject.GetComponent<teleportSc>().teleportCharacter();
+            teleportSc[] _players =  FindObjectsOfType<teleportSc>();
+            foreach(teleportSc player in _players)
+            {
+                player.gameObject.GetComponent<teleportSc>().teleportCharacter();
+                player.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            }
             isPlaying = true;
 
         }

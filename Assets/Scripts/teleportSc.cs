@@ -18,10 +18,7 @@ public class teleportSc : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Transform child in transform)
-        {
-            
-        }
+        
         pw = transform.GetComponent<PhotonView>();
         questionIndex = FindObjectOfType<GameManager>().questionindex;
 
@@ -54,8 +51,11 @@ public class teleportSc : MonoBehaviourPunCallbacks
    
    public void teleportCharacter()
     {
+           
+        
+            transform.position = GameObject.FindGameObjectWithTag("waitingArea").transform.GetChild(questionIndex + 1).position;
+        
             
-            transform.position = GameObject.FindGameObjectWithTag("waitingArea").transform.GetChild(questionIndex+1).position;
 
     }
 
