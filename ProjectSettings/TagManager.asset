@@ -12,6 +12,7 @@ TagManager:
   - DynamicJoystick
   - Controller
   - transition
+  - waiting
   layers:
   - Default
   - TransparentFX

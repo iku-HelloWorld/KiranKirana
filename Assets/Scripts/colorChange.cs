@@ -15,7 +15,7 @@ public class colorChange : MonoBehaviourPunCallbacks
     public bool falseAnswer;
     bool answerReveal;
     float answerTimer;
-
+    GameObject playerMY;
     AudioSource audioSource;
     [SerializeField]AudioClip glassBreak;
     [SerializeField] AudioClip winSound;
@@ -35,6 +35,18 @@ public class colorChange : MonoBehaviourPunCallbacks
 
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(false);
+
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in players)
+        {
+
+
+            if (player.GetComponent<PhotonView>().IsMine)
+            {
+                playerMY = player;
+                break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -49,7 +61,7 @@ public class colorChange : MonoBehaviourPunCallbacks
             answerTimer= FindObjectOfType<GameManager>().answerRevealTimer;
 
 
-
+        Debug.Log("Doğru cevap ne:" + trueAnswer);
 
 
             answerReveal = FindObjectOfType<GameManager>().answerReveal;
@@ -73,22 +85,35 @@ public class colorChange : MonoBehaviourPunCallbacks
             else if (falseAnswer)
             {
                 pw.RPC("GameMechanic", RpcTarget.All);
-                falseAnswer = false;
+                
 
             }
 
-            if (transitionBool&&trueAnswer)
+            if (transitionBool)
             {
-              
-                    FindObjectOfType<transitionSc>().TransitionHandler();
-                    //trueAnswer = false;
-              
+                if (trueAnswer)
+                {
+     
+                FindObjectOfType<transitionCanvasHandler>().canvasHandling();
+                    
+
+                }
 
             }
 
-           
+
+
+
+
+        }
+
+
+        if (answerTimer <= 0)
+        {
             
-          
+            trueAnswer = false;
+            falseAnswer = false;
+            FindObjectOfType<teleportSc>().gameObject.GetComponent<teleportSc>().teleportCharacter();
 
         }
 
@@ -99,22 +124,26 @@ public class colorChange : MonoBehaviourPunCallbacks
 
     }
    
-    private void OnCollisionEnter(Collision other)
+
+    
+
+    
+    private void OnCollisionStay(Collision other)
     {
-       
+        
 
 
-            if ((other.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A") || (other.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B") )
+        if ((other.gameObject.tag == "Player" && trueA && transform.gameObject.tag == "A" && other.gameObject.GetComponent<PhotonView>().IsMine) || (other.gameObject.tag == "Player" && trueB && transform.gameObject.tag == "B"&&other.gameObject.GetComponent<PhotonView>().IsMine)) //denemediğim kalmadı
             {
-
-                trueAnswer = true;
+         
+                 trueAnswer = true;
                 falseAnswer = false;
-                Debug.Log("Cevap doğru ");
+
+            Debug.Log("Cevap doğru ");
 
 
 
-
-            }
+        }
             else if (other.gameObject.tag == "Player" && (trueA && transform.gameObject.tag == "B")  || other.gameObject.tag == "Player" && (trueB && transform.gameObject.tag == "A"))
             {
                 Debug.Log("cevap yanlış");
@@ -126,6 +155,9 @@ public class colorChange : MonoBehaviourPunCallbacks
             
 
         }
+
+        
+
     }
 
     [PunRPC]
@@ -146,9 +178,11 @@ public class colorChange : MonoBehaviourPunCallbacks
 
     }
 
-
-
-
-
   
+
+
+
+
+
+
 }

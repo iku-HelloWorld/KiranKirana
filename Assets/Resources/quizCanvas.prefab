@@ -243,7 +243,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8304017444022987620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   question: {fileID: 7292652949184012860}
-  option1: {fileID: 0}
+  option1: {fileID: 7292652950671332604}
   option2: {fileID: 8672251548286209253}
   soruSayac: {fileID: 8449828162346520928}
   cevapSayac: {fileID: 6065143794514700916}
@@ -653,6 +653,11 @@ RectTransform:
 --- !u!1 &7292652949184012860 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7343531079803857218, guid: ab594a0a1d79240acb19e88652640e81, type: 3}
+  m_PrefabInstance: {fileID: 62421079446948734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7292652950671332604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7343531081537593218, guid: ab594a0a1d79240acb19e88652640e81, type: 3}
   m_PrefabInstance: {fileID: 62421079446948734}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5696679285810733704

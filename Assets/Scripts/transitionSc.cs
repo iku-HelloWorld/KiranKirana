@@ -31,22 +31,22 @@ public class transitionSc : MonoBehaviour
     {
 
         //transitionBool = FindObjectOfType<GameManager>().transitionBool;
-        trueAnswer = FindObjectOfType<colorChange>().trueAnswer;
-        Debug.Log("Doðru cevap " + trueAnswer);
+        //trueAnswer = FindObjectOfType<colorChange>().trueAnswer;
+        //Debug.Log("Doðru cevap " + trueAnswer);
     }
 
-    public void TransitionHandler()
-    {
-        if (playerMY.GetComponent<PhotonView>().IsMine)
-        {
-            Debug.Log("tansition plez");
-            transform.GetChild(0).gameObject.GetComponent<Canvas>().enabled = true;
-            Debug.Log("ismine");
-        }
+    //public void TransitionHandler()
+    //{
+    //    if (playerMY.GetComponent<PhotonView>().IsMine)
+    //    {
+    //        Debug.Log("tansition plez");
+    //        transform.GetChild(0).gameObject.GetComponent<Canvas>().enabled = true;
+    //        Debug.Log("ismine");
+    //    }
         
 
 
-    }
+    //}
 
     public void transitionClose()
     {
