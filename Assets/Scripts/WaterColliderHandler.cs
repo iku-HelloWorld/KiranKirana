@@ -29,6 +29,7 @@ public class WaterColliderHandler : MonoBehaviour
             {
                 Debug.Log("could not locate the lose canvas" + tempCanvas.name);
             }
+
         }
 
     }

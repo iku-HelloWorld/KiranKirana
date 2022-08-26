@@ -43,8 +43,6 @@ public class MyPlayer : MonoBehaviourPunCallbacks
         animationController.SetBool("walking", false);
 
 
-
-
     }
 
 
