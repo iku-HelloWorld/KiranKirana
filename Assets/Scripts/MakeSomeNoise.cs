@@ -11,6 +11,7 @@ public class MakeSomeNoise : MonoBehaviour
     private float xOffset;
     private float yOffset;
     private MeshFilter mf;
+    public var test = 0 ; 
 
     void Start()
     {

@@ -27,7 +27,7 @@ public class WaterColliderHandler : MonoBehaviour
 
             if(loseCanvas == null)
             {
-                Debug.Log("could not locate the lose canvas" + tempCanvas.name);
+                Debug.Log("could not locate the lose canvas right now " + tempCanvas.name);
             }
 
         }

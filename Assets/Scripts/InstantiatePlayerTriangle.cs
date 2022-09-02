@@ -9,6 +9,7 @@ public class InstantiatePlayerTriangle : MonoBehaviour
     public GameObject TriangleShape;
 
     GameObject triangle;
+    bool isPlay = true;
 
 
     private void Start()
