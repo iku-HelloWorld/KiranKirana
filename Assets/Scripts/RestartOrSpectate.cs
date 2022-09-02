@@ -37,7 +37,7 @@ public class RestartOrSpectate : MonoBehaviour
 
         
        
-        //GetAllPlayersInGame();
+    
             
      }
     void LateUpdate()
